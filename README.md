@@ -8,24 +8,24 @@
 Si el paciente desea asistir con un doctor diferente, ya tiene todo su historial que puede compartir con él y así, el nuevo doctor puede conocer qué enfermedades     ha tenido y qué medicinas ha tomado.
 
 
-##**PRD**
+## PRD
 
-**Objetivo de plataforma:**
+***Objetivo de plataforma:***
 *¿Qué problema resolvemos?*
 El objetivo de la plataforma es brindar acceso rápido y fácil a la información médica de las personas. Brindando un canal de comunicación e información entre el             médico y el paciente, en donde ambos tienen acceso al perfil del otro y el propio.
 
 *¿Quién lo usará?*
 Diseñada para personas de 18 años en adelante que desean tener acceso a su perfil médico o al de sus hijos, con información completa, confiable y con una actualización constante.
 
-**Features:**
+***Features:***
 Dos usuarios diferentes dentro de la plataforma:
 **a. Pacientes:**
-• Información: 
-- Información general (nombre, numero, edad, sexo, estado civil, fecha de nacimiento, ocupación)
-- Enfermedades y alergias pasadas y actuales
-- Operaciones pasadas
-- Fracturas 
-- Medicinas pasadas y actuales
+- Información: 
+-Información general (nombre, numero, edad, sexo, estado civil, fecha de nacimiento, ocupación)
+-Enfermedades y alergias pasadas y actuales
+-Operaciones pasadas
+-Fracturas 
+-Medicinas pasadas y actuales
 
 • Actividades dentro de la plataforma:
 - Puntear al doctor 
@@ -44,7 +44,7 @@ Dos usuarios diferentes dentro de la plataforma:
 - Dado el acceso, edición del historial de sus pacientes 
 
 
-**Criterios de aceptación:**
+***Criterios de aceptación:***
 **• Configuración de días de atención:**
 *Criterio de aceptación:* Opción disponible para subir a la plataforma los horarios de atención desde el usuario del médico y que los pacientes lo puedan visualizar.
 
@@ -60,7 +60,7 @@ Dos usuarios diferentes dentro de la plataforma:
 **• Agendar consultas con doctores:**
 *Criterio de aceptación:* Opción para agendar una cita médica en base a los horarios disponibles desde el perfil del usuario.
 
-**Llamadas API:**
+***Llamadas API:***
 
 **GET:**
 1. Información general del paciente.
