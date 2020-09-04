@@ -1,10 +1,13 @@
 # Medical History
 
 **Idea general:** Plataforma donde una persona pueda tener su historial médico.
-- El paciente va al doctor.
-- El doctor revisa y diagnostica.
-- El doctor redacta ese diagnostico, notas, observaciones, receta de medicinas, etc. en la plataforma.
-- Tanto el paciente como el médico tienen acceso a ese historial. (solo el médico puede editar)(el paciente puede dar acceso a los doctores que quiere que editen)
+-El paciente va al doctor.
+
+-El doctor revisa y diagnostica.
+
+-El doctor redacta ese diagnostico, notas, observaciones, receta de medicinas, etc. en la plataforma.
+
+-Tanto el paciente como el médico tienen acceso a ese historial. (solo el médico puede editar)(el paciente puede dar acceso a los doctores que quiere que editen)
 Si el paciente desea asistir con un doctor diferente, ya tiene todo su historial que puede compartir con él y así, el nuevo doctor puede conocer qué enfermedades     ha tenido y qué medicinas ha tomado.
 
 
