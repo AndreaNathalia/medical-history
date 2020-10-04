@@ -15,9 +15,8 @@ public class Main {
         return "SignUp";
     }
 
-
-    @RequestMapping(value = "/signup", method=RequestMethod.GET)
-    public String SignUp(@RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
+    @RequestMapping(value = "/signup", method=RequestMethod.POST)
+    public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
         SignUp.User.addUser(UserType, email, password, model);
         return "SignUp";
     }
