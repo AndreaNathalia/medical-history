@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sign Up</title>
+
+    <!--  CSS  -->
+    <link href="../static/loginStyle.css" th:href="@{/loginStyle.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <h2 class="h2-CreateAccount">Create your account</h2>
+    <div class="div-signup">
+        <form action="/SingUp">
+            <input type="radio" id="doctor" name="accountType" value="doctor" class="input-doctor">
+            <label for="doctor" class="label-doctor">Doctor</label><br>
+            <input type="radio" id="patient" name="accountType" value="patient" class="input-patient">
+            <label for="patient" class="label-patient">Patient</label><br>
+
+            <input type="text" id="email" name="email" placeholder="Your email address" class="input-email">
+            <input type="password" id="password" name="password" placeholder="Create a password" class="input-password">
+
+            <button type="submit" class="button-SigUpSubmit">Sign Up</button>
+
+        </form>
+    </div>
+</body>
+
+
+</html>
