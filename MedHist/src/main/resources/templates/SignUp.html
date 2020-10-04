@@ -11,14 +11,14 @@
 <body>
     <h2 class="h2-CreateAccount">Create your account</h2>
     <div class="div-signup">
-        <form action="/SingUp">
-            <input type="radio" id="doctor" name="accountType" value="doctor" class="input-doctor">
+        <form th:action="@{/signup}">
+            <input type="radio" id="doctor" th:name="UserType" value="doctor" class="input-doctor">
             <label for="doctor" class="label-doctor">Doctor</label><br>
-            <input type="radio" id="patient" name="accountType" value="patient" class="input-patient">
+            <input type="radio" id="patient" th:name="UserType" value="patient" class="input-patient">
             <label for="patient" class="label-patient">Patient</label><br>
 
-            <input type="text" id="email" name="email" placeholder="Your email address" class="input-email">
-            <input type="password" id="password" name="password" placeholder="Create a password" class="input-password">
+            <input type="text" id="email" th:name="email" placeholder="Your email address" class="input-email">
+            <input type="password" id="password" th:name="password" placeholder="Create a password" class="input-password">
 
             <button type="submit" class="button-SigUpSubmit">Sign Up</button>
 

@@ -2,24 +2,24 @@ package com.app.MedicalHistory;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.ui.Model;
 
 @Controller
 public class Main {
-    @RequestMapping(value = {"/"})
-    @ResponseBody
-    public static String info(){
-        return "MEDICAL HISTORY";
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String getSignUpForm(){
+        return "SignUp";
     }
 
 
-    @GetMapping("SingUp")
-    public static String SignUp(){
-
-        return "SingUp";
+    @RequestMapping(value = "/signup", method=RequestMethod.GET)
+    public String SignUp(@RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
+        SignUp.User.addUser(UserType, email, password, model);
+        return "SignUp";
     }
 
 }
