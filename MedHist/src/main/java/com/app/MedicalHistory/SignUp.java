@@ -46,5 +46,7 @@ public class SignUp {
             model.addAttribute("usersList", usersList);
         }
 
+        public static List<User> getUsersList(){return usersList;}
+
     }
 }
