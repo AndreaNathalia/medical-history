@@ -10,19 +10,19 @@ import org.springframework.ui.Model;
 
 @Controller
 public class Main {
-    @RequestMapping(value="/sign", method=RequestMethod.GET)
-    public String getSignUpForm() {
+    @RequestMapping(value="/log", method=RequestMethod.GET)
+    public String getLogInForm(){
+        return "LogIn";
+    }
+
+    @RequestMapping(value="/getsignup", method=RequestMethod.GET)
+    public String getSignUpForm(){
         return "SignUp";
     }
 
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
         SignUp.User.addUser(UserType, email, password, model);
-        return "LogIn";
-    }
-
-    @RequestMapping(value="/log", method=RequestMethod.GET)
-    public String getLogInForm() {
         return "LogIn";
     }
 

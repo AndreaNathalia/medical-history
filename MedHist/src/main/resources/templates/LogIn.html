@@ -8,7 +8,8 @@
 
 </head>
 <body>
-    <h2 class="h2-CreateAccount">Log to your Account</h2>
+    <h2 class="h2-medicalHistory">Medical History LOGO</h2>
+    <h2 class="h2-login">LOG IN</h2>
     <div class="div-signup">
         <form th:action="@{/login}" method="post">
 
@@ -17,11 +18,17 @@
             <input type="radio" id="patient" th:name="UserType" value="patient" class="input-patient">
             <label for="patient" class="label-patient">Patient</label><br>
 
-            <input type="text" id="email" th:name="email" placeholder="Your email address" class="input-email">
-            <input type="password" id="password" th:name="password" placeholder="Create a password" class="input-password">
+            <input type="text" id="email" th:name="email" placeholder="email@example.com" class="input-email">
+            <input type="password" id="password" th:name="password" placeholder="Password" class="input-password">
 
             <button type="submit" class="button-SigUpSubmit">Log In</button>
+        </form>
+    </div>
 
+    <div class="div-get">
+        <p class="p-noAccount"> NoAccount? </p>
+        <form th:action="@{/getsignup}" method="get">
+            <button type="submit" class="button-signup">Signup</button>
         </form>
     </div>
 
