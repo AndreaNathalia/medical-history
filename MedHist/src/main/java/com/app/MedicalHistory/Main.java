@@ -35,7 +35,15 @@ public class Main {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
-      return "DoctorProfile";
+        if(UserType.equals("doctor")){
+            return "DoctorProfile";
+        }
+
+        if(UserType.equals("patient")){
+            return "PatientProfile";
+        }
+        
+        return "LogIn";
     }
 
     @RequestMapping(value="/patient", method=RequestMethod.GET)
