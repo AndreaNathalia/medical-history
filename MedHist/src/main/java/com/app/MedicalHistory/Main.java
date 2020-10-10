@@ -22,7 +22,14 @@ public class Main {
 
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
-        Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
+        if(UserType.equals("doctor")){
+            Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
+        }
+
+        if(UserType.equals("patient")){
+            Patient.PatientInformation.addPatient(UserType, email, password, model);
+        }
+
         return "LogIn";
     }
 

@@ -110,6 +110,7 @@ public class Doctor {
             doctorsList.add(new DoctorInformation(UserType, email, password));
 
             for(int i = 0; i < doctorsList.size(); i++){
+                System.out.println("LISTA: Doctores");
                 System.out.println("\nType:");
                 System.out.println(doctorsList.get(i).getUserType());
                 System.out.println("\nEmail:");
