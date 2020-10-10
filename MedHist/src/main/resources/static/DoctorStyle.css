@@ -1,0 +1,142 @@
+.h2-Med{
+    position: absolute;
+    top: 80px;
+    left: 40%;
+}
+
+img{
+    position: absolute;
+    top: 250px;
+    left: 250px;
+    height: 140px;
+    width: 140px;
+}
+
+.label-name{
+    position: absolute;
+    top:400px;
+    left: 237px;
+    font-size: 20px;
+}
+
+.label-rating{
+    position: absolute;
+    top:440px;
+    left: 237px;
+    font-size: 18px;
+}
+
+.star-rating {
+    size: 20px;
+    normal: #95A5A6;
+    selected: #F39C12;
+    display: inline-block;
+    position: absolute;
+    top: 440px;
+    left: 295px;
+}
+
+.label-DoctorName{
+    position: absolute;
+    top: 180px;
+    left: 650px;
+    font-size: 20px;
+}
+
+.hr-FirstName{
+    position: absolute;
+    top: 190px;
+    left: 640px;
+}
+
+.label-FirstName{
+    position: absolute;
+    top: 210px;
+    left: 650px;
+    font-size: 16px;
+    color: gray;
+}
+
+.label-DoctorLastName{
+    position: absolute;
+    top: 250px;
+    left: 650px;
+    font-size: 20px;
+}
+
+.hr-LastName{
+    position: absolute;
+    top: 260px;
+    left: 640px;
+}
+
+.label-LastName{
+    position: absolute;
+    top: 280px;
+    left: 650px;
+    font-size: 16px;
+    color: gray;
+}
+
+.label-DoctorAge{
+    position: absolute;
+    top: 320px;
+    left: 650px;
+    font-size: 20px;
+}
+
+.hr-Age{
+    position: absolute;
+    top: 330px;
+    left: 640px;
+}
+
+.label-Age{
+    position: absolute;
+    top: 350px;
+    left: 650px;
+    font-size: 16px;
+    color: gray;
+}
+
+.label-DoctorSpeciality{
+    position: absolute;
+    top: 390px;
+    left: 650px;
+    font-size: 20px;
+}
+
+.hr-speciality{
+    position: absolute;
+    top: 400px;
+    left: 640px;
+}
+
+.label-speciality{
+    position: absolute;
+    top: 420px;
+    left: 650px;
+    font-size: 16px;
+    color: gray;
+}
+
+.label-ClinicAddress{
+    position: absolute;
+    top: 460px;
+    left: 650px;
+    font-size: 20px;
+}
+
+.hr-Address{
+    position: absolute;
+    top: 470px;
+    left: 640px;
+}
+
+.label-address{
+    position: absolute;
+    top: 490px;
+    left: 650px;
+    font-size: 16px;
+    color: gray;
+}

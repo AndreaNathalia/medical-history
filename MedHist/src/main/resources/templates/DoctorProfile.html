@@ -4,14 +4,45 @@
     <meta charset="UTF-8"/>
     <title>Doctor Profile</title>
 
-    <link href="../static/PatientStyle.css" th:href="@{/PatientStyle.css}" rel="stylesheet" />
+    <!--  CSS  -->
+    <link href="../static/DoctorStyle.css" th:href="@{/DoctorStyle.css}" rel="stylesheet" />
 
 </head>
+
 <body>
     <h2 class="h2-Med">Medical History</h2>
     <div>
-        <label class="label-name">Name LastName</label>
-        <button class="button-history">Age</button>
+        <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
+        <label class="label-name">Dr. Name LastName</label>
+        <label class="label-rating">Rating:</label>
+
+        <div class="star-rating">
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+        </div>
+
+        <label class="label-DoctorName">Doctor Name</label>
+        <label class="hr-FirstName">____________________________________________</label>
+        <label class="label-FirstName">First Name</label>
+
+        <label class="label-DoctorLastName">Doctor Last Name</label>
+        <label class="hr-LastName">____________________________________________</label>
+        <label class="label-LastName">Last Name</label>
+
+        <label class="label-DoctorAge">Doctor Age</label>
+        <label class="hr-Age">____________________________________________</label>
+        <label class="label-Age">Age</label>
+
+        <label class="label-DoctorSpeciality">Doctor Speciality</label>
+        <label class="hr-speciality">____________________________________________</label>
+        <label class="label-speciality">Speciality</label>
+
+        <label class="label-ClinicAddress">Clinic Address</label>
+        <label class="hr-Address">____________________________________________</label>
+        <label class="label-address">Adress</label>
     </div>
 </body>
 </html>
