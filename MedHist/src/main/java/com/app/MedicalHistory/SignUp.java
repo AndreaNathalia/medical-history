@@ -35,11 +35,11 @@ public class SignUp {
             usersList.add(new User(UserType, email, password));
 
             for(int i = 0; i <usersList.size(); i++){
-                System.out.println("Type:");
+                System.out.println("\nType:");
                 System.out.println(usersList.get(i).getUserType());
-                System.out.println("Email:");
+                System.out.println("\nEmail:");
                 System.out.println(usersList.get(i).getEmail());
-                System.out.println("Pwd:");
+                System.out.println("\nPwd:");
                 System.out.println(usersList.get(i).getPassword());
             }
 

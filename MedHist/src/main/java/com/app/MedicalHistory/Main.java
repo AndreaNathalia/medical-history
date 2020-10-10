@@ -22,18 +22,13 @@ public class Main {
 
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
-        SignUp.User.addUser(UserType, email, password, model);
+        Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
         return "LogIn";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
-        LogIn.findUser(email, password);
-        if(UserType == "Doctor"){
-            return "DoctorProfile";
-        } else{
-            return "PatientProfile";
-        }
+      return "DoctorProfile";
     }
 
     @RequestMapping(value="/patient", method=RequestMethod.GET)
