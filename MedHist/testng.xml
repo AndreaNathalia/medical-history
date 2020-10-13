@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="TestMedHist" verbose="1">
+    <parameter name="NewPoints" value="5"></parameter>
+    <parameter name="lastName" value="Smith"></parameter>
+
+    <test name="TestParameters">
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="all"></include>-->
+<!--                <exclude name="testPoints"></exclude>-->
+<!--            </run>-->
+<!--        </groups>-->
+        <classes>
+            <class name="com.app.MedicalHistory.DoctorTest"></class>
+            <class name="com.app.MedicalHistory.AddPointsTest"></class>
+            <class name="com.app.MedicalHistory.TimewPatientTest"></class>
+        </classes>
+    </test>
+
+</suite>
