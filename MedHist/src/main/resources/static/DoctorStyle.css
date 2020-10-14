@@ -140,3 +140,16 @@ img{
     font-size: 16px;
     color: gray;
 }
+
+.div-listPatients{
+    position: absolute;
+    top: 200px;
+    left: 690px;
+}
+
+.button-editProfile{
+    position: absolute;
+    top: 480px;
+    left: 235px;
+    width: 170px;
+}

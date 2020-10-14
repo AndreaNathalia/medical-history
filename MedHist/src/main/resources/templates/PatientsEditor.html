@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Doctor Profile</title>
+
+    <!--  CSS  -->
+    <link href="../static/DoctorStyle.css" th:href="@{/DoctorStyle.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h2 class="h2-Med">Medical History</h2>
+    <div>
+        <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
+        <label class="label-name">Dr. Name LastName</label>
+        <label class="label-rating">Rating:</label>
+
+        <div class="star-rating">
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+        </div>
+
+        <button class="button-editProfile">Edit Profile</button>
+    </div>
+
+    <div class="div-listPatients">
+        <h2>*Aquí iría el listado de pacientes*</h2>
+    </div>
+
+</body>
+</html>
