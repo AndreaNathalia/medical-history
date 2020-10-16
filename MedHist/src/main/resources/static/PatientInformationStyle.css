@@ -4,6 +4,12 @@
     left: 40%;
 }
 
+.h2-Medications{
+    position: absolute;
+    top: 50px;
+    left: 35%;
+}
+
 img{
     position: absolute;
     top: 60px;
@@ -378,6 +384,30 @@ img{
     position: absolute;
     top: 420px;
     left: 45%;
+}
+
+.button-SaveMed{
+    position: absolute;
+    top: 630px;
+    left: 45%;
+}
+
+a{
+    position: absolute;
+    top: 630px;
+    left: 93%;
+    color: black;
+    text-decoration: none;
+    font-family: "Arial Black";
+}
+
+.a-table{
+    position: absolute;
+    top: 630px;
+    left: 3%;
+    color: black;
+    text-decoration: none;
+    font-family: "Arial Black";
 }
 
 table {
