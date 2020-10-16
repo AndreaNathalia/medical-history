@@ -379,3 +379,31 @@ img{
     top: 420px;
     left: 45%;
 }
+
+table {
+    position: absolute;
+    top: 20%;
+    left: 3%;
+
+    border-collapse: collapse;
+    font-size: 18px;
+    font-family: Avenir;
+}
+
+.th-med{
+    background-color: gray;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    width: 1200px;
+    height: 35px;
+    font-size: 18px;
+    font-family: Avenir;
+}
+
+.input-table{
+    border:0;
+    width: 250px;
+}
