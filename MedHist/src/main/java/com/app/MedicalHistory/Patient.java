@@ -19,6 +19,8 @@ public class Patient {
         public String MaritalStatus;
         public int phone;
         public String city;
+        static List<String> allergies = new ArrayList<String>();
+        static List<String> surgeries = new ArrayList<String>();
 
         //Constructor
         PatientInformation(String UserType, String email, String password) {

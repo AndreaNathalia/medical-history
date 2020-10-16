@@ -1,0 +1,381 @@
+.h2-Med{
+    position: absolute;
+    top: 50px;
+    left: 40%;
+}
+
+img{
+    position: absolute;
+    top: 60px;
+    left: 1190px;
+    height: 40px;
+    width: 40px;
+}
+
+.div-pInformation{
+    position: absolute;
+    top: 150px;
+    width: 1260px;
+    height: 30px;
+    background-color: gray;
+}
+
+.h2-pInformation{
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.div-allergies{
+    position: absolute;
+    top: 370px;
+    width: 1260px;
+    height: 30px;
+    background-color: gray;
+}
+
+.h2-allergies{
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.div-surgery{
+    position: absolute;
+    top: 490px;
+    width: 1260px;
+    height: 30px;
+    background-color: gray;
+}
+
+.h2-surgery{
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.div-Info{
+    position: absolute;
+    top: 200px;
+    width: 1260px;
+    height: 230px;
+}
+
+.input-FirstName{
+    position: absolute;
+    top:-2px;
+    left: 30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-FirstName{
+    position: absolute;
+    top: 20px;
+    left: 32px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-MiddleName{
+    position: absolute;
+    top:-2px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-MiddleName{
+    position: absolute;
+    top: 20px;
+    left: 352px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-LastName{
+    position: absolute;
+    top:-2px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-LastName{
+    position: absolute;
+    top: 20px;
+    left: 672px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-birth{
+    position: absolute;
+    top:-2px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-birth{
+    position: absolute;
+    top: 20px;
+    left: 982px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.select-gender{
+    position: absolute;
+    top:80px;
+    left: 30px;
+    width: 245px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-gender{
+    position: absolute;
+    top: 103px;
+    left: 32px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.select-MaritalStatus{
+    position: absolute;
+    top:80px;
+    left: 350px;
+    width: 245px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-MaritalStatus{
+    position: absolute;
+    top: 103px;
+    left: 352px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-phone{
+    position: absolute;
+    top:80px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-phone{
+    position: absolute;
+    top: 103px;
+    left: 672px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-city{
+    position: absolute;
+    top:80px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-city{
+    position: absolute;
+    top: 103px;
+    left: 982px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-allergies1{
+    position: absolute;
+    top:220px;
+    left:30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-allergies1{
+    position: absolute;
+    top: 240px;
+    left: 32px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-allergies2{
+    position: absolute;
+    top:220px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-allergies2{
+    position: absolute;
+    top: 240px;
+    left: 352px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-allergies3{
+    position: absolute;
+    top:220px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-allergies3{
+    position: absolute;
+    top: 240px;
+    left: 672px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-allergies4{
+    position: absolute;
+    top:220px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-allergies4{
+    position: absolute;
+    top: 240px;
+    left: 982px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-surgery1{
+    position: absolute;
+    top:340px;
+    left:30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-surgery1{
+    position: absolute;
+    top: 360px;
+    left: 32px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-surgery2{
+    position: absolute;
+    top:340px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-surgery2{
+    position: absolute;
+    top: 360px;
+    left: 352px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-surgery3{
+    position: absolute;
+    top:340px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-surgery3{
+    position: absolute;
+    top: 360px;
+    left: 672px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.input-surgery4{
+    position: absolute;
+    top:340px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.label-surgery4{
+    position: absolute;
+    top: 360px;
+    left: 982px;
+    font-family: Avenir;
+    font-size: 12px;
+}
+
+.button-Save{
+    position: absolute;
+    top: 420px;
+    left: 45%;
+}

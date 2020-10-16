@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Patient Information</title>
+
+    <!--  CSS  -->
+    <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h2 class="h2-Med">Medical History</h2>
+    <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
+
+    <div class="div-pInformation">
+        <h2 class="h2-pInformation">PATIENT INFORMATION</h2>
+    </div>
+
+    <div class="div-allergies">
+        <h2 class="h2-allergies">ALLERGIES</h2>
+    </div>
+
+    <div class="div-surgery">
+        <h2 class="h2-surgery">PAST SURGERY INFORMATION</h2>
+    </div>
+
+    <div class="div-Info">
+        <form>
+            <input type="text" id="FirstName" name="FirstName" class="input-FirstName"/>
+            <label for="FirstName" class="label-FirstName">First Name</label><br>
+
+            <input type="text" id="MiddleName" name="MiddleName" class="input-MiddleName"/>
+            <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
+
+            <input type="text" id="LastName" name="LastName" class="input-LastName"/>
+            <label for="LastName" class="label-LastName">Last Name</label><br>
+
+            <input type="text" id="birth" name="birth" class="input-birth"/>
+            <label for="birth" class="label-birth">Birth</label><br>
+
+            <select id="gender" name="gender" class="select-gender">
+                <option>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label for="gender" class="label-gender">Gender</label><br>
+
+            <select id="MaritalStatus" name="MaritalStatus" class="select-MaritalStatus">
+                <option>Select</option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="widowed">Widowed</option>
+                <option value="separated">Separated</option>
+                <option value="divorced">Divorced</option>
+            </select>
+            <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
+
+            <input type="text" id="phone" name="phone" class="input-phone"/>
+            <label for="phone" class="label-phone">Phone</label><br>
+
+            <input type="text" id="city" name="city" class="input-city"/>
+            <label for="city" class="label-city">City</label><br>
+
+            <input type="text" id="allergies1" name="allergies1" class="input-allergies1"/>
+            <label for="allergies1" class="label-allergies1">1</label><br>
+
+            <input type="text" id="allergies2" name="allergies2" class="input-allergies2"/>
+            <label for="allergies2" class="label-allergies2">2</label><br>
+
+            <input type="text" id="allergies3" name="allergies3" class="input-allergies3"/>
+            <label for="allergies3" class="label-allergies3">3</label><br>
+
+            <input type="text" id="allergies4" name="allergies4" class="input-allergies4"/>
+            <label for="allergies4" class="label-allergies4">4</label><br>
+
+            <input type="text" id="surgery1" name="surgery1" class="input-surgery1"/>
+            <label for="surgery1" class="label-surgery1">1</label><br>
+
+            <input type="text" id="surgery2" name="surgery2" class="input-surgery2"/>
+            <label for="surgery2" class="label-surgery2">2</label><br>
+
+            <input type="text" id="surgery3" name="surgery3" class="input-surgery3"/>
+            <label for="surgery3" class="label-surgery3">3</label><br>
+
+            <input type="text" id="surgery4" name="surgery4" class="input-surgery4"/>
+            <label for="surgery4" class="label-surgery4">4</label><br>
+
+            <button type="submit" class="button-Save">Save Changes</button>
+
+        </form>
+    </div>
+
+    <a href="https://es.stackoverflow.com">Next →</a>
+
+</body>
+</html>
