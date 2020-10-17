@@ -4,6 +4,21 @@
 <suite name="TestMedHist" verbose="1">
     <parameter name="NewPoints" value="5"></parameter>
     <parameter name="lastName" value="Smith"></parameter>
+    <parameter name="Age" value="52"></parameter>
+    <parameter name="specialty" value="Cardiac"></parameter>
+    <parameter name="ClinicAddress" value="20 st"></parameter>
+    <parameter name="TimeWPatient" value="2"></parameter>
+
+    <parameter name="lastName" value="Perez"></parameter>
+    <parameter name="FirstName" value="Saul"></parameter>
+    <parameter name="MiddleName" value="Rodrigo"></parameter>
+    <parameter name="PhoneNumber" value="42186759"></parameter>
+    <parameter name="Birthday" value="10 Oct 2001"></parameter>
+    <parameter name="Gender" value="Male"></parameter>
+    <parameter name="Status" value="Single"></parameter>
+    <parameter name="City" value="Gt"></parameter>
+
+
 
     <test name="TestParameters">
 <!--        <groups>-->
@@ -14,6 +29,7 @@
 <!--        </groups>-->
         <classes>
             <class name="com.app.MedicalHistory.DoctorTest"></class>
+            <class name="com.app.MedicalHistory.PatientTest"></class>
             <class name="com.app.MedicalHistory.AddPointsTest"></class>
             <class name="com.app.MedicalHistory.TimewPatientTest"></class>
         </classes>

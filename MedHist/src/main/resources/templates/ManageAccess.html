@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title> Manage Access</title>
+
+    <!--  CSS  -->
+    <style>
+        #headTitle{
+            /*background-color: #F39C12;*/
+            margin: 5px 20px 5px 20px;
+            padding: 10px 10px 40px 10px;
+        }#userImg{
+            width: 64px;
+            height: 64px;
+            float: right;
+            margin: 5px 20px 5px 20px;
+            padding: 10px 10px 40px 10px;
+        }#title{
+            text-align: center;
+        }#addBtn {
+             background-color:#76D7C4; /* Boton de agregar */
+             border: none;
+             color: white;
+             margin: 10px 20px;
+             padding: 15px 32px;
+             text-align: center;
+             text-decoration: none;
+             font-size: 16px;
+             border-radius: 8px;
+             float: right;
+        }#Editors{
+            /*background-color: #F39C12;*/
+            margin: 100px 20px 5px 20px;
+            padding: 10px 10px 70px 10px;
+        }#whoTitle{
+            background-color: #7B7D7D;
+            margin: 5px 20px 5px 20px;
+            padding: 10px 10px 10px 10px;
+        }#doctors{
+            background-color: white;
+            margin: 5px 20px 5px 20px;
+            padding: 10px 10px 200px 10px;
+        }#docImg {
+            float: left;
+            width: 32px;
+            height: 32px;
+            margin: 0px 10px 5px 10px;
+            /*padding: 5px;*/
+        }.grid-container {
+             display: grid;
+             grid-template-columns: auto auto auto auto;
+             padding: 10px;
+
+        }.grid-item {
+             /*background-color: #F0B27A;*/
+             border: 1px solid white;
+             padding: 20px;
+             border-bottom-color: black;
+             font-size: 20px;
+             text-align: center;
+        }#docImg2{
+             float: left;
+             width: 32px;
+             height: 32px;
+             margin: 0px 10px 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="headTitle">
+        <img src="../static/images/user.png" id="userImg">
+        <h2 id="title">Manage Access</h2>
+    </div>
+    <button id="addBtn">Invite a Doctor</button>
+    <div id="Editors">
+        <div id="whoTitle">
+            WHO CAN EDIT?
+        </div>
+        <div id="doctors">
+<!--            for loop or something-->
+            <div id="doc" class="grid-container">
+                <div class="grid-item">
+                    <img src="../static/images/user.png" id="docImg">
+                </div>
+                <div class="grid-item">
+                    Doctor
+                </div>
+                <div class="grid-item">
+                    years of attention
+                </div>
+                <div class="grid-item">
+                    delete
+                </div>
+            </div>
+<!--            end of for loop-->
+        </div>
+    </div>
+
+</body>
+</html>
