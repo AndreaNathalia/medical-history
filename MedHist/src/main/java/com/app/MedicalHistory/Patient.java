@@ -21,6 +21,8 @@ public class Patient {
         public String city;
         static List<String> allergies = new ArrayList<String>();
         static List<String> surgeries = new ArrayList<String>();
+        static List<String> allowedDoctorsNames = new ArrayList<>();
+        static List<String> allowedDoctorsSpecialities = new ArrayList<>();
 
         //Constructor
         PatientInformation(String UserType, String email, String password) {
@@ -124,9 +126,22 @@ public class Patient {
                 System.out.println("\nPwd:");
                 System.out.println(patientsList.get(i).getPassword());
             }
-
             model.addAttribute("patientsList", patientsList);
 
         }
+
+        public static void addDoctors(Doctor.DoctorInformation newDoc, Model model){
+            allowedDoctorsNames.add(newDoc.getEmail());
+            allowedDoctorsSpecialities.add(newDoc.getUserType());
+//            allowedDoctorsNames.add(newDoc.getName());
+//            allowedDoctorsSpecialities.add(newDoc.getSpecialty());
+            int allowedDoctorsLength = allowedDoctorsNames.size();
+
+            System.out.println("DocName"+ newDoc.getEmail());
+            model.addAttribute("allowedDoctorsNames", allowedDoctorsNames);
+            model.addAttribute("allowedDoctorsSpecialities", allowedDoctorsSpecialities);
+            model.addAttribute("allowedDoctorsLength", allowedDoctorsLength);
+        }
+
     }
 }

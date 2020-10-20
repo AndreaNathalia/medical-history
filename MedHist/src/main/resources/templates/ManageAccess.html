@@ -5,97 +5,79 @@
     <title> Manage Access</title>
 
     <!--  CSS  -->
-    <style>
-        #headTitle{
-            /*background-color: #F39C12;*/
-            margin: 5px 20px 5px 20px;
-            padding: 10px 10px 40px 10px;
-        }#userImg{
-            width: 64px;
-            height: 64px;
-            float: right;
-            margin: 5px 20px 5px 20px;
-            padding: 10px 10px 40px 10px;
-        }#title{
-            text-align: center;
-        }#addBtn {
-             background-color:#76D7C4; /* Boton de agregar */
-             border: none;
-             color: white;
-             margin: 10px 20px;
-             padding: 15px 32px;
-             text-align: center;
-             text-decoration: none;
-             font-size: 16px;
-             border-radius: 8px;
-             float: right;
-        }#Editors{
-            /*background-color: #F39C12;*/
-            margin: 100px 20px 5px 20px;
-            padding: 10px 10px 70px 10px;
-        }#whoTitle{
-            background-color: #7B7D7D;
-            margin: 5px 20px 5px 20px;
-            padding: 10px 10px 10px 10px;
-        }#doctors{
-            background-color: white;
-            margin: 5px 20px 5px 20px;
-            padding: 10px 10px 200px 10px;
-        }#docImg {
-            float: left;
-            width: 32px;
-            height: 32px;
-            margin: 0px 10px 5px 10px;
-            /*padding: 5px;*/
-        }.grid-container {
-             display: grid;
-             grid-template-columns: auto auto auto auto;
-             padding: 10px;
-
-        }.grid-item {
-             /*background-color: #F0B27A;*/
-             border: 1px solid white;
-             padding: 20px;
-             border-bottom-color: black;
-             font-size: 20px;
-             text-align: center;
-        }#docImg2{
-             float: left;
-             width: 32px;
-             height: 32px;
-             margin: 0px 10px 5px 10px;
-        }
-    </style>
+    <link href="../static/ManageAccessStyle.css" th:href="@{/ManageAccessStyle.css}" rel="stylesheet" />
 </head>
 <body>
     <div id="headTitle">
-        <img src="../static/images/user.png" id="userImg">
+<!--        <img src="../static/images/user.png" id="userImg">-->
+        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="userImg">
         <h2 id="title">Manage Access</h2>
     </div>
-    <button id="addBtn">Invite a Doctor</button>
+
+    <button id="addBtn" onclick="AddNewDoc()">Invite a Doctor</button>
+    <div id="docInfo">
+        <form modelAttribute="patient" name="patient" action="/ManageAccess" method="post" >
+            <input type="text" class="info" name="DocName" placeholder="Doctor Name">
+            <br><br><br>
+            <input type="text" class="info" name = "email" placeholder="Doctor Email">
+            <br><br><br>
+            <input type="text" class="info" name = "specialty" placeholder="Doctor Specialty">
+            <br><br><br>
+            <button type="submit" id="AddDoc">Add New Doctor</button>
+        </form>
+    </div>
+
     <div id="Editors">
         <div id="whoTitle">
             WHO CAN EDIT?
         </div>
         <div id="doctors">
-<!--            for loop or something-->
-            <div id="doc" class="grid-container">
+            <div class="grid-container">
                 <div class="grid-item">
-                    <img src="../static/images/user.png" id="docImg">
+                    img
                 </div>
                 <div class="grid-item">
-                    Doctor
+                    Name
+                </div>
+                <div class="grid-item" >
+                    Speciality
                 </div>
                 <div class="grid-item">
-                    years of attention
-                </div>
-                <div class="grid-item">
-                    delete
+                    Delete
                 </div>
             </div>
+
+            <option th:each="doc : ${allowedDoctorsLength}">
+                <div id="doc" class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="docImg">
+                    </div>
+                    <div class="grid-item" id="DoctorsName">
+                        <p th:text="${allowedDoctorsNames[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                    </div>
+                    <div class="grid-item" id="DoctorsSpec">
+                        <p th:text="${allowedDoctorsSpecialities[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                    </div>
+                    <div class="grid-item">
+                        <button>x</button>
+                    </div>
+                </div>
+            </option>
 <!--            end of for loop-->
         </div>
     </div>
 
+    <script>
+        function AddNewDoc() {
+            let btn = document.getElementById("addBtn");
+            let newDoctor = document.getElementById("docInfo");
+            if (newDoctor.style.display === "none") {
+                newDoctor.style.display = "block";
+            } else {
+                newDoctor.style.display = "none";
+                btn.style.display = "inline";
+            }
+        }
+    </script>
 </body>
 </html>
