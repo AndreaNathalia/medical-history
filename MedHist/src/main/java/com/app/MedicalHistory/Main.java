@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.ui.Model;
 
+import java.security.PublicKey;
 import java.util.List;
 
 @Controller
 public class Main {
+
+    //Main
     @RequestMapping(value="/main", method=RequestMethod.GET)
     public String mainPage(){
         return "Main";
     }
 
+    //Log In
     @RequestMapping(value="/log", method=RequestMethod.GET)
     public String getLogInForm(){
         return "LogIn";
@@ -27,6 +31,7 @@ public class Main {
         return "SignUp";
     }
 
+    //Sig Up and add new user
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
         if(UserType.equals("doctor")){
@@ -40,7 +45,7 @@ public class Main {
         return "LogIn";
     }
 
-    //check on password and email.
+    //Log In (check on password and email)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
         if(UserType.equals("doctor")){
@@ -54,16 +59,51 @@ public class Main {
         return "LogIn";
     }
 
-    @RequestMapping(value="/patient", method=RequestMethod.GET)
-    public String getPatientForm() {
+    //Get to options
+    @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
+    public String PatientProfile(@RequestParam(name = "information") String information){
+        if(information.equals("PatientInformation1")){
+            return "PatientInformation1";
+        }
+
+        if(information.equals("PatientsMedications")){
+            return "PatientsMedications";
+        }
+
+        if(information.equals("ManageAccess")){
+            return "ManageAccess";
+        }
+
         return "PatientProfile";
     }
 
-    @RequestMapping(value="/doctor", method=RequestMethod.GET)
-    public String getDoctorForm() {
-        return "DoctorProfile";
+    @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city){
+        Patient.PatientInformation.setFirstName(FirstName);
+        Patient.PatientInformation.setMiddleName(MiddleName);
+        Patient.PatientInformation.setLastName(LastName);
+        Patient.PatientInformation.setBirth(birth);
+        Patient.PatientInformation.setGender(gender);
+        Patient.PatientInformation.setMaritalStatus(MaritalStatus);
+        Patient.PatientInformation.setPhone(phone);
+        Patient.PatientInformation.setCity(city);
+
+        for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
+            System.out.println("Info Pacientes");
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getFirstName());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getMiddleName());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getLastName());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getBirth());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getGender());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getPhone());
+            System.out.println(Patient.PatientInformation.patientsList.get(i).getCity());
+        }
+        return "PatientInformation1";
     }
 
+
+    //Manage Access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.GET)
     public String getAddDoctor() {
         return "ManageAccess";
@@ -79,14 +119,7 @@ public class Main {
                 Patient.PatientInformation.addDoctors(docList.get(i), model);
             }
         }
-
-
         return "ManageAccess";
     }
 
-//    @RequestMapping(value = "/patient", method=RequestMethod.POST)
-//    public String PatientForm(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
-//        SignUp.User.addUser(UserType, email, password, model);
-//        return "PatientProfile"; // not this
-//    }
 }

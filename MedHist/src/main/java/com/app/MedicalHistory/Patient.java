@@ -8,18 +8,18 @@ import java.util.List;
 public class Patient {
     static class PatientInformation {
         //Attributes
-        public String UserType;
-        public String email;
-        public String password;
-        public String FirstName;
-        public String MiddleName;
-        public String LastName;
-        public String birth;
-        public String gender;
-        public String MaritalStatus;
-        public int phone;
-        public String city;
-        static List<String> allergies = new ArrayList<String>();
+        public static String UserType;
+        public static String email;
+        public static String password;
+        public static String FirstName;
+        public static String MiddleName;
+        public static String LastName;
+        public static String birth;
+        public static String gender;
+        public static String MaritalStatus;
+        public static int phone;
+        public static String city;
+        static  List<String> allergies = new ArrayList<String>();
         static List<String> surgeries = new ArrayList<String>();
         static List<String> allowedDoctorsNames = new ArrayList<>();
         static List<String> allowedDoctorsSpecialities = new ArrayList<>();
@@ -32,82 +32,81 @@ public class Patient {
         }
 
         //Get methods
-        public String getUserType() {
+        public static String getUserType() {
             return UserType;
         }
 
-        public String getEmail() {
+        public static String getEmail() {
             return email;
         }
 
-        public String getPassword() {
+        public static String getPassword() {
             return password;
         }
 
-        public String getFirstName() {
+        public static String getFirstName() {
             return FirstName;
         }
 
-        public String getMiddleName() {
+        public static String getMiddleName() {
             return MiddleName;
         }
 
-        public String getLastName() {
+        public static String getLastName() {
             return LastName;
         }
 
-        public String getBirth() {
+        public static String getBirth() {
             return birth;
         }
 
-        public String getGender() {
+        public static String getGender() {
             return gender;
         }
 
-        public String getMaritalStatus() {
+        public static String getMaritalStatus() {
             return MaritalStatus;
         }
 
-        public int getPhone() {
+        public static int getPhone() {
             return phone;
         }
 
-        public String getCity() {
+        public static String getCity() {
             return city;
         }
 
         //Set methods
-        public void setFirstName(String FirstName) {
-            this.FirstName = FirstName;
+        public static void setFirstName(String FirstName) {
+            PatientInformation.FirstName = FirstName;
         }
 
-        //Set methods
-        public void setMiddleName(String MiddleName) {
-            this.MiddleName = MiddleName;
+        public static void setMiddleName(String MiddleName) {
+            PatientInformation.MiddleName = MiddleName;;
         }
 
-        public void setLastName(String LastName) {
-            this.LastName = LastName;
+        public static void setLastName(String LastName) {
+            PatientInformation.LastName = LastName;;
         }
 
-        public void setBirth(String birth) {
-            this.birth = birth;
+        public static void setBirth(String birth) {
+            PatientInformation.birth = birth;;
         }
 
-        public void setGender(String gender) {
-            this.gender = gender;
+        public static void setGender(String gender) {
+            PatientInformation.gender = gender;;
         }
 
-        public void setMaritalStatus(String MaritalStatus) {
-            this.MaritalStatus = MaritalStatus;
+        public static void setMaritalStatus(String MaritalStatus) {
+            PatientInformation.MaritalStatus = MaritalStatus;;
         }
 
-        public void setPhone(int phone) {
-            this.phone = phone;
+        public static void setPhone(int phone) {
+            PatientInformation.phone = phone;;
         }
 
-        public void setCity(String city) {
-            this.city = city;
+        public static void setCity(String city) {
+            PatientInformation.city = city;;
         }
 
         //Patients List

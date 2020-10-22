@@ -11,7 +11,7 @@
 
 <body>
     <h2 class="h2-Med">Medical History</h2>
-    <img onclick="window.location.href='PatientProfile.html'" src="https://image.flaticon.com/icons/png/512/44/44948.png">
+    <img th:onclick="window.location.href='PatientProfile.html'" src="https://image.flaticon.com/icons/png/512/44/44948.png">
 
     <div class="div-pInformation">
         <h2 class="h2-pInformation">PATIENT INFORMATION</h2>
@@ -26,27 +26,27 @@
     </div>
 
     <div class="div-Info">
-        <form>
-            <input type="text" id="FirstName" name="FirstName" class="input-FirstName"/>
+        <form th:action="@{/patientinformation}" method="post">
+            <input type="text" id="FirstName" th:name="FirstName" class="input-FirstName"/>
             <label for="FirstName" class="label-FirstName">First Name</label><br>
 
-            <input type="text" id="MiddleName" name="MiddleName" class="input-MiddleName"/>
+            <input type="text" id="MiddleName" th:name="MiddleName" class="input-MiddleName"/>
             <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
 
-            <input type="text" id="LastName" name="LastName" class="input-LastName"/>
+            <input type="text" id="LastName" th:name="LastName" class="input-LastName"/>
             <label for="LastName" class="label-LastName">Last Name</label><br>
 
-            <input type="text" id="birth" name="birth" class="input-birth"/>
+            <input type="text" id="birth" th:name="birth" class="input-birth"/>
             <label for="birth" class="label-birth">Birth</label><br>
 
-            <select id="gender" name="gender" class="select-gender">
+            <select id="gender" th:name="gender" class="select-gender">
                 <option>Select</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
             <label for="gender" class="label-gender">Gender</label><br>
 
-            <select id="MaritalStatus" name="MaritalStatus" class="select-MaritalStatus">
+            <select id="MaritalStatus" th:name="MaritalStatus" class="select-MaritalStatus">
                 <option>Select</option>
                 <option value="single">Single</option>
                 <option value="married">Married</option>
@@ -56,42 +56,40 @@
             </select>
             <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
 
-            <input type="text" id="phone" name="phone" class="input-phone"/>
+            <input type="text" id="phone" th:name="phone" class="input-phone"/>
             <label for="phone" class="label-phone">Phone</label><br>
 
-            <input type="text" id="city" name="city" class="input-city"/>
+            <input type="text" id="city" th:name="city" class="input-city"/>
             <label for="city" class="label-city">City</label><br>
 
-            <input type="text" id="allergies1" name="allergies1" class="input-allergies1"/>
+            <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1"/>
             <label for="allergies1" class="label-allergies1">1</label><br>
 
-            <input type="text" id="allergies2" name="allergies2" class="input-allergies2"/>
+            <input type="text" id="allergies2" th:name="allergies2" class="input-allergies2"/>
             <label for="allergies2" class="label-allergies2">2</label><br>
 
-            <input type="text" id="allergies3" name="allergies3" class="input-allergies3"/>
+            <input type="text" id="allergies3" th:name="allergies3" class="input-allergies3"/>
             <label for="allergies3" class="label-allergies3">3</label><br>
 
-            <input type="text" id="allergies4" name="allergies4" class="input-allergies4"/>
+            <input type="text" id="allergies4" th:name="allergies4" class="input-allergies4"/>
             <label for="allergies4" class="label-allergies4">4</label><br>
 
-            <input type="text" id="surgery1" name="surgery1" class="input-surgery1"/>
+            <input type="text" id="surgery1" th:name="surgery1" class="input-surgery1"/>
             <label for="surgery1" class="label-surgery1">1</label><br>
 
-            <input type="text" id="surgery2" name="surgery2" class="input-surgery2"/>
+            <input type="text" id="surgery2" th:name="surgery2" class="input-surgery2"/>
             <label for="surgery2" class="label-surgery2">2</label><br>
 
-            <input type="text" id="surgery3" name="surgery3" class="input-surgery3"/>
+            <input type="text" id="surgery3" th:name="surgery3" class="input-surgery3"/>
             <label for="surgery3" class="label-surgery3">3</label><br>
 
-            <input type="text" id="surgery4" name="surgery4" class="input-surgery4"/>
+            <input type="text" id="surgery4" th:name="surgery4" class="input-surgery4"/>
             <label for="surgery4" class="label-surgery4">4</label><br>
 
             <button type="submit" class="button-Save">Save Changes</button>
 
         </form>
     </div>
-
-    <a href="PatientsMedications.html">Next →</a>
 
 </body>
 </html>
