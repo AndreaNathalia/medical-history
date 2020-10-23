@@ -104,7 +104,7 @@ public class Main {
     }
 
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city){
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city,Model model){
         Patient.PatientInformation.setFirstName(FirstName);
         Patient.PatientInformation.setMiddleName(MiddleName);
         Patient.PatientInformation.setLastName(LastName);
@@ -113,6 +113,9 @@ public class Main {
         Patient.PatientInformation.setMaritalStatus(MaritalStatus);
         Patient.PatientInformation.setPhone(phone);
         Patient.PatientInformation.setCity(city);
+        model.addAttribute("FirstName", FirstName);
+        model.addAttribute("LastName", LastName);
+        model.addAttribute("FullName", FirstName+" "+ LastName);
 
         for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
             System.out.println("\n\n------ PATIENT INFORMATION ------");
@@ -133,7 +136,7 @@ public class Main {
             System.out.println("\nCity:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getCity());
         }
-        return "PatientInformation1";
+        return "PatientProfile";
     }
     @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
     public String DoctorProfile(@RequestParam(name = "information") String information){
