@@ -1,0 +1,32 @@
+#welcome{
+    font-size: 50px;
+}
+#info{
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    font-family: Helvetica;
+}
+#signUp{
+    border-radius: 8px;
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color:#A4B8CD;
+    border: none;
+    font-family: "Courier New";
+
+}
+.div-get{
+    margin: 90px;
+}
+body{
+    background-color: #e2e3e3;
+}
+#docImg{
+    float: right;
+    width:605px;
+    height:402px;
+}
+#slogan{
+    font-size: 20px;
+}

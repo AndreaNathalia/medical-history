@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8"/>
     <title></title>
+    <link href="../static/mainStyle.css" th:href="@{/mainStyle.css}" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="div-get">
-        <p class="p-noAccount"> NoAccount? </p>
-        <form th:action="@{/getsignup}" method="get">
-            <button type="submit" class="button-signup">Signup</button>
-        </form>
+    <div id="info">
+        <h1 id="welcome">
+            Medical History
+        </h1>
+        <br>
+        <p id="slogan">
+            Track your medical history in the palm of your hand.
+        </p>
+        <img  id="docImg" src="https://www.creativefabrica.com/wp-content/uploads/2019/04/Doctor-icon-by-hellopixelzstudio.png">
+        <div class="div-get">
+            <p class="p-noAccount"> No Account? </p>
+            <form th:action="@{/getsignup}" method="get">
+                <button type="submit" class="button-signup" id="signUp">SignUp</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
