@@ -40,10 +40,9 @@ public class Main {
         }
 
         if(UserType.equals("patient")){
-            System.out.println("xxxxx"+ email);
+            //System.out.println("xxxxx"+ email);
             Patient.PatientInformation.addPatient(UserType, email, password, model);
         }
-
         return "LogIn";
     }
 
@@ -54,7 +53,6 @@ public class Main {
 //            System.out.println("check");
 
             if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
-
                 return "DoctorProfile";
             } else{
                 return "LogIn";
@@ -67,11 +65,10 @@ public class Main {
             } else{
                 return "LogIn";
             }
-
         }
-
         return "LogIn";
     }
+
     @RequestMapping(value = "/access", method = RequestMethod.POST)
     public String access(@ModelAttribute(name = "patient")  String patient, Model model){
         for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
@@ -79,7 +76,6 @@ public class Main {
 
                 return "PatientProfile";
             }
-
         }
         return "PatientsEditor";
 
@@ -119,23 +115,16 @@ public class Main {
 
         for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
             System.out.println("\n\n------ PATIENT INFORMATION ------");
-            System.out.println("\nFirst Name:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getFirstName());
-            System.out.println("\nMiddle Name:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getMiddleName());
-            System.out.println("\nLast Name:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getLastName());
-            System.out.println("\nBirth:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getBirth());
-            System.out.println("\nGender:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getGender());
-            System.out.println("\nMarital Status:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
-            System.out.println("\nPhone:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getPhone());
-            System.out.println("\nCity:");
-            System.out.println(Patient.PatientInformation.patientsList.get(i).getCity());
+            System.out.println("First Name: " + Patient.PatientInformation.patientsList.get(i).getFirstName());
+            System.out.println("Middle Name: " + Patient.PatientInformation.patientsList.get(i).getMiddleName());
+            System.out.println("Last Name: " + Patient.PatientInformation.patientsList.get(i).getLastName());
+            System.out.println("Birth: " + Patient.PatientInformation.patientsList.get(i).getBirth());
+            System.out.println("Gender: " + Patient.PatientInformation.patientsList.get(i).getGender());
+            System.out.println("Marital Status: " + Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
+            System.out.println("Phone: " + Patient.PatientInformation.patientsList.get(i).getPhone());
+            System.out.println("City: " + Patient.PatientInformation.patientsList.get(i).getCity());
         }
+        System.out.println("------------------------------------");
         return "PatientProfile";
     }
     @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
@@ -143,7 +132,6 @@ public class Main {
         if(information.equals("PatientsEditor")){
             return "PatientsEditor";
         }
-
         return "DoctorProfile";
     }
 

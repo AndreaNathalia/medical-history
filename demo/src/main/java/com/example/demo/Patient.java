@@ -118,14 +118,11 @@ public class Patient {
             System.out.println("\n\n------ PATIENTS LIST ------");
             for (int i = 0; i < patientsList.size(); i++) {
 
-                System.out.println("\nUser Type:");
-                System.out.println(patientsList.get(i).getUserType());
-                System.out.println("\nEmail:");
-                System.out.println(patientsList.get(i).getEmail());
-                System.out.println("\nPwd:");
-                System.out.println(patientsList.get(i).getPassword());
+                System.out.println("User Type: " + patientsList.get(i).getUserType());
+                System.out.println("Email: " + patientsList.get(i).getEmail());
+                System.out.println("Password: " + patientsList.get(i).getPassword());
             }
-            System.out.println("----------------------------------");
+            System.out.println("--------------------------------");
             model.addAttribute("patientsList", patientsList);
 
         }
@@ -136,7 +133,6 @@ public class Patient {
 
                 if(test.equals(email)){
                     return patientsList.get(i).getPassword();
-
                 };
             };
             return "";
@@ -197,7 +193,7 @@ public class Patient {
             model.addAttribute("FirstName", patientsList.get(e).getFirstName());
             model.addAttribute("LastName", patientsList.get(e).getLastName());
             model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
-            
+
             return "not true";
         }
 

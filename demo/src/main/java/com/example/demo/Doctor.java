@@ -98,23 +98,18 @@ public class Doctor {
 
         //Method to add a new doctor user
         public static void addDoctor(String UserType, String email, String password, Model model){
-
             doctorsList.add(new DoctorInformation(UserType, email, password));
 
             for(int i = 0; i < doctorsList.size(); i++){
                 System.out.println("\n\n------ DOCTORS LIST ------");
-                System.out.println("\nUser Type:");
-                System.out.println(doctorsList.get(i).getUserType());
-                System.out.println("\nEmail:");
-                System.out.println(doctorsList.get(i).getEmail());
-                System.out.println("\nPwd:");
-                System.out.println(doctorsList.get(i).getPassword());
+                System.out.println("User Type: " + doctorsList.get(i).getUserType());
+                System.out.println("Email: " + doctorsList.get(i).getEmail());
+                System.out.println("Password: " + doctorsList.get(i).getPassword());
             }
-            System.out.println("----------------------------------");
+            System.out.println("--------------------------------");
             model.addAttribute("doctorsList", doctorsList);
         }
         public static void patientadder (String index, String email){
-
             String test2 = email;
             for(int i = 0; i < doctorsList.size(); i++){
                 String test = doctorsList.get(i).getEmail();

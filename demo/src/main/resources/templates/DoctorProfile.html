@@ -43,6 +43,7 @@
         <label class="label-ClinicAddress"th:text="${Address}"></label>
         <label class="hr-Address">____________________________________________</label>
         <label class="label-address"> Clinic address </label>
+
         <form th:action="@{/doctorprofile}" method="get">
             <button th:name="information" value="PatientsEditor" class="button-history">edit patients</button>
         </form>
