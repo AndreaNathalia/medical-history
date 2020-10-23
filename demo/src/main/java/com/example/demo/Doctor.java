@@ -101,18 +101,16 @@ public class Doctor {
 
             doctorsList.add(new DoctorInformation(UserType, email, password));
 
-//            for(int i = 0; i < doctorsList.size(); i++){
-////                System.out.println("LISTA: Doctores");
-////                System.out.println("\nType:");
-////                System.out.println(doctorsList.get(i).getUserType());
-////                System.out.println("\nEmail:");
-////                System.out.println(doctorsList.get(i).getEmail());
-////                System.out.println("\nPwd:");
-////                System.out.println(doctorsList.get(i).getPassword());
-//            }
-
-
-
+            for(int i = 0; i < doctorsList.size(); i++){
+                System.out.println("\n\n------ DOCTORS LIST ------");
+                System.out.println("\nUser Type:");
+                System.out.println(doctorsList.get(i).getUserType());
+                System.out.println("\nEmail:");
+                System.out.println(doctorsList.get(i).getEmail());
+                System.out.println("\nPwd:");
+                System.out.println(doctorsList.get(i).getPassword());
+            }
+            System.out.println("----------------------------------");
             model.addAttribute("doctorsList", doctorsList);
         }
         public static void patientadder (String index, String email){
@@ -122,14 +120,9 @@ public class Doctor {
                 String test = doctorsList.get(i).getEmail();
                 if(test.equals(test2)){
                     patients.add(index);
-
                 };
             };
-
-
         };
-
-
 
         public static String checker (String email, String password,Model model){
             String test2 = email;
@@ -140,11 +133,11 @@ public class Doctor {
                 String test = doctorsList.get(i).getEmail();
                 String test1 = doctorsList.get(i).getPassword();
                 if(test.equals(test2)){
-                    System.out.println(doctorsList.get(i).getEmail());
-                    System.out.println(doctorsList.get(i).getPassword());
+                    //System.out.println(doctorsList.get(i).getEmail());
+                    //System.out.println(doctorsList.get(i).getPassword());
                     if (test3.equals(test1)){
-                        System.out.println(doctorsList.get(i).getEmail());
-                        System.out.println(doctorsList.get(i).getPassword());
+                        //System.out.println(doctorsList.get(i).getEmail());
+                        //System.out.println(doctorsList.get(i).getPassword());
                         e = i;
                         return "True";
                     };
@@ -156,10 +149,7 @@ public class Doctor {
             model.addAttribute("Speciality", doctorsList.get(e).getSpecialty());
             model.addAttribute("Address", doctorsList.get(e).getClinicAddress());
 
-
             return "not true";
         }
-
-
     }
 }

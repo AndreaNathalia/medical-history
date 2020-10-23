@@ -112,24 +112,20 @@ public class Patient {
         //Patients List
         static List<PatientInformation> patientsList = new ArrayList<PatientInformation>();
 
-
         //Method to add a new patient user
         public static void addPatient(String UserType, String email, String password, Model model) {
-            String hola = UserType;
-            String adios = password;
-            String como = email;
-//            System.out.println("hola"+adios+como);
-            patientsList.add(new PatientInformation(hola,como, adios));
-            System.out.println("LISTA: Paciente-------------s");
-//            for (int i = 0; i < patientsList.size(); i++) {
-//
-//                System.out.println("\nType:");
-//                System.out.println(patientsList.get(i).getUserType());
-//                System.out.println("\nEmail:");
-//                System.out.println(patientsList.get(i).getEmail());
-//                System.out.println("\nPwd:");
-//                System.out.println(patientsList.get(i).getPassword());
-//            }
+            patientsList.add(new PatientInformation(UserType, email, password));
+            System.out.println("\n\n------ PATIENTS LIST ------");
+            for (int i = 0; i < patientsList.size(); i++) {
+
+                System.out.println("\nUser Type:");
+                System.out.println(patientsList.get(i).getUserType());
+                System.out.println("\nEmail:");
+                System.out.println(patientsList.get(i).getEmail());
+                System.out.println("\nPwd:");
+                System.out.println(patientsList.get(i).getPassword());
+            }
+            System.out.println("----------------------------------");
             model.addAttribute("patientsList", patientsList);
 
         }
@@ -153,7 +149,7 @@ public class Patient {
 //            allowedDoctorsSpecialities.add(newDoc.getSpecialty());
             int allowedDoctorsLength = allowedDoctorsNames.size();
 
-            System.out.println("DocName"+ newDoc.getEmail());
+            //System.out.println("DocName"+ newDoc.getEmail());
             model.addAttribute("allowedDoctorsNames", allowedDoctorsNames);
             model.addAttribute("allowedDoctorsSpecialities", allowedDoctorsSpecialities);
             model.addAttribute("allowedDoctorsLength", allowedDoctorsLength);
@@ -167,11 +163,11 @@ public class Patient {
                 String test2 = patientsList.get(i).getEmail();
                 String test3 = patientsList.get(i).getPassword();
                 if(test.equals(test2)){
-                    System.out.println(patientsList.get(i).getEmail());
-                    System.out.println(patientsList.get(i).getPassword());
+                    //System.out.println(patientsList.get(i).getEmail());
+                    //System.out.println(patientsList.get(i).getPassword());
                     if (test3.equals(test1)){
-                        System.out.println(patientsList.get(i).getEmail());
-                        System.out.println(patientsList.get(i).getPassword());
+                        //System.out.println(patientsList.get(i).getEmail());
+                        //System.out.println(patientsList.get(i).getPassword());
                         e = i;
                         return "True";
                     };
@@ -180,7 +176,6 @@ public class Patient {
             model.addAttribute("FirstName", patientsList.get(e).getFirstName());
             model.addAttribute("LastName", patientsList.get(e).getLastName());
             model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
-
 
             return "not true";
         }
@@ -193,18 +188,16 @@ public class Patient {
                 String test2 = patientsList.get(i).getEmail();
 
                 if(test.equals(test2)){
-                    System.out.println(patientsList.get(i).getEmail());
-                    System.out.println(patientsList.get(i).getPassword());
+                    //System.out.println(patientsList.get(i).getEmail());
+                    //System.out.println(patientsList.get(i).getPassword());
                     e = i;
                     return "True";
-
                 };
             };
             model.addAttribute("FirstName", patientsList.get(e).getFirstName());
             model.addAttribute("LastName", patientsList.get(e).getLastName());
             model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
-
-
+            
             return "not true";
         }
 

@@ -115,14 +115,22 @@ public class Main {
         Patient.PatientInformation.setCity(city);
 
         for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
-            System.out.println("Info Pacientes");
+            System.out.println("\n\n------ PATIENT INFORMATION ------");
+            System.out.println("\nFirst Name:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getFirstName());
+            System.out.println("\nMiddle Name:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getMiddleName());
+            System.out.println("\nLast Name:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getLastName());
+            System.out.println("\nBirth:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getBirth());
+            System.out.println("\nGender:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getGender());
+            System.out.println("\nMarital Status:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
+            System.out.println("\nPhone:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getPhone());
+            System.out.println("\nCity:");
             System.out.println(Patient.PatientInformation.patientsList.get(i).getCity());
         }
         return "PatientInformation1";
@@ -132,8 +140,6 @@ public class Main {
         if(information.equals("PatientsEditor")){
             return "PatientsEditor";
         }
-
-
 
         return "DoctorProfile";
     }
