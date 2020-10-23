@@ -28,17 +28,14 @@
     </div>
 
     <div class="div-listPatients">
-        <form th:action="@{/access}" method="get">
-            <button th:name="information" value="bicho@juarez.me.uk" class="button-history">bicho</button>
+        <form th:action="@{/access}" method="post">
+        <input type="text" id="patient" th:name="patient" placeholder="email de paciente" class="input-email">
         </form>
-
-        <option th:each="doc : ${allowedDoctorsLength}">
-            <option th:each="doc : ${allowedDoctorsLength}">
-
-            </option>
-        </option>
-
     </div>
+    <form th:action="@{/login}" method="post">
+
+
+
 
 </body>
 </html>

@@ -40,6 +40,7 @@ public class Main {
         }
 
         if(UserType.equals("patient")){
+            System.out.println("xxxxx"+ email);
             Patient.PatientInformation.addPatient(UserType, email, password, model);
         }
 
@@ -50,11 +51,10 @@ public class Main {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
         if(UserType.equals("doctor")){
-            System.out.println(email+ "ese");
 //            System.out.println("check");
 
-            if (Doctor.DoctorInformation.checker(email, password,model) == "True"){
-                Doctor.DoctorInformation.listcreator(email,model);
+            if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
+
                 return "DoctorProfile";
             } else{
                 return "LogIn";
@@ -62,10 +62,7 @@ public class Main {
         }
 
         if(UserType.equals("patient")){
-            if (Patient.PatientInformation.checker(email, password,model) == "True"){
-
-                System.out.println("check");
-
+            if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
                 return "PatientProfile";
             } else{
                 return "LogIn";
@@ -75,17 +72,18 @@ public class Main {
 
         return "LogIn";
     }
-    @RequestMapping(value = "/access", method = RequestMethod.GET)
-    public String access(@ModelAttribute(name = "information")  String information, Model model){
+    @RequestMapping(value = "/access", method = RequestMethod.POST)
+    public String access(@ModelAttribute(name = "patient")  String patient, Model model){
+        for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
+            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model) == "True"){
 
-        if (Patient.PatientInformation.checker(information,"ufm",model) == "True"){
-            System.out.println("check");
-            return "PatientProfile";
-        } else{
-            return "PatientsEditor";
+                return "PatientProfile";
+            }
+
         }
+        return "PatientsEditor";
 
-    }
+    };
 
     //Get to options
     @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
@@ -148,7 +146,7 @@ public class Main {
 
     @RequestMapping(value="/ManageAccess", method=RequestMethod.POST)
     public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail) {
-        int nid = Patient.PatientInformation.indexfinder(mymail);
+        String nid = Patient.PatientInformation.indexfinder(mymail);
         Doctor.DoctorInformation.patientadder(nid,email);
         List<Doctor.DoctorInformation> docList = Doctor.DoctorInformation.doctorsList;
         int n = docList.size();

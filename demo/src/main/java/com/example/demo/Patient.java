@@ -8,9 +8,9 @@ import java.util.List;
 public class Patient {
     static class PatientInformation {
         //Attributes
-        public static String UserType;
-        public static String email;
-        public static String password;
+        public String UserType;
+        public String email;
+        public String password;
         public static String FirstName;
         public static String MiddleName;
         public static String LastName;
@@ -32,15 +32,15 @@ public class Patient {
         }
 
         //Get methods
-        public static String getUserType() {
+        public  String getUserType() {
             return UserType;
         }
 
-        public static String getEmail() {
+        public  String getEmail() {
             return email;
         }
 
-        public static String getPassword() {
+        public String getPassword() {
             return password;
         }
 
@@ -112,55 +112,38 @@ public class Patient {
         //Patients List
         static List<PatientInformation> patientsList = new ArrayList<PatientInformation>();
 
+
         //Method to add a new patient user
         public static void addPatient(String UserType, String email, String password, Model model) {
-            patientsList.add(new PatientInformation(UserType, email, password));
-
-            for (int i = 0; i < patientsList.size(); i++) {
-                System.out.println("LISTA: Pacientes");
-                System.out.println("\nType:");
-                System.out.println(patientsList.get(i).getUserType());
-                System.out.println("\nEmail:");
-                System.out.println(patientsList.get(i).getEmail());
-                System.out.println("\nPwd:");
-                System.out.println(patientsList.get(i).getPassword());
-            }
+            String hola = UserType;
+            String adios = password;
+            String como = email;
+//            System.out.println("hola"+adios+como);
+            patientsList.add(new PatientInformation(hola,como, adios));
+            System.out.println("LISTA: Paciente-------------s");
+//            for (int i = 0; i < patientsList.size(); i++) {
+//
+//                System.out.println("\nType:");
+//                System.out.println(patientsList.get(i).getUserType());
+//                System.out.println("\nEmail:");
+//                System.out.println(patientsList.get(i).getEmail());
+//                System.out.println("\nPwd:");
+//                System.out.println(patientsList.get(i).getPassword());
+//            }
             model.addAttribute("patientsList", patientsList);
 
         }
-        public static String checker (String email, String password,Model model){
-            String test2 = email;
-            String test3 = password;
 
-            for(int i = 0; i < patientsList.size(); i++){
-                String test = patientsList.get(i).getEmail();
-                String test1 = patientsList.get(i).getPassword();
-                if(test.equals(test2)){
-
-                    if (test3.equals(test1)){
-                        model.addAttribute("FirstName", patientsList.get(i).getFirstName());
-                        model.addAttribute("LastName", patientsList.get(i).getLastName());
-                        model.addAttribute("FullName", patientsList.get(i).getFirstName()+" "+ patientsList.get(i).getLastName());
-
-
-                        return "True";
-                    };
-                };
-            };
-
-
-            return "not true";
-        }
-        public static int indexfinder(String email){
+        public static String indexfinder(String email){
             for(int i = 0; i < patientsList.size(); i++){
                 String test = patientsList.get(i).getEmail();
 
                 if(test.equals(email)){
-                    return i;
+                    return patientsList.get(i).getPassword();
 
                 };
             };
-            return 999;
+            return "";
         };
 
         public static void addDoctors(Doctor.DoctorInformation newDoc, Model model){
@@ -174,6 +157,55 @@ public class Patient {
             model.addAttribute("allowedDoctorsNames", allowedDoctorsNames);
             model.addAttribute("allowedDoctorsSpecialities", allowedDoctorsSpecialities);
             model.addAttribute("allowedDoctorsLength", allowedDoctorsLength);
+        }
+        public static String checker (String email, String password,Model model){
+            String test = email;
+            String test1 = password;
+//            System.out.println("ooooooooooooooooo"+ patientsList.get(0).getEmail()+patientsList.get(1).getEmail()+patientsList.get(0).getPassword()+patientsList.get(1).getPassword());
+            int e = 0;
+            for(int i = 0; i < patientsList.size(); i++){
+                String test2 = patientsList.get(i).getEmail();
+                String test3 = patientsList.get(i).getPassword();
+                if(test.equals(test2)){
+                    System.out.println(patientsList.get(i).getEmail());
+                    System.out.println(patientsList.get(i).getPassword());
+                    if (test3.equals(test1)){
+                        System.out.println(patientsList.get(i).getEmail());
+                        System.out.println(patientsList.get(i).getPassword());
+                        e = i;
+                        return "True";
+                    };
+                };
+            };
+            model.addAttribute("FirstName", patientsList.get(e).getFirstName());
+            model.addAttribute("LastName", patientsList.get(e).getLastName());
+            model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
+
+
+            return "not true";
+        }
+        public static String notchecker (String email,Model model){
+            String test = email;
+
+//            System.out.println("ooooooooooooooooo"+ patientsList.get(0).getEmail()+patientsList.get(1).getEmail()+patientsList.get(0).getPassword()+patientsList.get(1).getPassword());
+            int e = 0;
+            for(int i = 0; i < patientsList.size(); i++){
+                String test2 = patientsList.get(i).getEmail();
+
+                if(test.equals(test2)){
+                    System.out.println(patientsList.get(i).getEmail());
+                    System.out.println(patientsList.get(i).getPassword());
+                    e = i;
+                    return "True";
+
+                };
+            };
+            model.addAttribute("FirstName", patientsList.get(e).getFirstName());
+            model.addAttribute("LastName", patientsList.get(e).getLastName());
+            model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
+
+
+            return "not true";
         }
 
     }

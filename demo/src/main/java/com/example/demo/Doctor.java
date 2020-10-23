@@ -19,7 +19,7 @@ public class Doctor {
         public String clinicAddress;
         public int timeWPatient;
         public int rating;
-        static List<Integer> patients = new ArrayList<>();
+        static List<String> patients = new ArrayList<>();
         //Constructor
         DoctorInformation(String UserType, String email, String password){
             this.UserType = UserType;
@@ -98,6 +98,7 @@ public class Doctor {
 
         //Method to add a new doctor user
         public static void addDoctor(String UserType, String email, String password, Model model){
+
             doctorsList.add(new DoctorInformation(UserType, email, password));
 
 //            for(int i = 0; i < doctorsList.size(); i++){
@@ -114,7 +115,7 @@ public class Doctor {
 
             model.addAttribute("doctorsList", doctorsList);
         }
-        public static void patientadder (Integer index, String email){
+        public static void patientadder (String index, String email){
 
             String test2 = email;
             for(int i = 0; i < doctorsList.size(); i++){
@@ -128,28 +129,12 @@ public class Doctor {
 
         };
 
-        public static void listcreator(String email,Model model){
-            List<String> dynamical = new ArrayList<>();
-            String test2 = email;
-            for(int i = 0; i < doctorsList.size(); i++){
-                String test = doctorsList.get(i).getEmail();
-                if(test.equals(test2)){
-                    for (int n = 0; n < patients.size(); n++){
-                        dynamical.add(Patient.PatientInformation.patientsList.get(patients.get(n)).getEmail());
-                    }
 
-                };
-            };
-            model.addAttribute("Patientstreated", dynamical);
-            model.addAttribute("patientslength", dynamical.size());
-
-
-
-        }
 
         public static String checker (String email, String password,Model model){
             String test2 = email;
             String test3 = password;
+
             int e = 0;
             for(int i = 0; i < doctorsList.size(); i++){
                 String test = doctorsList.get(i).getEmail();
