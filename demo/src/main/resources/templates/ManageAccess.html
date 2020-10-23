@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title> Manage Access</title>
+
+    <!--  CSS  -->
+    <link href="../static/ManageAccessStyle.css" th:href="@{/ManageAccessStyle.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="headTitle">
+<!--        <img src="../static/images/user.png" id="userImg">-->
+        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="userImg">
+        <h2 id="title">Manage Access</h2>
+    </div>
+
+    <button id="addBtn" onclick="AddNewDoc()">Invite a Doctor</button>
+    <div id="docInfo">
+        <form modelAttribute="patient" name="patient" action="/ManageAccess" method="post" >
+            <input type="text" class="info" name="DocName" placeholder="Doctor Name">
+            <br><br><br>
+            <input type="text" class="info" name = "email" placeholder="Doctor Email">
+            <br><br><br>
+            <input type="text" class="info" name = "specialty" placeholder="Doctor Specialty">
+            <br><br><br>
+            <br><br><br>
+            <input type="text" class="info" name = "youremail" placeholder="your email">
+            <br><br><br>
+            <button type="submit" id="AddDoc">Add New Doctor</button>
+        </form>
+    </div>
+
+    <div id="Editors">
+        <div id="whoTitle">
+            WHO CAN EDIT?
+        </div>
+        <div id="doctors">
+            <div class="grid-container">
+                <div class="grid-item">
+                    img
+                </div>
+                <div class="grid-item">
+                    Name
+                </div>
+                <div class="grid-item" >
+                    Speciality
+                </div>
+                <div class="grid-item">
+                    Delete
+                </div>
+            </div>
+
+            <option th:each="doc : ${allowedDoctorsLength}">
+                <div id="doc" class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="docImg">
+                    </div>
+                    <div class="grid-item" id="DoctorsName">
+                        <p th:text="${allowedDoctorsNames[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                    </div>
+                    <div class="grid-item" id="DoctorsSpec">
+                        <p th:text="${allowedDoctorsSpecialities[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                    </div>
+                    <div class="grid-item">
+                        <button>x</button>
+                    </div>
+                </div>
+            </option>
+<!--            end of for loop-->
+        </div>
+    </div>
+
+    <script>
+        function AddNewDoc() {
+            let btn = document.getElementById("addBtn");
+            let newDoctor = document.getElementById("docInfo");
+            if (newDoctor.style.display === "none") {
+                newDoctor.style.display = "block";
+            } else {
+                newDoctor.style.display = "none";
+                btn.style.display = "inline";
+            }
+        }
+    </script>
+</body>
+</html>
