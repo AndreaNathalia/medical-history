@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Patient Information</title>
+
+    <!--  CSS  -->
+    <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+<h2 class="h2-Med">Medical History</h2>
+<img th:onclick="window.location.href='PatientProfile.html'" src="https://image.flaticon.com/icons/png/512/44/44948.png">
+
+<div class="div-pInformation">
+    <h2 class="h2-pInformation">PATIENT INFORMATION</h2>
+</div>
+
+<div class="div-allergies">
+    <h2 class="h2-allergies">ALLERGIES</h2>
+</div>
+
+<div class="div-surgery">
+    <h2 class="h2-surgery">PAST SURGERY INFORMATION</h2>
+</div>
+
+<div class="div-Info">
+    <form th:action="@{/patientinformation}" method="get">
+        <p id="FirstName" th:text="${FirstName}" class="p-FirstName"></p>
+        <label for="FirstName" class="label-FirstName">First Name</label><br>
+
+        <p id="MiddleName" th:text="${MiddleName}" class="p-MiddleName"></p>
+        <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
+
+        <p id="LastName" th:text="${LastName}" class="p-LastName"></p>
+        <label for="LastName" class="label-LastName">Last Name</label><br>
+
+        <p id="birth" th:text="${birth}" class="p-birth"></p>
+        <label for="birth" class="label-birth">Birth</label><br>
+
+        <p id="gender" th:text="${gender}" class="p-gender"></p>
+        <label for="gender" class="label-gender">Gender</label><br>
+
+        <p id="MaritalStatus" th:text="${MaritalStatus}" class="p-MaritalStatus"></p>
+        <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
+
+        <p id="phone" th:text="${phone}" class="p-phone"></p>
+        <label for="phone" class="label-phone">Phone</label><br>
+
+        <p id="city" th:text="${city}" class="p-city"></p>
+        <label for="city" class="label-city">City</label><br>
+
+        <p id="allergies1" th:text="${allergies1}" class="p-allergies1"></p>
+        <label for="allergies1" class="label-allergies1">1</label><br>
+
+        <p id="allergies2" th:text="${allergies2}" class="p-allergies2"></p>
+        <label for="allergies2" class="label-allergies2">2</label><br>
+
+        <p id="allergies3" th:text="${allergies3}" class="p-allergies3"></p>
+        <label for="allergies3" class="label-allergies3">3</label><br>
+
+        <p id="allergies4" th:text="${allergies4}" class="p-allergies4"></p>
+        <label for="allergies4" class="label-allergies4">4</label><br>
+
+        <p id="surgery1" th:text="${surgery1}" class="p-surgery1"></p>
+        <label for="surgery1" class="label-surgery1">1</label><br>
+
+        <p id="surgery2" th:text="${surgery2}" class="p-surgery2"></p>
+        <label for="surgery2" class="label-surgery2">2</label><br>
+
+        <p id="surgery3" th:text="${surgery3}" class="p-surgery3"></p>
+        <label for="surgery3" class="label-surgery3">3</label><br>
+
+        <p id="surgery4" th:text="${surgery4}" class="p-surgery4"></p>
+        <label for="surgery4" class="label-surgery4">4</label><br>
+
+        <a th:href="@{/getpatientprofile}" class="button-Save">OK</a>
+    </form>
+
+</div>
+
+</body>
+</html>

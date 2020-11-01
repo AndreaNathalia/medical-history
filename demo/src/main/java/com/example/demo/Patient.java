@@ -76,6 +76,14 @@ public class Patient {
             return city;
         }
 
+        public static List<String> getAllergies(){
+            return allergies;
+        }
+
+        public static List<String> getSurgeries(){
+            return surgeries;
+        }
+
         //Set methods
         public static void setFirstName(String FirstName) {
             PatientInformation.FirstName = FirstName;

@@ -16,7 +16,7 @@
         <label class="label-name" th:text="${FullName}"></label>
 
         <form th:action="@{/patientprofile}" method="get">
-            <button th:name="information" value="PatientInformation1" class="button-history">Medical History</button>
+            <button th:name="information" value="PatientInformation" class="button-history">Medical History</button>
             <button th:name="information" value="PatientsMedications" class="button-medications">Medications</button>
             <button th:name="information" value="ManageAccess" class="button-access">Manage Access</button>
             <button class="button-consult">Schedule Consultation</button>

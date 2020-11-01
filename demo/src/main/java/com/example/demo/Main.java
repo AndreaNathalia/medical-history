@@ -73,19 +73,17 @@ public class Main {
     public String access(@ModelAttribute(name = "patient")  String patient, Model model){
         for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
             if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model) == "True"){
-
                 return "PatientProfile";
             }
         }
         return "PatientsEditor";
-
     };
 
     //Get to options
     @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
     public String PatientProfile(@RequestParam(name = "information") String information){
-        if(information.equals("PatientInformation1")){
-            return "PatientInformation1";
+        if(information.equals("PatientInformation")){
+            return "PatientInformation";
         }
 
         if(information.equals("PatientsMedications")){
@@ -100,7 +98,7 @@ public class Main {
     }
 
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city,Model model){
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, @RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model){
         Patient.PatientInformation.setFirstName(FirstName);
         Patient.PatientInformation.setMiddleName(MiddleName);
         Patient.PatientInformation.setLastName(LastName);
@@ -109,10 +107,33 @@ public class Main {
         Patient.PatientInformation.setMaritalStatus(MaritalStatus);
         Patient.PatientInformation.setPhone(phone);
         Patient.PatientInformation.setCity(city);
+        Patient.PatientInformation.allergies.add(allergies1);
+        Patient.PatientInformation.allergies.add(allergies2);
+        Patient.PatientInformation.allergies.add(allergies3);
+        Patient.PatientInformation.allergies.add(allergies4);
+        Patient.PatientInformation.surgeries.add(surgery1);
+        Patient.PatientInformation.surgeries.add(surgery2);
+        Patient.PatientInformation.surgeries.add(surgery3);
+        Patient.PatientInformation.surgeries.add(surgery4);
         model.addAttribute("FirstName", FirstName);
+        model.addAttribute("MiddleName", MiddleName);
         model.addAttribute("LastName", LastName);
         model.addAttribute("FullName", FirstName+" "+ LastName);
+        model.addAttribute("birth", birth);
+        model.addAttribute("gender", gender);
+        model.addAttribute("MaritalStatus", MaritalStatus);
+        model.addAttribute("phone", phone);
+        model.addAttribute("city", city);
+        model.addAttribute("allergies1", allergies1);
+        model.addAttribute("allergies2", allergies2);
+        model.addAttribute("allergies3", allergies3);
+        model.addAttribute("allergies4", allergies4);
+        model.addAttribute("surgery1", surgery1);
+        model.addAttribute("surgery2", surgery2);
+        model.addAttribute("surgery3", surgery3);
+        model.addAttribute("surgery4", surgery4);
 
+        //Just to check n the terminal that the data is being saved
         for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
             System.out.println("\n\n------ PATIENT INFORMATION ------");
             System.out.println("First Name: " + Patient.PatientInformation.patientsList.get(i).getFirstName());
@@ -123,10 +144,18 @@ public class Main {
             System.out.println("Marital Status: " + Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
             System.out.println("Phone: " + Patient.PatientInformation.patientsList.get(i).getPhone());
             System.out.println("City: " + Patient.PatientInformation.patientsList.get(i).getCity());
+            System.out.println("Allergies: " + Patient.PatientInformation.patientsList.get(i).getAllergies());
+            System.out.println("Surgeries: " + Patient.PatientInformation.patientsList.get(i).getSurgeries());
         }
         System.out.println("------------------------------------");
+        return "SeePatientInformation";
+    }
+
+    @RequestMapping(value = "/getpatientprofile", method = RequestMethod.GET)
+    public String getPatientProfile(){
         return "PatientProfile";
     }
+
     @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
     public String DoctorProfile(@RequestParam(name = "information") String information){
         if(information.equals("PatientsEditor")){

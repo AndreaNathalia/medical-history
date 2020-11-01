@@ -386,6 +386,7 @@ img{
     left: 45%;
 }
 
+/*-- PATIENTS MEDICATIONS --*/
 .button-SaveMed{
     position: absolute;
     top: 630px;
@@ -436,4 +437,181 @@ table, th, td {
 .input-table{
     border:0;
     width: 250px;
+}
+
+/*-- SEE PATIENT INFORMATION --*/
+.p-FirstName{
+    position: absolute;
+    top:-18px;
+    left: 30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-MiddleName{
+    position: absolute;
+    top:-18px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-LastName{
+    position: absolute;
+    top:-18px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-birth{
+    position: absolute;
+    top:-18px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-gender{
+    position: absolute;
+    top:64px;
+    left: 30px;
+    width: 245px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-MaritalStatus{
+    position: absolute;
+    top:64px;
+    left: 350px;
+    width: 245px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-phone{
+    position: absolute;
+    top:64px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-city{
+    position: absolute;
+    top:64px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-allergies1{
+    position: absolute;
+    top:204px;
+    left:30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-allergies2{
+    position: absolute;
+    top:204px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-allergies3{
+    position: absolute;
+    top:204px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-allergies4{
+    position: absolute;
+    top:204px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-surgery1{
+    position: absolute;
+    top:324px;
+    left:30px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-surgery2{
+    position: absolute;
+    top:324px;
+    left:350px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-surgery3{
+    position: absolute;
+    top:324px;
+    left:670px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+}
+
+.p-surgery4{
+    position: absolute;
+    top:324px;
+    left:980px;
+    width: 240px;
+    border-top: gray 1px solid;
+    border-bottom: deepskyblue 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
 }
