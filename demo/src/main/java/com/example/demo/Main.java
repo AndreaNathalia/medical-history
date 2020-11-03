@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.*;
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,6 +26,7 @@ public class Main {
     //Log In
     @RequestMapping(value="/log", method=RequestMethod.GET)
     public String getLogInForm(){
+
         return "LogIn";
     }
 
@@ -34,9 +37,13 @@ public class Main {
 
     //Sig Up and add new user
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
-    public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
+    public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException {
         if(UserType.equals("doctor")){
             Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
+            FileOutputStream fos = new FileOutputStream("t.tmp");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+            oos.close();
         }
 
         if(UserType.equals("patient")){
@@ -48,7 +55,11 @@ public class Main {
 
     //Log In (check on password and email)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model){
+    public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("t.tmp");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
+        ois.close();
         if(UserType.equals("doctor")){
 //            System.out.println("check");
 
@@ -171,9 +182,12 @@ public class Main {
     }
 
     @RequestMapping(value="/ManageAccess", method=RequestMethod.POST)
-    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail) {
+    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail) throws IOException, ClassNotFoundException {
         String nid = Patient.PatientInformation.indexfinder(mymail);
         Doctor.DoctorInformation.patientadder(nid,email);
+        FileInputStream fis = new FileInputStream("t.tmp");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
         List<Doctor.DoctorInformation> docList = Doctor.DoctorInformation.doctorsList;
         int n = docList.size();
         for(int i=0; i<n; i++){

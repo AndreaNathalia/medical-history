@@ -1,13 +1,13 @@
 package com.example.demo;
-
+import java.io.Serializable;
 import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Doctor {
+public class Doctor implements Serializable{
 
-    static class DoctorInformation{
+    static class DoctorInformation implements Serializable{
         //Attributes
         public String UserType;
         public String email;
