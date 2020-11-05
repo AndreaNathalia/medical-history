@@ -16,8 +16,11 @@ import java.util.List;
 
 @Controller
 public class Main {
-    //New object/user (empty)
+    //New PATIENT object/user (empty)
     Patient.PatientInformation newUser = new Patient.PatientInformation();
+
+    //New DOCTOR object/user (empty)
+    Doctor.DoctorInformation newDoctor = new Doctor.DoctorInformation();
 
     //Main (web page/homepage)
     @RequestMapping(value="/main", method=RequestMethod.GET)
@@ -43,19 +46,23 @@ public class Main {
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException {
         //Save doctor new user
         if(UserType.equals("doctor")){
-            Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
+            newDoctor.setUserType(UserType);
+            newDoctor.setEmail(email);
+            newDoctor.setPassword(password);
+
             FileOutputStream fos = new FileOutputStream("t.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
             oos.close();
         }
 
-        //Save patient new user ----(not yet)----
+        //Save patient new user
         if(UserType.equals("patient")){
             newUser.setUserType(UserType);
             newUser.setEmail(email);
             newUser.setPassword(password);
             Patient.PatientInformation.adder(newUser);
+
             FileOutputStream fos = new FileOutputStream("e.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Patient.PatientInformation.patientsList);
@@ -90,10 +97,7 @@ public class Main {
 
         //Patient type
         if(UserType.equals("patient")){
-            //Set/modify type, email and pwd
-
-
-//            Check pwd and email
+            //Check pwd and email
             if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
                 newUser = Patient.PatientInformation.returner(email,password);
                 return "PatientProfile";
@@ -177,15 +181,15 @@ public class Main {
         oos.writeObject(Patient.PatientInformation.patientsList);
         oos.close();
 
-        model.addAttribute("FirstName", FirstName);
-        model.addAttribute("MiddleName", MiddleName);
-        model.addAttribute("LastName", LastName);
-        model.addAttribute("FullName", FirstName+" "+ LastName);
-        model.addAttribute("birth", birth);
-        model.addAttribute("gender", gender);
-        model.addAttribute("MaritalStatus", MaritalStatus);
-        model.addAttribute("phone", phone);
-        model.addAttribute("city", city);
+        model.addAttribute("FirstName", newUser.FirstName);
+        model.addAttribute("MiddleName",newUser. MiddleName);
+        model.addAttribute("LastName", newUser.LastName);
+        model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
+        model.addAttribute("birth", newUser.birth);
+        model.addAttribute("gender", newUser.gender);
+        model.addAttribute("MaritalStatus", newUser.MaritalStatus);
+        model.addAttribute("phone", newUser.phone);
+        model.addAttribute("city", newUser.city);
         model.addAttribute("allergies1", allergies1);
         model.addAttribute("allergies2", allergies2);
         model.addAttribute("allergies3", allergies3);

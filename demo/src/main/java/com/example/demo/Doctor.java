@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor implements Serializable{
-
     static class DoctorInformation implements Serializable{
         //Attributes
         public String UserType;
@@ -20,32 +19,9 @@ public class Doctor implements Serializable{
         public int timeWPatient;
         public int rating;
         static List<String> patients = new ArrayList<>();
-        //Constructor
-        DoctorInformation(String UserType, String email, String password){
-            this.UserType = UserType;
-            this.email = email;
-            this.password = password;
-        }
 
-        //Set methods
-        public void setName(String name) {
-            this.name = name;
-        }
-        public void setLastName(String LastName) {
-            this.LastName = LastName;
-        }
-        public void setAge(int age) {
-            this.age = age;
-        }
-        public void setSpecialty(String specialty) {
-            this.specialty = specialty;
-        }
-        public void setClinicAddress(String clinicAddress) {
-            this.clinicAddress = clinicAddress;
-        }
-        public void setTimeWPatient(int timeWPatient) {
-            this.timeWPatient = timeWPatient;
-        }
+        //Constructor
+        DoctorInformation(){ }
 
         //Get methods
         public String getUserType(){
@@ -79,6 +55,35 @@ public class Doctor implements Serializable{
             return rating;
         }
 
+        //Set methods
+        public void setUserType(String UserType){
+            this.UserType = UserType;
+        }
+        public void setEmail(String email){
+            this.email = email;
+        }
+        public void setPassword(String password){
+            this.password = password;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+        public void setLastName(String LastName) {
+            this.LastName = LastName;
+        }
+        public void setAge(int age) {
+            this.age = age;
+        }
+        public void setSpecialty(String specialty) {
+            this.specialty = specialty;
+        }
+        public void setClinicAddress(String clinicAddress) {
+            this.clinicAddress = clinicAddress;
+        }
+        public void setTimeWPatient(int timeWPatient) {
+            this.timeWPatient = timeWPatient;
+        }
+
         //Rating
         public int addDocPoints(int newPoints){
             return rating += newPoints;
@@ -89,6 +94,7 @@ public class Doctor implements Serializable{
             return timeWPatient += 1;
         }
         static List<Integer> patient = new ArrayList<>();
+
         //Doctors List
         static List<DoctorInformation> doctorsList = new ArrayList<DoctorInformation>();
 
@@ -97,18 +103,10 @@ public class Doctor implements Serializable{
         }
 
         //Method to add a new doctor user
-        public static void addDoctor(String UserType, String email, String password, Model model){
-            doctorsList.add(new DoctorInformation(UserType, email, password));
+        // ------- FABRICIO AQUÍ PODES AGREGAR EL CÓDIGO PARA ADDER :) --------
 
-            for(int i = 0; i < doctorsList.size(); i++){
-                System.out.println("\n\n------ DOCTORS LIST ------");
-                System.out.println("User Type: " + doctorsList.get(i).getUserType());
-                System.out.println("Email: " + doctorsList.get(i).getEmail());
-                System.out.println("Password: " + doctorsList.get(i).getPassword());
-            }
-            System.out.println("--------------------------------");
-            model.addAttribute("doctorsList", doctorsList);
-        }
+
+        //Methods to manage access
         public static void patientadder (String index, String email){
             String test2 = email;
             for(int i = 0; i < doctorsList.size(); i++){
@@ -128,11 +126,7 @@ public class Doctor implements Serializable{
                 String test = doctorsList.get(i).getEmail();
                 String test1 = doctorsList.get(i).getPassword();
                 if(test.equals(test2)){
-                    //System.out.println(doctorsList.get(i).getEmail());
-                    //System.out.println(doctorsList.get(i).getPassword());
                     if (test3.equals(test1)){
-                        //System.out.println(doctorsList.get(i).getEmail());
-                        //System.out.println(doctorsList.get(i).getPassword());
                         e = i;
                         return "True";
                     };
