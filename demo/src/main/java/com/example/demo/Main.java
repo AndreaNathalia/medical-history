@@ -16,28 +16,32 @@ import java.util.List;
 
 @Controller
 public class Main {
+    //New object/user (empty)
+    Patient.PatientInformation newUser = new Patient.PatientInformation();
 
-    //Main
+    //Main (web page/homepage)
     @RequestMapping(value="/main", method=RequestMethod.GET)
     public String mainPage(){
         return "Main";
     }
 
-    //Log In
+    //GET Log In
     @RequestMapping(value="/log", method=RequestMethod.GET)
     public String getLogInForm(){
 
         return "LogIn";
     }
 
+    //GET Sign up
     @RequestMapping(value="/getsignup", method=RequestMethod.GET)
     public String getSignUpForm(){
         return "SignUp";
     }
 
-    //Sig Up and add new user
+    //Sig Up and add new user (POST new user)
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException {
+        //Save doctor new user
         if(UserType.equals("doctor")){
             Doctor.DoctorInformation.addDoctor(UserType, email, password, model);
             FileOutputStream fos = new FileOutputStream("t.tmp");
@@ -46,54 +50,80 @@ public class Main {
             oos.close();
         }
 
+        //Save patient new user ----(not yet)----
         if(UserType.equals("patient")){
-            //System.out.println("xxxxx"+ email);
-            Patient.PatientInformation.addPatient(UserType, email, password, model);
+            //Patient.PatientInformation.addPatient(UserType, email, password, model);
+            System.out.println("added");
         }
         return "LogIn";
     }
 
-    //Log In (check on password and email)
+    //POST Log In (check on password and email)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException, ClassNotFoundException {
+        //Data Base
         FileInputStream fis = new FileInputStream("t.tmp");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
         ois.close();
-        if(UserType.equals("doctor")){
-//            System.out.println("check");
 
+        //Doctor type
+        if(UserType.equals("doctor")){
+            //Check pwd and email
             if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
                 return "DoctorProfile";
+
             } else{
                 return "LogIn";
             }
         }
 
+        //Patient type
         if(UserType.equals("patient")){
-            if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
-                return "PatientProfile";
-            } else{
-                return "LogIn";
-            }
+            //Set/modify type, email and pwd
+            newUser.setUserType(UserType);
+            newUser.setEmail(email);
+            newUser.setPassword(password);
+
+            return "PatientProfile";
+
+            //Check pwd and email
+//            if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
+//                return "PatientProfile";
+
+//            } else{
+//                return "LogIn";
+//            }
         }
         return "LogIn";
     }
 
-    @RequestMapping(value = "/access", method = RequestMethod.POST)
-    public String access(@ModelAttribute(name = "patient")  String patient, Model model){
-        for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
-            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model) == "True"){
-                return "PatientProfile";
-            }
-        }
-        return "PatientsEditor";
-    };
-
-    //Get to options
+    //GET to patient menu options
     @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
-    public String PatientProfile(@RequestParam(name = "information") String information){
+    public String PatientProfile(@RequestParam(name = "information") String information, Model model){
         if(information.equals("PatientInformation")){
+            model.addAttribute("FirstName", newUser.FirstName);
+            model.addAttribute("MiddleName", newUser.MiddleName);
+            model.addAttribute("LastName", newUser.LastName);
+            model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
+            model.addAttribute("birth", newUser.birth);
+            model.addAttribute("gender", newUser.gender);
+            model.addAttribute("MaritalStatus", newUser.MaritalStatus);
+            model.addAttribute("phone", newUser.phone);
+            model.addAttribute("city", newUser.city);
+            for(int allergy = 0; allergy < newUser.allergies.size(); allergy++){
+                model.addAttribute("allergies1", newUser.allergies.get(0));
+                model.addAttribute("allergies2", newUser.allergies.get(1));
+                model.addAttribute("allergies3", newUser.allergies.get(2));
+                model.addAttribute("allergies4", newUser.allergies.get(3));
+            }
+
+            for(int surgery = 0; surgery < newUser.surgeries.size(); surgery++){
+                model.addAttribute("surgery1", newUser.surgeries.get(0));
+                model.addAttribute("surgery2", newUser.surgeries.get(1));
+                model.addAttribute("surgery3", newUser.surgeries.get(2));
+                model.addAttribute("surgery4", newUser.surgeries.get(3));
+            }
             return "SeePatientInformation";
         }
 
@@ -108,30 +138,32 @@ public class Main {
         return "PatientProfile";
     }
 
-    //Get to edit patient info
+    //GET to edit patient info
     @RequestMapping(value = "/editpatientinformation", method = RequestMethod.GET)
     public String EditPatientInfo(){
         return "PatientInformation";
     }
 
+    //POST set/modifications in patient information
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
     public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, @RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model){
-        Patient.PatientInformation.setFirstName(FirstName);
-        Patient.PatientInformation.setMiddleName(MiddleName);
-        Patient.PatientInformation.setLastName(LastName);
-        Patient.PatientInformation.setBirth(birth);
-        Patient.PatientInformation.setGender(gender);
-        Patient.PatientInformation.setMaritalStatus(MaritalStatus);
-        Patient.PatientInformation.setPhone(phone);
-        Patient.PatientInformation.setCity(city);
-        Patient.PatientInformation.allergies.add(allergies1);
-        Patient.PatientInformation.allergies.add(allergies2);
-        Patient.PatientInformation.allergies.add(allergies3);
-        Patient.PatientInformation.allergies.add(allergies4);
-        Patient.PatientInformation.surgeries.add(surgery1);
-        Patient.PatientInformation.surgeries.add(surgery2);
-        Patient.PatientInformation.surgeries.add(surgery3);
-        Patient.PatientInformation.surgeries.add(surgery4);
+        newUser.setFirstName(FirstName);
+        newUser.setMiddleName(MiddleName);
+        newUser.setLastName(LastName);
+        newUser.setBirth(birth);
+        newUser.setGender(gender);
+        newUser.setMaritalStatus(MaritalStatus);
+        newUser.setPhone(phone);
+        newUser.setCity(city);
+        newUser.allergies.add(allergies1);
+        newUser.allergies.add(allergies2);
+        newUser.allergies.add(allergies3);
+        newUser.allergies.add(allergies4);
+        newUser.surgeries.add(surgery1);
+        newUser.surgeries.add(surgery2);
+        newUser.surgeries.add(surgery3);
+        newUser.surgeries.add(surgery4);
+
         model.addAttribute("FirstName", FirstName);
         model.addAttribute("MiddleName", MiddleName);
         model.addAttribute("LastName", LastName);
@@ -150,43 +182,36 @@ public class Main {
         model.addAttribute("surgery3", surgery3);
         model.addAttribute("surgery4", surgery4);
 
-        //Just to check n the terminal that the data is being saved
-        for (int i = 0; i < Patient.PatientInformation.patientsList.size(); i++) {
-            System.out.println("\n\n------ PATIENT INFORMATION ------");
-            System.out.println("First Name: " + Patient.PatientInformation.patientsList.get(i).getFirstName());
-            System.out.println("Middle Name: " + Patient.PatientInformation.patientsList.get(i).getMiddleName());
-            System.out.println("Last Name: " + Patient.PatientInformation.patientsList.get(i).getLastName());
-            System.out.println("Birth: " + Patient.PatientInformation.patientsList.get(i).getBirth());
-            System.out.println("Gender: " + Patient.PatientInformation.patientsList.get(i).getGender());
-            System.out.println("Marital Status: " + Patient.PatientInformation.patientsList.get(i).getMaritalStatus());
-            System.out.println("Phone: " + Patient.PatientInformation.patientsList.get(i).getPhone());
-            System.out.println("City: " + Patient.PatientInformation.patientsList.get(i).getCity());
-            System.out.println("Allergies: " + Patient.PatientInformation.patientsList.get(i).getAllergies());
-            System.out.println("Surgeries: " + Patient.PatientInformation.patientsList.get(i).getSurgeries());
-        }
+        //PRINTS Just to check in the terminal that the data is being saved
+        System.out.println("\n\n------ PATIENT INFORMATION ------");
+        System.out.println("First Name: " + newUser.getFirstName());
+        System.out.println("Middle Name: " + newUser.getMiddleName());
+        System.out.println("Last Name: " + newUser.getLastName());
+        System.out.println("Birth: " + newUser.getBirth());
+        System.out.println("Gender: " + newUser.getGender());
+        System.out.println("Marital Status: " + newUser.getMaritalStatus());
+        System.out.println("Phone: " + newUser.getPhone());
+        System.out.println("City: " + newUser.getCity());
+        System.out.println("Allergies: " + newUser.getAllergies());
+        System.out.println("Surgeries: " + newUser.getSurgeries());
+
         System.out.println("------------------------------------");
         return "PatientProfile";
     }
 
+    //GET to patient profile
     @RequestMapping(value = "/getpatientprofile", method = RequestMethod.GET)
     public String getPatientProfile(){
         return "PatientProfile";
     }
 
-    @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
-    public String DoctorProfile(@RequestParam(name = "information") String information){
-        if(information.equals("PatientsEditor")){
-            return "PatientsEditor";
-        }
-        return "DoctorProfile";
-    }
-
-    //Manage Access
+    //GET to Manage Access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.GET)
     public String getAddDoctor() {
         return "ManageAccess";
     }
 
+    //POST manage access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.POST)
     public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail) throws IOException, ClassNotFoundException {
         String nid = Patient.PatientInformation.indexfinder(mymail);
@@ -204,5 +229,25 @@ public class Main {
         }
         return "ManageAccess";
     }
+
+    //GET to patients editor
+    @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
+    public String DoctorProfile(@RequestParam(name = "information") String information){
+        if(information.equals("PatientsEditor")){
+            return "PatientsEditor";
+        }
+        return "DoctorProfile";
+    }
+
+    //Patients access
+    @RequestMapping(value = "/access", method = RequestMethod.POST)
+    public String access(@ModelAttribute(name = "patient")  String patient, Model model){
+        for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
+            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model) == "True"){
+                return "PatientProfile";
+            }
+        }
+        return "PatientsEditor";
+    };
 
 }

@@ -19,7 +19,7 @@
                 <form th:action="@{/patientprofile}" method="get">
                     <nav>
                         <ul>
-                            <li><img src="images/LogoAzul.png" class="img-logo"></li>
+                            <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
                             <li><button th:name="information" value="PatientInformation">Medical History</button></li>
                             <li><button th:name="information" value="PatientsMedications">Medications</button></li>
                             <li><button th:name="information" value="ManageAccess">Manage Access</button></li>

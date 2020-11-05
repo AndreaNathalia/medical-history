@@ -5,7 +5,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class PatientTest {
-    Patient.PatientInformation pat = new Patient.PatientInformation("patient", "pat@mail.com", "Pass123");
+    Patient.PatientInformation pat = new Patient.PatientInformation();
     //
     @Test
     @Parameters({"lastName"})

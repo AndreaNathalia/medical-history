@@ -11,25 +11,21 @@ public class Patient {
         public String UserType;
         public String email;
         public String password;
-        public static String FirstName;
-        public static String MiddleName;
-        public static String LastName;
-        public static String birth;
-        public static String gender;
-        public static String MaritalStatus;
-        public static int phone;
-        public static String city;
-        static  List<String> allergies = new ArrayList<String>();
-        static List<String> surgeries = new ArrayList<String>();
+        public String FirstName;
+        public String MiddleName;
+        public String LastName;
+        public String birth;
+        public String gender;
+        public String MaritalStatus;
+        public int phone;
+        public String city;
+        public List<String> allergies = new ArrayList<String>();
+        public List<String> surgeries = new ArrayList<String>();
         static List<String> allowedDoctorsNames = new ArrayList<>();
         static List<String> allowedDoctorsSpecialities = new ArrayList<>();
 
         //Constructor
-        PatientInformation(String UserType, String email, String password) {
-            this.UserType = UserType;
-            this.email = email;
-            this.password = password;
-        }
+        PatientInformation() { }
 
         //Get methods
         public String getUserType() {
@@ -44,77 +40,89 @@ public class Patient {
             return password;
         }
 
-        public static String getFirstName() {
+        public String getFirstName() {
             return FirstName;
         }
 
-        public static String getMiddleName() {
+        public String getMiddleName() {
             return MiddleName;
         }
 
-        public static String getLastName() {
+        public String getLastName() {
             return LastName;
         }
 
-        public static String getBirth() {
+        public String getBirth() {
             return birth;
         }
 
-        public static String getGender() {
+        public String getGender() {
             return gender;
         }
 
-        public static String getMaritalStatus() {
+        public String getMaritalStatus() {
             return MaritalStatus;
         }
 
-        public static int getPhone() {
+        public int getPhone() {
             return phone;
         }
 
-        public static String getCity() {
+        public String getCity() {
             return city;
         }
 
-        public static List<String> getAllergies(){
+        public List<String> getAllergies(){
             return allergies;
         }
 
-        public static List<String> getSurgeries(){
+        public List<String> getSurgeries(){
             return surgeries;
         }
 
         //Set methods
-        public static void setFirstName(String FirstName) {
-            PatientInformation.FirstName = FirstName;
+        public void setUserType(String UserType) {
+            this.UserType = UserType;
         }
 
-        public static void setMiddleName(String MiddleName) {
-            PatientInformation.MiddleName = MiddleName;;
+        public void setEmail(String email) {
+            this.email = email;
         }
 
-        public static void setLastName(String LastName) {
-            PatientInformation.LastName = LastName;;
+        public void setPassword(String password) {
+            this.password = password;
         }
 
-        public static void setBirth(String birth) {
-            PatientInformation.birth = birth;;
+        public void setFirstName(String FirstName) {
+            this.FirstName = FirstName;
         }
 
-        public static void setGender(String gender) {
-            PatientInformation.gender = gender;;
+        public void setMiddleName(String MiddleName) {
+            this.MiddleName = MiddleName;;
         }
 
-        public static void setMaritalStatus(String MaritalStatus) {
-            PatientInformation.MaritalStatus = MaritalStatus;;
+        public void setLastName(String LastName) {
+            this.LastName = LastName;;
         }
 
-        public static void setPhone(int phone) {
-            PatientInformation.phone = phone;;
+        public void setBirth(String birth) {
+            this.birth = birth;;
         }
 
-        public static void setCity(String city) {
-            PatientInformation.city = city;;
+        public void setGender(String gender) {
+            this.gender = gender;;
+        }
+
+        public void setMaritalStatus(String MaritalStatus) {
+            this.MaritalStatus = MaritalStatus;;
+        }
+
+        public void setPhone(int phone) {
+            this.phone = phone;;
+        }
+
+        public void setCity(String city) {
+            this.city = city;;
         }
 
         //Patients List
@@ -122,7 +130,7 @@ public class Patient {
 
         //Method to add a new patient user
         public static void addPatient(String UserType, String email, String password, Model model) {
-            patientsList.add(new PatientInformation(UserType, email, password));
+            //patientsList.add(new PatientInformation(UserType, email, password));
             System.out.println("\n\n------ PATIENTS LIST ------");
             for (int i = 0; i < patientsList.size(); i++) {
 
