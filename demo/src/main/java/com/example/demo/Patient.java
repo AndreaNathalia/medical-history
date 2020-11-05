@@ -4,9 +4,9 @@ import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Patient {
-    static class PatientInformation {
+import java.io.Serializable;
+public class Patient implements Serializable{
+    static class PatientInformation implements Serializable {
         //Attributes
         public String UserType;
         public String email;
@@ -190,6 +190,25 @@ public class Patient {
             model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
 
             return "not true";
+        }
+        public static PatientInformation returner (String email, String password){
+            String test = email;
+            String test1 = password;
+            for(int i = 0; i < patientsList.size(); i++){
+                String test2 = patientsList.get(i).getEmail();
+                String test3 = patientsList.get(i).getPassword();
+                if(test.equals(test2)){
+                    //System.out.println(patientsList.get(i).getEmail());
+                    //System.out.println(patientsList.get(i).getPassword());
+                    if (test3.equals(test1)){
+                        //System.out.println(patientsList.get(i).getEmail());
+                        //System.out.println(patientsList.get(i).getPassword());
+
+                        return patientsList.get(i);
+                    };
+                };
+            };
+            return null;
         }
         public static  void adder (PatientInformation NewUser){
             int key = 0;

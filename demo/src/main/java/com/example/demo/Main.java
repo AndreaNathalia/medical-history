@@ -52,8 +52,14 @@ public class Main {
 
         //Save patient new user ----(not yet)----
         if(UserType.equals("patient")){
-            //Patient.PatientInformation.addPatient(UserType, email, password, model);
-            System.out.println("added");
+            newUser.setUserType(UserType);
+            newUser.setEmail(email);
+            newUser.setPassword(password);
+            Patient.PatientInformation.adder(newUser);
+            FileOutputStream fos = new FileOutputStream("e.tmp");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(Patient.PatientInformation.patientsList);
+            oos.close();
         }
         return "LogIn";
     }
@@ -66,6 +72,10 @@ public class Main {
         ObjectInputStream ois = new ObjectInputStream(fis);
         Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
         ois.close();
+        FileInputStream fi = new FileInputStream("e.tmp");
+        ObjectInputStream oi = new ObjectInputStream(fi);
+        Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) oi.readObject();
+        oi.close();
 
         //Doctor type
         if(UserType.equals("doctor")){
@@ -81,19 +91,16 @@ public class Main {
         //Patient type
         if(UserType.equals("patient")){
             //Set/modify type, email and pwd
-            newUser.setUserType(UserType);
-            newUser.setEmail(email);
-            newUser.setPassword(password);
 
-            return "PatientProfile";
 
-            //Check pwd and email
-//            if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
-//                return "PatientProfile";
+//            Check pwd and email
+            if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
+                newUser = Patient.PatientInformation.returner(email,password);
+                return "PatientProfile";
 
-//            } else{
-//                return "LogIn";
-//            }
+            } else{
+                return "LogIn";
+            }
         }
         return "LogIn";
     }
@@ -146,7 +153,7 @@ public class Main {
 
     //POST set/modifications in patient information
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, @RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model){
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, @RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
         newUser.setFirstName(FirstName);
         newUser.setMiddleName(MiddleName);
         newUser.setLastName(LastName);
@@ -163,6 +170,12 @@ public class Main {
         newUser.surgeries.add(surgery2);
         newUser.surgeries.add(surgery3);
         newUser.surgeries.add(surgery4);
+
+        Patient.PatientInformation.adder(newUser);
+        FileOutputStream fos = new FileOutputStream("e.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Patient.PatientInformation.patientsList);
+        oos.close();
 
         model.addAttribute("FirstName", FirstName);
         model.addAttribute("MiddleName", MiddleName);
@@ -243,7 +256,8 @@ public class Main {
     @RequestMapping(value = "/access", method = RequestMethod.POST)
     public String access(@ModelAttribute(name = "patient")  String patient, Model model){
         for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
-            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model) == "True"){
+            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model).equals("True")){
+                newUser = Patient.PatientInformation.returner(patient,Doctor.DoctorInformation.patients.get(i));
                 return "PatientProfile";
             }
         }
