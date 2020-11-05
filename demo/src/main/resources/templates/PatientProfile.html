@@ -10,18 +10,58 @@
 </head>
 
 <body>
-    <h2 class="h2-Med">Medical History</h2>
+    <!--    NAVBAR     -->
     <div>
-        <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
-        <label class="label-name" th:text="${FullName}"></label>
+        <header>
+            <section class="wrapper">
 
-        <form th:action="@{/patientprofile}" method="get">
-            <button th:name="information" value="PatientInformation" class="button-history">Medical History</button>
-            <button th:name="information" value="PatientsMedications" class="button-medications">Medications</button>
-            <button th:name="information" value="ManageAccess" class="button-access">Manage Access</button>
-            <button class="button-consult">Schedule Consultation</button>
+
+                <form th:action="@{/patientprofile}" method="get">
+                    <nav>
+                        <ul>
+                            <li><img src="images/LogoAzul.png" class="img-logo"></li>
+                            <li><button th:name="information" value="PatientInformation">Medical History</button></li>
+                            <li><button th:name="information" value="PatientsMedications">Medications</button></li>
+                            <li><button th:name="information" value="ManageAccess">Manage Access</button></li>
+                            <li><button>Schedule Consultation</button></li>
+                        </ul>
+                    </nav>
+                </form>
+            </section>
+        </header>
+    </div>
+
+    <!--    NAME-EDIT     -->
+    <div>
+        <img id="profile" class="img-user" src="https://image.flaticon.com/icons/png/512/44/44948.png">
+        <label for="profile" class="label-name" th:text="${FullName}">Andrea Reyes</label>
+        <form th:action="@{/editpatientinformation}" method="get">
+            <button type="submit" class="button-editProfile">Edit Profile</button>
         </form>
 
+    </div>
+
+    <!--    INFO     -->
+    <div>
+        <label class="label-DoctorName" th:text="${FirstName}"></label>
+        <label class="hr-FirstName">____________________________________________</label>
+        <label class="label-FirstName">First Name</label>
+
+        <label class="label-DoctorLastName" th:text="${LastName}"></label>
+        <label class="hr-LastName">____________________________________________</label>
+        <label class="label-LastName">Last Name</label>
+
+        <label class="label-DoctorAge"th:text="${Age}"></label>
+        <label class="hr-Age">____________________________________________</label>
+        <label class="label-Age">Age </label>
+
+        <label class="label-DoctorSpeciality"th:text="${Speciality}"></label>
+        <label class="hr-speciality">____________________________________________</label>
+        <label class="label-speciality"> Speciality </label>
+        <label class="label-DoctorSpeciality"th:text="${patientsTreated}"></label>
+        <label class="label-ClinicAddress"th:text="${Address}"></label>
+        <label class="hr-Address">____________________________________________</label>
+        <label class="label-address"> Clinic address </label>
     </div>
 
 </body>

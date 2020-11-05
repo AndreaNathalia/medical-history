@@ -32,11 +32,11 @@ public class Patient {
         }
 
         //Get methods
-        public  String getUserType() {
+        public String getUserType() {
             return UserType;
         }
 
-        public  String getEmail() {
+        public String getEmail() {
             return email;
         }
 

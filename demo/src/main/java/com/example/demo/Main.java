@@ -94,7 +94,7 @@ public class Main {
     @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
     public String PatientProfile(@RequestParam(name = "information") String information){
         if(information.equals("PatientInformation")){
-            return "PatientInformation";
+            return "SeePatientInformation";
         }
 
         if(information.equals("PatientsMedications")){
@@ -106,6 +106,12 @@ public class Main {
         }
 
         return "PatientProfile";
+    }
+
+    //Get to edit patient info
+    @RequestMapping(value = "/editpatientinformation", method = RequestMethod.GET)
+    public String EditPatientInfo(){
+        return "PatientInformation";
     }
 
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
@@ -159,7 +165,7 @@ public class Main {
             System.out.println("Surgeries: " + Patient.PatientInformation.patientsList.get(i).getSurgeries());
         }
         System.out.println("------------------------------------");
-        return "SeePatientInformation";
+        return "PatientProfile";
     }
 
     @RequestMapping(value = "/getpatientprofile", method = RequestMethod.GET)
