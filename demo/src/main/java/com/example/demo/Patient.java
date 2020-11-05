@@ -208,6 +208,12 @@ public class Patient {
                 patientsList.add(NewUser);
             }
 
+            System.out.println("\n\n------ PATIENTS LIST ------");
+            for(int x = 0; x < patientsList.size(); x++){
+                System.out.println("User Type: " + patientsList.get(x).getUserType());
+                System.out.println("Email: " + patientsList.get(x).getEmail());
+                System.out.println("Password: " + patientsList.get(x).getPassword());
+            }
 
         }
 

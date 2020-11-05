@@ -250,13 +250,8 @@ public class Main {
         return "PatientsEditor";
     };
     @RequestMapping(value = "/testeradder", method = RequestMethod.GET)
-    public void testeradder() throws IOException, ClassNotFoundException {
-
+    public String testeradder() throws IOException, ClassNotFoundException {
         Patient.PatientInformation.adder(newUser);
-        FileInputStream fis = new FileInputStream("e.tmp");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) ois.readObject();
-
-
+        return "PatientProfile";
     }
 }
