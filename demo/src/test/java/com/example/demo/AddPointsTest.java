@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class AddPointsTest {
-    Doctor.DoctorInformation doc = new Doctor.DoctorInformation("Doctor", "doc@mail.com", "Pass123");
+    Doctor.DoctorInformation doc = new Doctor.DoctorInformation();
 
     @DataProvider(name = "testPoints")
     public Object[][] Points() {

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DoctorTest {
 
-    Doctor.DoctorInformation doc = new Doctor.DoctorInformation("Doctor", "doc@mail.com", "Pass123");
+    Doctor.DoctorInformation doc = new Doctor.DoctorInformation();
 
     @Test
     @Parameters({"NewPoints"})
