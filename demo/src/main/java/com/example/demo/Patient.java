@@ -191,26 +191,24 @@ public class Patient {
 
             return "not true";
         }
-        public static String notchecker (String email,Model model){
-            String test = email;
+        public static  void adder (PatientInformation NewUser){
+            int key = 0;
+            for (int i= 0; i< patientsList.size();i++){
+                String useremail = NewUser.getEmail();
+                if (useremail.equals(patientsList.get(i).getEmail()) ){
+                    if(NewUser.getPassword().equals(patientsList.get(i).getPassword())){
+                        patientsList.set(i,NewUser);
+                        key = 1;
+                    }
+                    patientsList.set(i,NewUser);
+                    key = 1;
+                }
+            }
+            if (key == 0){
+                patientsList.add(NewUser);
+            }
 
-//            System.out.println("ooooooooooooooooo"+ patientsList.get(0).getEmail()+patientsList.get(1).getEmail()+patientsList.get(0).getPassword()+patientsList.get(1).getPassword());
-            int e = 0;
-            for(int i = 0; i < patientsList.size(); i++){
-                String test2 = patientsList.get(i).getEmail();
 
-                if(test.equals(test2)){
-                    //System.out.println(patientsList.get(i).getEmail());
-                    //System.out.println(patientsList.get(i).getPassword());
-                    e = i;
-                    return "True";
-                };
-            };
-            model.addAttribute("FirstName", patientsList.get(e).getFirstName());
-            model.addAttribute("LastName", patientsList.get(e).getLastName());
-            model.addAttribute("FullName", patientsList.get(e).getFirstName()+" "+ patientsList.get(e).getLastName());
-
-            return "not true";
         }
 
     }
