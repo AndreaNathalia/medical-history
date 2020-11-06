@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.print.Doc;
 import java.io.*;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Main {
     //Main (web page/homepage)
     @RequestMapping(value="/main", method=RequestMethod.GET)
     public String mainPage(){
-        return "Main";
+        return "main";
     }
 
     //GET Log In
@@ -49,7 +50,7 @@ public class Main {
             newDoctor.setUserType(UserType);
             newDoctor.setEmail(email);
             newDoctor.setPassword(password);
-
+            Doctor.DoctorInformation.adder(newDoctor);
             FileOutputStream fos = new FileOutputStream("t.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
@@ -88,6 +89,7 @@ public class Main {
         if(UserType.equals("doctor")){
             //Check pwd and email
             if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
+                newDoctor = Doctor.DoctorInformation.returner(email,password);
                 return "DoctorProfile";
 
             } else{

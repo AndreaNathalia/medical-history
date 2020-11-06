@@ -140,5 +140,35 @@ public class Doctor implements Serializable{
 
             return "not true";
         }
+        public static void adder(DoctorInformation NewUser) {
+            int hola = 0;
+            for (int i = 0; i < doctorsList.size(); i++) {
+                String useremail = NewUser.getEmail();
+                if (useremail.equals(doctorsList.get(i).getEmail())) {
+                    if (NewUser.getPassword().equals(doctorsList.get(i).getPassword())) {
+                        doctorsList.set(i, NewUser);
+                        hola = 1;
+                    }
+
+                }
+            }
+            if (hola == 0) {
+                doctorsList.add(NewUser);
+            }
+        }
+        public static DoctorInformation returner(String email, String password){
+            String test = email;
+            String test1 = password;
+            for(int i = 0; i < doctorsList.size(); i++){
+                String test2 = doctorsList.get(i).getEmail();
+                String test3 = doctorsList.get(i).getPassword();
+                if(test.equals(test2)){
+                    if (test3.equals(test1)){
+                        return doctorsList.get(i);
+                    };
+                };
+            };
+            return null;
+        }
     }
 }
