@@ -19,10 +19,10 @@ public class Patient implements Serializable{
         public String MaritalStatus;
         public int phone;
         public String city;
+        public int allowedDoctorsLength;
         public List<String> allergies = new ArrayList<String>();
         public List<String> surgeries = new ArrayList<String>();
-        static List<String> allowedDoctorsNames = new ArrayList<>();
-        static List<String> allowedDoctorsSpecialities = new ArrayList<>();
+        static List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
 
         //Constructor
         PatientInformation() { }
@@ -147,13 +147,17 @@ public class Patient implements Serializable{
         };
 
         public static void addDoctors(Doctor.DoctorInformation newDoc, Model model){
-            allowedDoctorsNames.add(newDoc.getEmail());
-            allowedDoctorsSpecialities.add(newDoc.getUserType());
-            int allowedDoctorsLength = allowedDoctorsNames.size();
-
-            model.addAttribute("allowedDoctorsNames", allowedDoctorsNames);
-            model.addAttribute("allowedDoctorsSpecialities", allowedDoctorsSpecialities);
-            model.addAttribute("allowedDoctorsLength", allowedDoctorsLength);
+            allowedDoctors.add(newDoc);
+            model.addAttribute("allowedDoctors", allowedDoctors);
+        }
+        public static void deleteDoctors(Doctor.DoctorInformation newDoc){
+            int allowedDoctorsLength = allowedDoctors.size();
+            String email = newDoc.getEmail();
+            for(int i=0; i < allowedDoctorsLength; i++){
+                if(email.equals(allowedDoctors.get(i).getEmail())){
+                    allowedDoctors.remove(newDoc);
+                }
+            }
         }
 
         public static String checker(String email, String password,Model model){

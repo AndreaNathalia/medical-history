@@ -37,10 +37,10 @@
         <div id="doctors">
             <div class="grid-container">
                 <div class="grid-item">
-                    img
+                    Name
                 </div>
                 <div class="grid-item">
-                    Name
+                    Contact
                 </div>
                 <div class="grid-item" >
                     Speciality
@@ -50,23 +50,38 @@
                 </div>
             </div>
 
-            <option th:each="doc : ${allowedDoctorsLength}">
+            <tr th:each="doctor : ${allowedDoctors}">
                 <div id="doc" class="grid-container">
-                    <div class="grid-item">
-                        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="docImg">
-                    </div>
                     <div class="grid-item" id="DoctorsName">
-                        <p th:text="${allowedDoctorsNames[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                        <td th:text="${doctor.name}"></td>
+                    </div>
+                    <div class="grid-item" id="DoctorsEmail">
+                        <td th:text="${doctor.email}"></td>
                     </div>
                     <div class="grid-item" id="DoctorsSpec">
-                        <p th:text="${allowedDoctorsSpecialities[0]}" th:unless="${allowedDoctorsLength == 0}"></p>
+                        <td th:text="${doctor.specialty}"></td>
                     </div>
+<!-----------------------------------DELETE------------------------>
                     <div class="grid-item">
-                        <button>x</button>
+                        <button id="delPop" onclick="document.getElementById('id01').style.display='block'">x</button>
+                        <div id="id01" class="modal">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <form class="modal-content" th:action="@{deleteDoctorAccess}">
+                                <div class="container">
+                                    <h1>Delete Doctor</h1>
+                                    <p>Are you sure you want to delete this doctor?</p>
+                                    <td th:text="${doctor.email}" th:with="email=${doctor.email}"></td>
+
+                                    <div class="clearFix">
+                                            <button name="subButton" th:value="${doctor.email}" type="submit" class="deleteBtn" id="delete">Delete</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
-            </option>
-<!--            end of for loop-->
+            </tr>
         </div>
     </div>
 
@@ -79,6 +94,14 @@
             } else {
                 newDoctor.style.display = "none";
                 btn.style.display = "inline";
+            }
+        }
+
+        let modal = document.getElementById('id01');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
         }
     </script>

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.databind.JsonSerializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -232,7 +233,7 @@ public class Main {
 
     //POST manage access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.POST)
-    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail) throws IOException, ClassNotFoundException {
+    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail, @RequestParam(name="deleteBtn", defaultValue="null", required = false) String deleteEmail) throws IOException, ClassNotFoundException {
         String nid = Patient.PatientInformation.indexfinder(mymail);
         Doctor.DoctorInformation.patientadder(nid,email);
         FileInputStream fis = new FileInputStream("t.tmp");
@@ -247,6 +248,16 @@ public class Main {
             }
         }
         return "ManageAccess";
+    }
+
+    @RequestMapping(value = "/deleteDoctorAccess", method = RequestMethod.GET)
+    public String deleteDoctorAccess(@RequestParam(name="subButton")String email) {
+        for(int i=0; i< Patient.PatientInformation.allowedDoctors.size(); i++){
+            if(email.equals(Patient.PatientInformation.allowedDoctors.get(i).getEmail())){
+                Patient.PatientInformation.deleteDoctors(Patient.PatientInformation.allowedDoctors.get(i));
+            }
+        }
+        return "redirect:/ManageAccess";
     }
 
     //GET to patients editor
