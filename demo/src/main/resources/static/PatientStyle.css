@@ -53,7 +53,7 @@ nav ul li:hover {
 /* NAME-EDIT */
 .img-user{
     position: absolute;
-    top: 250px;
+    top: 270px;
     left: 250px;
     height: 140px;
     width: 140px;
@@ -62,6 +62,7 @@ nav ul li:hover {
 
 .img-logo{
     position: relative;
+    top:2px;
     height: 55px;
     width: 125px;
 }
@@ -75,113 +76,119 @@ nav ul li:hover {
 
 .button-editProfile{
     position: absolute;
-    top: 440px;
+    top: 430px;
     left: 235px;
     width: 170px;
+    border: none;
+    background: #3C4F6D;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.button-editProfile:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
 }
 
 /* INFO */
 .label-DoctorName{
     position: absolute;
-    top: 180px;
+    top: 230px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-FirstName{
     position: absolute;
-    top: 190px;
+    top: 240px;
     left: 640px;
 }
 
 .label-FirstName{
     position: absolute;
-    top: 210px;
+    top: 260px;
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
 }
 
 .label-DoctorLastName{
     position: absolute;
-    top: 250px;
+    top: 300px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-LastName{
     position: absolute;
-    top: 260px;
+    top: 310px;
     left: 640px;
 }
 
 .label-LastName{
     position: absolute;
-    top: 280px;
+    top: 330px;
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
 }
 
 .label-DoctorAge{
     position: absolute;
-    top: 320px;
+    top: 370px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-Age{
     position: absolute;
-    top: 330px;
+    top: 380px;
     left: 640px;
 }
 
 .label-Age{
     position: absolute;
-    top: 350px;
+    top: 400px;
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
 }
 
 .label-DoctorSpeciality{
     position: absolute;
-    top: 390px;
+    top: 440px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-speciality{
     position: absolute;
-    top: 400px;
+    top: 450px;
     left: 640px;
 }
 
 .label-speciality{
     position: absolute;
-    top: 420px;
-    left: 650px;
-    font-size: 16px;
-    color: gray;
-}
-
-.label-ClinicAddress{
-    position: absolute;
-    top: 460px;
-    left: 650px;
-    font-size: 20px;
-}
-
-.hr-Address{
-    position: absolute;
     top: 470px;
-    left: 640px;
-}
-
-.label-address{
-    position: absolute;
-    top: 490px;
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
 }
