@@ -8,10 +8,11 @@
     <link href="../static/ManageAccessStyle.css" th:href="@{/ManageAccessStyle.css}" rel="stylesheet" />
 </head>
 <body>
+    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
+    <a th:href="@{/getpatientprofile}" class="exit"></a>
+
     <div id="headTitle">
-<!--        <img src="../static/images/user.png" id="userImg">-->
-        <img src="https://image.flaticon.com/icons/png/512/44/44948.png" id="userImg">
-        <h2 id="title">Manage Access</h2>
+<!--        <h2 id="title">Manage Access</h2>-->
     </div>
 
     <button id="addBtn" onclick="AddNewDoc()">Invite a Doctor</button>
