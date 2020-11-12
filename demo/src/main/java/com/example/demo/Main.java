@@ -91,6 +91,11 @@ public class Main {
             //Check pwd and email
             if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
                 newDoctor = Doctor.DoctorInformation.returner(email,password);
+                model.addAttribute("name", newDoctor.name);
+                model.addAttribute("LastName", newDoctor.LastName);
+                model.addAttribute("age", newDoctor.age);
+                model.addAttribute("specialty", newDoctor.specialty);
+                model.addAttribute("clinicAddress", newDoctor.clinicAddress);
                 return "DoctorProfile";
 
             } else{
@@ -188,6 +193,7 @@ public class Main {
         newUser.surgeries.add(surgery3);
         newUser.surgeries.add(surgery4);
 
+        //Data base
         Patient.PatientInformation.adder(newUser);
         FileOutputStream fos = new FileOutputStream("e.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -212,7 +218,7 @@ public class Main {
         model.addAttribute("surgery3", surgery3);
         model.addAttribute("surgery4", surgery4);
 
-        //PRINTS Just to check in the terminal that the data is being saved
+        //PRINTS Just to check in the terminal if the data is being saved
         System.out.println("\n\n------ PATIENT INFORMATION ------");
         System.out.println("First Name: " + newUser.getFirstName());
         System.out.println("Middle Name: " + newUser.getMiddleName());
@@ -272,6 +278,47 @@ public class Main {
             }
         }
         return "redirect:/ManageAccess";
+    }
+
+    //GET to doctor profile
+    @RequestMapping(value = "/getdoctorprofile", method = RequestMethod.GET)
+    public String getDoctorProfile(Model model){
+        model.addAttribute("name", newDoctor.name);
+        model.addAttribute("LastName", newDoctor.LastName);
+        model.addAttribute("age", newDoctor.age);
+        model.addAttribute("specialty", newDoctor.specialty);
+        model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        return "DoctorProfile";
+    }
+
+    //GET to edit doctor info
+    @RequestMapping(value = "/editdoctorinformation", method = RequestMethod.GET)
+    public String EditDoctortInfo(){
+        return "EditDocProfile";
+    }
+
+    //POST set/modifications in patient information
+    @RequestMapping(value = "/doctorinformation", method = RequestMethod.POST)
+    public String PatientInformation(@RequestParam(name = "name") String name, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "age") int age, @RequestParam(name = "specialty") String specialty, @RequestParam(name = "clinicAddress") String clinicAddress, Model model) throws IOException, ClassNotFoundException {
+        newDoctor.setName(name);
+        newDoctor.setLastName(LastName);
+        newDoctor.setAge(age);
+        newDoctor.setSpecialty(specialty);
+        newDoctor.setClinicAddress(clinicAddress);
+
+        //Data base
+        Doctor.DoctorInformation.adder(newDoctor);
+        FileOutputStream fos = new FileOutputStream("t.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+        oos.close();
+
+        model.addAttribute("name", newDoctor.name);
+        model.addAttribute("LastName", newDoctor.LastName);
+        model.addAttribute("age", newDoctor.age);
+        model.addAttribute("specialty", newDoctor.specialty);
+        model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        return "DoctorProfile";
     }
 
     //GET to patients editor

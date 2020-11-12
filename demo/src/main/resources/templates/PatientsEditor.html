@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Doctor Profile</title>
+    <title>Patients Editor</title>
 
     <!--  CSS  -->
     <link href="../static/DoctorStyle.css" th:href="@{/DoctorStyle.css}" rel="stylesheet" />
@@ -10,32 +10,21 @@
 </head>
 
 <body>
-    <h2 class="h2-Med">Medical History</h2>
-    <div>
-        <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
-        <label class="label-name">Dr. Name LastName</label>
-        <label class="label-rating">Rating:</label>
+    <img th:src="@{/images/LogoBlanco.png}" class="img-BigLogo">
+    <!--    <img src="images/LogoBlanco.png" class="img-logo">-->
 
-        <div class="star-rating">
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-        </div>
-
-        <button class="button-editProfile">Edit Profile</button>
+    <div class="div-Information">
+        <h2 class="h2-Information">MY PATIENTS</h2>
     </div>
 
+    <!--    PATIENTS LIST     -->
     <div class="div-listPatients">
         <form th:action="@{/access}" method="post">
-        <input type="text" id="patient" th:name="patient" placeholder="email de paciente" class="input-email">
+        <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
         </form>
     </div>
-    <form th:action="@{/login}" method="post">
 
-
-
+    <a th:href="@{/getdoctorprofile}" class="close"></a>
 
 </body>
 </html>

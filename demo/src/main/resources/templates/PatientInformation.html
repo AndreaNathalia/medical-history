@@ -7,6 +7,9 @@
     <!--  CSS  -->
     <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
 
+    <!--  JavaScrip  -->
+    <script type="text/javascript" src="../static/javaScript.js"></script>
+
 </head>
 
 <body>
@@ -62,7 +65,7 @@
             <input type="text" id="city" th:name="city" class="input-city"/>
             <label for="city" class="label-city">City</label><br>
 
-            <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1"/>
+            <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1" disabled/>
 
             <input type="text" id="allergies2" th:name="allergies2" class="input-allergies2"/>
 

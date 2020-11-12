@@ -1,7 +1,90 @@
-.h2-Med{
+/* DOCTOR PROFILE */
+/* NAVBAR */
+* {
+    padding: 0;
+    margin: 0;
+}
+p {
+    margin-bottom: 20px;
+}
+.wrapper {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+header {
+    background: #0C182B;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.95;
+}
+
+nav {
+    float: left; /* Desplazamos el nav hacia la izquierda */
+}
+nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+}
+nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+nav ul li button {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 18px;
+
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 16px;
+    outline: none;
+}
+nav ul li:hover {
+    background: #2A878F;
+}
+.contenido {
+    padding-top: 80px;
+}
+
+.img-logo{
+    position: relative;
+    top:2px;
+    left: 0px;
+    height: 55px;
+    width: 125px;
+}
+
+/* EDIT PROFILE */
+.button-editProfile{
     position: absolute;
-    top: 80px;
-    left: 40%;
+    top: 440px;
+    left: 235px;
+    width: 170px;
+    border: none;
+    background: #3C4F6D;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-editProfile:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+    outline: none;
 }
 
 img{
@@ -12,6 +95,7 @@ img{
     width: 140px;
 }
 
+/* INFO */
 .label-name{
     position: absolute;
     top:400px;
@@ -21,9 +105,11 @@ img{
 
 .label-rating{
     position: absolute;
-    top:440px;
+    top:400px;
     left: 237px;
     font-size: 18px;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .star-rating {
@@ -32,8 +118,9 @@ img{
     selected: #F39C12;
     display: inline-block;
     position: absolute;
-    top: 440px;
-    left: 295px;
+    top: 400px;
+    left: 300px;
+    font-family: Helvetica;
 }
 
 .label-DoctorName{
@@ -41,6 +128,7 @@ img{
     top: 180px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-FirstName{
@@ -55,6 +143,8 @@ img{
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .label-DoctorLastName{
@@ -62,6 +152,7 @@ img{
     top: 250px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-LastName{
@@ -76,6 +167,8 @@ img{
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .label-DoctorAge{
@@ -83,6 +176,7 @@ img{
     top: 320px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-Age{
@@ -97,6 +191,8 @@ img{
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .label-DoctorSpeciality{
@@ -104,6 +200,7 @@ img{
     top: 390px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-speciality{
@@ -118,6 +215,8 @@ img{
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .label-ClinicAddress{
@@ -125,6 +224,7 @@ img{
     top: 460px;
     left: 650px;
     font-size: 20px;
+    font-family: Helvetica;
 }
 
 .hr-Address{
@@ -139,6 +239,8 @@ img{
     left: 650px;
     font-size: 16px;
     color: gray;
+    font-family: Helvetica;
+    color: #2A878F;
 }
 
 .div-listPatients{
@@ -147,9 +249,132 @@ img{
     left: 690px;
 }
 
-.button-editProfile{
+/* PATIENTS EDITOR */
+.img-BigLogo{
     position: absolute;
-    top: 480px;
-    left: 235px;
-    width: 170px;
+    top: 26px;
+    left: 32px;
+    width: 238px;
+    height: 100px;
+}
+
+.div-Information{
+    position: relative;
+    top: 150px;
+    width: 1260px;
+    left: 8px;
+    height: 30px;
+    background-color: #0C182B;
+}
+
+.h2-Information{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.close {
+    position: relative;
+    top: -5px;
+    left: 95.5%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #FF243B;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+/* EDIT DOC PROFILE */
+.h2-edit{
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 20px;
+}
+
+.input-DoctorName{
+    position: absolute;
+    top: 180px;
+    left: 640px;
+    width: 350px;
+    font-size: 20px;
+    font-family: Helvetica;
+}
+
+.input-DoctorLastName{
+    position: absolute;
+    top: 250px;
+    left: 640px;
+    width: 350px;
+    font-size: 20px;
+    font-family: Helvetica;
+}
+
+.input-DoctorAge{
+    position: absolute;
+    top: 320px;
+    left: 640px;
+    width: 350px;
+    font-size: 20px;
+    font-family: Helvetica;
+}
+
+.input-DoctorSpeciality{
+    position: absolute;
+    top: 390px;
+    left: 640px;
+    width: 350px;
+    font-size: 20px;
+    font-family: Helvetica;
+}
+
+.input-ClinicAddress{
+    position: absolute;
+    top: 460px;
+    left: 640px;
+    width: 350px;
+    font-size: 20px;
+    font-family: Helvetica;
+}
+
+.button-Save{
+    position: absolute;
+    top: 540px;
+    left: 840px;
+    width: 150px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 5px;
+    border: 2.5px solid #494949 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-Save:hover {
+    color: #20bf6b !important;
+    border-radius: 50px;
+    border-color: #20bf6b !important;
+    transition: all 0.3s ease 0s;
 }
