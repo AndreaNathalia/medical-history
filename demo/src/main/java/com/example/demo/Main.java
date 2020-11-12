@@ -173,9 +173,9 @@ public class Main {
         return "PatientInformation";
     }
 
-    //POST set/modifications in patient information
+    //POST set/modifications in patient information (PATIENT SIDE)
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, @RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, Model model) throws IOException, ClassNotFoundException {
         newUser.setFirstName(FirstName);
         newUser.setMiddleName(MiddleName);
         newUser.setLastName(LastName);
@@ -184,14 +184,6 @@ public class Main {
         newUser.setMaritalStatus(MaritalStatus);
         newUser.setPhone(phone);
         newUser.setCity(city);
-        newUser.allergies.add(allergies1);
-        newUser.allergies.add(allergies2);
-        newUser.allergies.add(allergies3);
-        newUser.allergies.add(allergies4);
-        newUser.surgeries.add(surgery1);
-        newUser.surgeries.add(surgery2);
-        newUser.surgeries.add(surgery3);
-        newUser.surgeries.add(surgery4);
 
         //Data base
         Patient.PatientInformation.adder(newUser);
@@ -209,14 +201,6 @@ public class Main {
         model.addAttribute("MaritalStatus", newUser.MaritalStatus);
         model.addAttribute("phone", newUser.phone);
         model.addAttribute("city", newUser.city);
-        model.addAttribute("allergies1", allergies1);
-        model.addAttribute("allergies2", allergies2);
-        model.addAttribute("allergies3", allergies3);
-        model.addAttribute("allergies4", allergies4);
-        model.addAttribute("surgery1", surgery1);
-        model.addAttribute("surgery2", surgery2);
-        model.addAttribute("surgery3", surgery3);
-        model.addAttribute("surgery4", surgery4);
 
         //PRINTS Just to check in the terminal if the data is being saved
         System.out.println("\n\n------ PATIENT INFORMATION ------");
@@ -297,7 +281,7 @@ public class Main {
         return "EditDocProfile";
     }
 
-    //POST set/modifications in patient information
+    //POST set/modifications in doctor information
     @RequestMapping(value = "/doctorinformation", method = RequestMethod.POST)
     public String PatientInformation(@RequestParam(name = "name") String name, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "age") int age, @RequestParam(name = "specialty") String specialty, @RequestParam(name = "clinicAddress") String clinicAddress, Model model) throws IOException, ClassNotFoundException {
         newDoctor.setName(name);
@@ -327,6 +311,48 @@ public class Main {
         if(information.equals("PatientsEditor")){
             return "PatientsEditor";
         }
+        return "DoctorProfile";
+    }
+
+    //GET to edit patient info (DOCTOR SIDE)
+    @RequestMapping(value = "/doceditpatientinformation", method = RequestMethod.GET)
+    public String DocEditPatientInfo(){
+        return "EditPatientInfo";
+    }
+
+    //POST set/modifications in patient information (DOCTOR SIDE)
+    @RequestMapping(value = "/doctorediting", method = RequestMethod.POST)
+    public String DoctorEditingPatinetInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
+        /*newUser.allergies.add(allergies1);
+        newUser.allergies.add(allergies2);
+        newUser.allergies.add(allergies3);
+        newUser.allergies.add(allergies4);
+        newUser.surgeries.add(surgery1);
+        newUser.surgeries.add(surgery2);
+        newUser.surgeries.add(surgery3);
+        newUser.surgeries.add(surgery4);
+
+        //Data base
+        Patient.PatientInformation.adder(newUser);
+        FileOutputStream fos = new FileOutputStream("e.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Patient.PatientInformation.patientsList);
+        oos.close();
+
+        model.addAttribute("allergies1", allergies1);
+        model.addAttribute("allergies2", allergies2);
+        model.addAttribute("allergies3", allergies3);
+        model.addAttribute("allergies4", allergies4);
+        model.addAttribute("surgery1", surgery1);
+        model.addAttribute("surgery2", surgery2);
+        model.addAttribute("surgery3", surgery3);
+        model.addAttribute("surgery4", surgery4);*/
+
+        model.addAttribute("name", newDoctor.name);
+        model.addAttribute("LastName", newDoctor.LastName);
+        model.addAttribute("age", newDoctor.age);
+        model.addAttribute("specialty", newDoctor.specialty);
+        model.addAttribute("clinicAddress", newDoctor.clinicAddress);
         return "DoctorProfile";
     }
 

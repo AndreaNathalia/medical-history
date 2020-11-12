@@ -14,7 +14,7 @@
 
 <body>
     <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
-<!--    <img src="images/LogoBlanco.png" class="img-logo">-->
+    <!--    <img src="images/LogoBlanco.png" class="img-logo">-->
 
     <div class="div-pInformation">
         <h2 class="h2-pInformation">PATIENT INFORMATION</h2>
@@ -29,27 +29,27 @@
     </div>
 
     <div class="div-Info">
-        <form th:action="@{/patientinformation}" method="post">
-            <input type="text" id="FirstName" th:name="FirstName"  class="input-FirstName"/>
+        <form th:action="@{/doctorediting}" method="post">
+            <input type="text" id="FirstName" th:name="FirstName"  class="input-FirstName" disabled/>
             <label for="FirstName" class="label-FirstName">First Name</label><br>
 
-            <input type="text" id="MiddleName" th:name="MiddleName" class="input-MiddleName"/>
+            <input type="text" id="MiddleName" th:name="MiddleName" class="input-MiddleName" disabled/>
             <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
 
-            <input type="text" id="LastName" th:name="LastName" class="input-LastName"/>
+            <input type="text" id="LastName" th:name="LastName" class="input-LastName" disabled/>
             <label for="LastName" class="label-LastName">Last Name</label><br>
 
-            <input type="text" id="birth" th:name="birth" class="input-birth"/>
+            <input type="text" id="birth" th:name="birth" class="input-birth" disabled/>
             <label for="birth" class="label-birth">Birth</label><br>
 
-            <select id="gender" th:name="gender" class="select-gender">
+            <select id="gender" th:name="gender" class="select-gender" disabled>
                 <option>Select</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
             <label for="gender" class="label-gender">Gender</label><br>
 
-            <select id="MaritalStatus" th:name="MaritalStatus" class="select-MaritalStatus">
+            <select id="MaritalStatus" th:name="MaritalStatus" class="select-MaritalStatus" disabled>
                 <option>Select</option>
                 <option value="single">Single</option>
                 <option value="married">Married</option>
@@ -59,27 +59,27 @@
             </select>
             <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
 
-            <input type="text" id="phone" th:name="phone" class="input-phone"/>
+            <input type="text" id="phone" th:name="phone" class="input-phone" disabled/>
             <label for="phone" class="label-phone">Phone</label><br>
 
-            <input type="text" id="city" th:name="city" class="input-city"/>
+            <input type="text" id="city" th:name="city" class="input-city" disabled/>
             <label for="city" class="label-city">City</label><br>
 
-            <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1" disabled/>
+            <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1"/>
 
-            <input type="text" id="allergies2" th:name="allergies2" class="input-allergies2" disabled/>
+            <input type="text" id="allergies2" th:name="allergies2" class="input-allergies2"/>
 
-            <input type="text" id="allergies3" th:name="allergies3" class="input-allergies3" disabled/>
+            <input type="text" id="allergies3" th:name="allergies3" class="input-allergies3"/>
 
-            <input type="text" id="allergies4" th:name="allergies4" class="input-allergies4" disabled/>
+            <input type="text" id="allergies4" th:name="allergies4" class="input-allergies4"/>
 
-            <input type="text" id="surgery1" th:name="surgery1" class="input-surgery1" disabled/>
+            <input type="text" id="surgery1" th:name="surgery1" class="input-surgery1"/>
 
-            <input type="text" id="surgery2" th:name="surgery2" class="input-surgery2" disabled/>
+            <input type="text" id="surgery2" th:name="surgery2" class="input-surgery2"/>
 
-            <input type="text" id="surgery3" th:name="surgery3" class="input-surgery3" disabled/>
+            <input type="text" id="surgery3" th:name="surgery3" class="input-surgery3"/>
 
-            <input type="text" id="surgery4" th:name="surgery4" class="input-surgery4" disabled/>
+            <input type="text" id="surgery4" th:name="surgery4" class="input-surgery4"/>
 
             <button type="submit" class="button-Save">Save Changes</button>
 
