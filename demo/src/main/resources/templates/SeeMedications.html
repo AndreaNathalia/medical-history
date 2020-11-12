@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Medications</title>
+
+    <!--  CSS  -->
+    <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
+
+</head>
+<body>
+    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
+    <!--    <img src="images/LogoBlanco.png" class="img-logo">-->
+
+    <div class="div-pInformation">
+        <h2 class="h2-pInformation">MEDICATIONS CURRENTLY BEING TAKEN</h2>
+    </div>
+
+    <table>
+        <tr>
+            <th class="th-med">Medication Name</th>
+            <th class="th-med">Dosage</th>
+            <th class="th-med">Frequency</th>
+            <th class="th-med">Reason</th>
+        </tr>
+
+        <tr>
+            <th th:text="${FirstName}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${MiddleName}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${LastName}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${birth}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${gender}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${surgery1}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${surgery1}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+
+        <tr>
+            <th th:text="${surgery1}"></th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+    </table>
+
+    <a th:href="@{/getpatientprofile}" class="close-med"></a>
+
+</body>
+</html>

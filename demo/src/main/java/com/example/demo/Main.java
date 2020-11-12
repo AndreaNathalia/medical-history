@@ -142,7 +142,13 @@ public class Main {
         }
 
         if(information.equals("PatientsMedications")){
-            return "PatientsMedications";
+            model.addAttribute("FirstName", newUser.FirstName);
+            model.addAttribute("MiddleName", newUser.MiddleName);
+            model.addAttribute("LastName", newUser.LastName);
+            model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
+            model.addAttribute("birth", newUser.birth);
+            model.addAttribute("gender", newUser.gender);
+            return "SeeMedications";
         }
 
         if(information.equals("ManageAccess")){

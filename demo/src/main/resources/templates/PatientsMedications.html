@@ -2,23 +2,27 @@
 <html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Patient Information</title>
+    <title>Edit Medications</title>
 
     <!--  CSS  -->
     <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
 
 </head>
 <body>
-    <h2 class="h2-Medications">Medications Currently Being Taken</h2>
-    <img onclick="window.location.href='PatientProfile.html'" src="https://image.flaticon.com/icons/png/512/44/44948.png">
+    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
+<!--    <img src="images/LogoBlanco.png" class="img-logo">-->
+
+    <div class="div-pInformation">
+        <h2 class="h2-pInformation">MEDICATIONS CURRENTLY BEING TAKEN</h2>
+    </div>
 
     <form>
         <table>
             <tr>
-                <th class="th-med">MEDICATION NAME</th>
-                <th class="th-med">DOSAGE</th>
-                <th class="th-med">FREQUENCY</th>
-                <th class="th-med">REASON</th>
+                <th class="th-med">Medication Name</th>
+                <th class="th-med">Dosage</th>
+                <th class="th-med">Frequency</th>
+                <th class="th-med">Reason</th>
             </tr>
 
             <tr>
@@ -77,19 +81,6 @@
                 <th><input class="input-table"/> </th>
             </tr>
 
-            <tr>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-            </tr>
-
-            <tr>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-                <th><input class="input-table"/> </th>
-            </tr>
         </table>
 
         <button class="button-SaveMed">Save Changes</button>

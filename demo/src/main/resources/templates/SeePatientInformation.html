@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Patient Information</title>
+    <title>Information</title>
 
     <!--  CSS  -->
     <link href="../static/PatientInformationStyle.css" th:href="@{/PatientInformationStyle.css}" rel="stylesheet" />
@@ -65,7 +65,7 @@
 
         <p id="surgery4" th:text="${surgery4}" class="p-surgery4"></p>
 
-        <a th:href="@{/getpatientprofile}" class="button-ok">OK</a>
+        <a th:href="@{/getpatientprofile}" class="close"></a>
 
     </div>
 

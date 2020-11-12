@@ -1,15 +1,9 @@
 .img-logo{
     position: absolute;
-    top: 4px;
-    left: 35px;
-    width: 315px;
-    height: 140px;
-}
-
-.h2-Medications{
-    position: absolute;
-    top: 50px;
-    left: 35%;
+    top: 26px;
+    left: 32px;
+    width: 238px;
+    height: 100px;
 }
 
 img{
@@ -406,10 +400,11 @@ img{
 }
 
 /*-- PATIENTS MEDICATIONS --*/
-.button-SaveMed{
-    position: absolute;
-    top: 630px;
-    left: 45%;
+.h2-Medications{
+
+    font-family: "Helvetica";
+    color: #3FAFB9;
+    background-color: #0C182B;
 }
 
 a{
@@ -432,17 +427,18 @@ a{
 
 table {
     position: absolute;
-    top: 20%;
+    top: 28%;
     left: 3%;
-
     border-collapse: collapse;
     font-size: 18px;
     font-family: Avenir;
 }
 
 .th-med{
-    background-color: gray;
+    background-color: #3FAFB9;
     color: white;
+    font-family: Helvetica;
+    font-size: 18px;
 }
 
 table, th, td {
@@ -456,6 +452,55 @@ table, th, td {
 .input-table{
     border:0;
     width: 250px;
+}
+
+.button-SaveMed{
+    position: absolute;
+    top: 620px;
+    left: 1048px;
+    width: 150px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 5px;
+    border: 2.5px solid #494949 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-SaveMed:hover {
+    color: #20bf6b !important;
+    border-radius: 50px;
+    border-color: #20bf6b !important;
+    transition: all 0.3s ease 0s;
+}
+
+.close-med{
+    position: relative;
+    top: 15px;
+    left: 96%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close-med:hover {
+    opacity: 1;
+}
+.close-med:before, .close-med:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #FF243B;
+}
+.close-med:before {
+    transform: rotate(45deg);
+}
+.close-med:after {
+    transform: rotate(-45deg);
 }
 
 /*-- SEE PATIENT INFORMATION --*/
@@ -635,25 +680,30 @@ table, th, td {
     border-right: gray 1px solid;
 }
 
-.button-ok{
+.close {
+    position: relative;
+    top: -320px;
+    left: 96.5%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
     position: absolute;
-    top: 420px;
-    left: 46%;
-    width: 50px;
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-align: center;
-    background: #ffffff;
-    padding: 5px;
-    border: none;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
-    outline: none;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #FF243B;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
 }
 
-.button-ok:hover {
-    color: #20bf6b !important;
-    border: 2.5px solid #20bf6b !important;
-    border-radius: 10px;
-    transition: all 0.3s ease 0s;
-}
+
