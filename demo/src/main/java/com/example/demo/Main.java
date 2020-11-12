@@ -103,6 +103,10 @@ public class Main {
             //Check pwd and email
             if (Patient.PatientInformation.checker(email, password,model).equals( "True")){
                 newUser = Patient.PatientInformation.returner(email,password);
+                model.addAttribute("FirstName", newUser.FirstName);
+                model.addAttribute("LastName", newUser.LastName);
+                model.addAttribute("birth", newUser.birth);
+                model.addAttribute("phone", newUser.phone);
                 return "PatientProfile";
 
             } else{
@@ -227,7 +231,11 @@ public class Main {
 
     //GET to patient profile
     @RequestMapping(value = "/getpatientprofile", method = RequestMethod.GET)
-    public String getPatientProfile(){
+    public String getPatientProfile(Model model){
+        model.addAttribute("FirstName", newUser.FirstName);
+        model.addAttribute("LastName", newUser.LastName);
+        model.addAttribute("birth", newUser.birth);
+        model.addAttribute("phone", newUser.phone);
         return "PatientProfile";
     }
 
@@ -286,6 +294,7 @@ public class Main {
         }
         return "PatientsEditor";
     };
+
     @RequestMapping(value = "/testeradder", method = RequestMethod.GET)
     public String testeradder() throws IOException, ClassNotFoundException {
         Patient.PatientInformation.adder(newUser);
