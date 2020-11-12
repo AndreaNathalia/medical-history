@@ -322,7 +322,7 @@ public class Main {
 
     //POST set/modifications in patient information (DOCTOR SIDE)
     @RequestMapping(value = "/doctorediting", method = RequestMethod.POST)
-    public String DoctorEditingPatinetInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
+    public String DoctorEditingPatientInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
         /*newUser.allergies.add(allergies1);
         newUser.allergies.add(allergies2);
         newUser.allergies.add(allergies3);
@@ -348,6 +348,27 @@ public class Main {
         model.addAttribute("surgery3", surgery3);
         model.addAttribute("surgery4", surgery4);*/
 
+        model.addAttribute("name", newDoctor.name);
+        model.addAttribute("LastName", newDoctor.LastName);
+        model.addAttribute("age", newDoctor.age);
+        model.addAttribute("specialty", newDoctor.specialty);
+        model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        return "DoctorProfile";
+    }
+
+    //GET to edit patient medications info (DOCTOR SIDE)
+    @RequestMapping(value = "/doceditpatientmedications", method = RequestMethod.GET)
+    public String DocEditPatientMeds(){
+        return "PatientsMedications";
+    }
+
+    //POST set/modifications in patient medications (DOCTOR SIDE)
+    @RequestMapping(value = "/doctoreditingmeds", method = RequestMethod.POST)
+    public String DoctorEditingPatientMeds(@RequestParam(name = "M1") String M1, @RequestParam(name = "D1") String D1, @RequestParam(name = "F1") String F1, @RequestParam(name = "R1") String R1, Model model) throws IOException, ClassNotFoundException {
+        //Set Meds
+
+        //Data base
+        
         model.addAttribute("name", newDoctor.name);
         model.addAttribute("LastName", newDoctor.LastName);
         model.addAttribute("age", newDoctor.age);
