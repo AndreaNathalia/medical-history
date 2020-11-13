@@ -135,19 +135,15 @@ public class Main {
             model.addAttribute("MaritalStatus", newUser.MaritalStatus);
             model.addAttribute("phone", newUser.phone);
             model.addAttribute("city", newUser.city);
-            for(int allergy = 0; allergy < newUser.allergies.size(); allergy++){
-                model.addAttribute("allergies1", newUser.allergies.get(0));
-                model.addAttribute("allergies2", newUser.allergies.get(1));
-                model.addAttribute("allergies3", newUser.allergies.get(2));
-                model.addAttribute("allergies4", newUser.allergies.get(3));
-            }
+            model.addAttribute("allergies1", newUser.allergies1);
+            model.addAttribute("allergies2", newUser.allergies2);
+            model.addAttribute("allergies3", newUser.allergies3);
+            model.addAttribute("allergies4", newUser.allergies4);
+            model.addAttribute("surgery1", newUser.surgery1);
+            model.addAttribute("surgery2", newUser.surgery2);
+            model.addAttribute("surgery3", newUser.surgery3);
+            model.addAttribute("surgery4", newUser.surgery4);
 
-            for(int surgery = 0; surgery < newUser.surgeries.size(); surgery++){
-                model.addAttribute("surgery1", newUser.surgeries.get(0));
-                model.addAttribute("surgery2", newUser.surgeries.get(1));
-                model.addAttribute("surgery3", newUser.surgeries.get(2));
-                model.addAttribute("surgery4", newUser.surgeries.get(3));
-            }
             return "SeePatientInformation";
         }
 
@@ -222,8 +218,16 @@ public class Main {
         System.out.println("Marital Status: " + newUser.getMaritalStatus());
         System.out.println("Phone: " + newUser.getPhone());
         System.out.println("City: " + newUser.getCity());
-        System.out.println("Allergies: " + newUser.getAllergies());
-        System.out.println("Surgeries: " + newUser.getSurgeries());
+        System.out.println("Allergies: ");
+        System.out.println(newUser.getAllergies1());
+        System.out.println(newUser.getAllergies2());
+        System.out.println(newUser.getAllergies3());
+        System.out.println(newUser.getAllergies4());
+        System.out.println("Surgeries: ");
+        System.out.println(newUser.getSurgery1());
+        System.out.println(newUser.getSurgery2());
+        System.out.println(newUser.getSurgery3());
+        System.out.println(newUser.getSurgery4());
 
         System.out.println("------------------------------------");
         return "PatientProfile";
@@ -385,14 +389,14 @@ public class Main {
     @RequestMapping(value = "/doctorediting", method = RequestMethod.POST)
     public String DoctorEditingPatientInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
         try{
-            newUser.allergies.add(allergies1);
-            newUser.allergies.add(allergies2);
-            newUser.allergies.add(allergies3);
-            newUser.allergies.add(allergies4);
-            newUser.surgeries.add(surgery1);
-            newUser.surgeries.add(surgery2);
-            newUser.surgeries.add(surgery3);
-            newUser.surgeries.add(surgery4);
+            newUser.setAllergies1(allergies1);
+            newUser.setAllergies2(allergies2);
+            newUser.setAllergies3(allergies3);
+            newUser.setAllergies4(allergies4);
+            newUser.setSurgery1(surgery1);
+            newUser.setSurgery2(surgery2);
+            newUser.setSurgery3(surgery3);
+            newUser.setSurgery4(surgery4);
         } catch (Exception e) {
             e.printStackTrace();
         }

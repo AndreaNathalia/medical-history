@@ -19,9 +19,15 @@ public class Patient implements Serializable{
         public String MaritalStatus;
         public String phone;
         public String city;
+        public String allergies1;
+        public String allergies2;
+        public String allergies3;
+        public String allergies4;
+        public String surgery1;
+        public String surgery2;
+        public String surgery3;
+        public String surgery4;
         public int allowedDoctorsLength;
-        public List<String> allergies = new ArrayList<String>(4);
-        public List<String> surgeries = new ArrayList<String>(4);
         static List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
 
         //Constructor
@@ -61,11 +67,29 @@ public class Patient implements Serializable{
         public String getCity() {
             return city;
         }
-        public List<String> getAllergies(){
-            return allergies;
+        public String getAllergies1(){
+            return allergies1;
         }
-        public List<String> getSurgeries(){
-            return surgeries;
+        public String getAllergies2(){
+            return allergies2;
+        }
+        public String getAllergies3(){
+            return allergies3;
+        }
+        public String getAllergies4(){
+            return allergies4;
+        }
+        public String getSurgery1(){
+            return surgery1;
+        }
+        public String getSurgery2(){
+            return surgery2;
+        }
+        public String getSurgery3(){
+            return surgery3;
+        }
+        public String getSurgery4(){
+            return surgery4;
         }
 
         //Set methods
@@ -78,7 +102,6 @@ public class Patient implements Serializable{
         public void setPassword(String password) {
             this.password = password;
         }
-
         public void setFirstName(String FirstName) {
             if(FirstName.equals("")){
 
@@ -86,7 +109,6 @@ public class Patient implements Serializable{
                 this.FirstName = FirstName;
             }
         }
-
         public void setMiddleName(String MiddleName) {
             if(MiddleName.equals("")){
 
@@ -94,7 +116,6 @@ public class Patient implements Serializable{
                 this.MiddleName = MiddleName;
             }
         }
-
         public void setLastName(String LastName) {
             if(LastName.equals("")){
 
@@ -102,7 +123,6 @@ public class Patient implements Serializable{
                 this.LastName = LastName;
             }
         }
-
         public void setBirth(String birth) {
             if(birth.equals("")){
 
@@ -110,7 +130,6 @@ public class Patient implements Serializable{
                 this.birth = birth;
             }
         }
-
         public void setGender(String gender) {
             if(gender.equals("")){
 
@@ -118,7 +137,6 @@ public class Patient implements Serializable{
                 this.gender = gender;
             }
         }
-
         public void setMaritalStatus(String MaritalStatus) {
             if(MaritalStatus.equals("")){
 
@@ -126,7 +144,6 @@ public class Patient implements Serializable{
                 this.MaritalStatus = MaritalStatus;
             }
         }
-
         public void setPhone(String phone) {
             if(phone.equals("")){
 
@@ -134,12 +151,67 @@ public class Patient implements Serializable{
                 this.phone = phone;
             }
         }
-
         public void setCity(String city) {
             if(city.equals("")){
 
             }else{
                 this.city = city;
+            }
+        }
+        public void setAllergies1(String allergies1) {
+            if(allergies1.equals("")){
+
+            }else{
+                this.allergies1 = allergies1;
+            }
+        }
+        public void setAllergies2(String allergies2) {
+            if(allergies2.equals("")){
+
+            }else{
+                this.allergies2 = allergies2;
+            }
+        }
+        public void setAllergies3(String allergies3) {
+            if(allergies3.equals("")){
+
+            }else{
+                this.allergies3 = allergies3;
+            }
+        }
+        public void setAllergies4(String allergies4) {
+            if(allergies4.equals("")){
+
+            }else{
+                this.allergies4 = allergies4;
+            }
+        }
+        public void setSurgery1(String surgery1) {
+            if(surgery1.equals("")){
+
+            }else{
+                this.surgery1 = surgery1;
+            }
+        }
+        public void setSurgery2(String surgery2) {
+            if(surgery2.equals("")){
+
+            }else{
+                this.surgery2 = surgery2;
+            }
+        }
+        public void setSurgery3(String surgery3) {
+            if(surgery3.equals("")){
+
+            }else{
+                this.surgery3 = surgery3;
+            }
+        }
+        public void setSurgery4(String surgery4) {
+            if(surgery4.equals("")){
+
+            }else{
+                this.surgery4 = surgery4;
             }
         }
 
