@@ -32,9 +32,9 @@ public class PatientTest {
 
     @Test
     @Parameters({"PhoneNumber"})
-    public void phoneTest(int phone) {
+    public void phoneTest(String phone) {
         pat.setPhone(phone);
-        int getPH = pat.getPhone();
+        String getPH = pat.getPhone();
         Assert.assertEquals(phone, getPH);
     }
 

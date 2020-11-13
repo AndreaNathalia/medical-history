@@ -29,42 +29,31 @@
     </div>
 
     <div class="div-Info">
+        <p id="FirstName" th:text="${FirstName}" class="p-FirstName"></p>
+        <label for="FirstName" class="label-FirstName">First Name</label><br>
+
+        <p id="MiddleName" th:text="${MiddleName}" class="p-MiddleName"></p>
+        <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
+
+        <p id="LastName" th:text="${LastName}" class="p-LastName"></p>
+        <label for="LastName" class="label-LastName">Last Name</label><br>
+
+        <p id="birth" th:text="${birth}" class="p-birth"></p>
+        <label for="birth" class="label-birth">Birth</label><br>
+
+        <p id="gender" th:text="${gender}" class="p-gender"></p>
+        <label for="gender" class="label-gender">Gender</label><br>
+
+        <p id="MaritalStatus" th:text="${MaritalStatus}" class="p-MaritalStatus"></p>
+        <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
+
+        <p id="phone" th:text="${phone}" class="p-phone"></p>
+        <label for="phone" class="label-phone">Phone</label><br>
+
+        <p id="city" th:text="${city}" class="p-city"></p>
+        <label for="city" class="label-city">City</label><br>
+
         <form th:action="@{/doctorediting}" method="post">
-            <input type="text" id="FirstName" th:name="FirstName"  class="input-FirstName" disabled/>
-            <label for="FirstName" class="label-FirstName">First Name</label><br>
-
-            <input type="text" id="MiddleName" th:name="MiddleName" class="input-MiddleName" disabled/>
-            <label for="MiddleName" class="label-MiddleName">Middle Name</label><br>
-
-            <input type="text" id="LastName" th:name="LastName" class="input-LastName" disabled/>
-            <label for="LastName" class="label-LastName">Last Name</label><br>
-
-            <input type="text" id="birth" th:name="birth" class="input-birth" disabled/>
-            <label for="birth" class="label-birth">Birth</label><br>
-
-            <select id="gender" th:name="gender" class="select-gender" disabled>
-                <option>Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-            <label for="gender" class="label-gender">Gender</label><br>
-
-            <select id="MaritalStatus" th:name="MaritalStatus" class="select-MaritalStatus" disabled>
-                <option>Select</option>
-                <option value="single">Single</option>
-                <option value="married">Married</option>
-                <option value="widowed">Widowed</option>
-                <option value="separated">Separated</option>
-                <option value="divorced">Divorced</option>
-            </select>
-            <label for="MaritalStatus" class="label-MaritalStatus">Marital Status</label><br>
-
-            <input type="text" id="phone" th:name="phone" class="input-phone" disabled/>
-            <label for="phone" class="label-phone">Phone</label><br>
-
-            <input type="text" id="city" th:name="city" class="input-city" disabled/>
-            <label for="city" class="label-city">City</label><br>
-
             <input type="text" id="allergies1" th:name="allergies1" class="input-allergies1"/>
 
             <input type="text" id="allergies2" th:name="allergies2" class="input-allergies2"/>
@@ -82,7 +71,6 @@
             <input type="text" id="surgery4" th:name="surgery4" class="input-surgery4"/>
 
             <button type="submit" class="button-Save">Save Changes</button>
-
         </form>
     </div>
 

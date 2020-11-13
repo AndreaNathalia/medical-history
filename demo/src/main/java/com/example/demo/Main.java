@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.fasterxml.jackson.databind.JsonSerializer;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -180,15 +181,19 @@ public class Main {
 
     //POST set/modifications in patient information (PATIENT SIDE)
     @RequestMapping(value = "/patientinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") int phone, @RequestParam(name = "city") String city, Model model) throws IOException, ClassNotFoundException {
-        newUser.setFirstName(FirstName);
-        newUser.setMiddleName(MiddleName);
-        newUser.setLastName(LastName);
-        newUser.setBirth(birth);
-        newUser.setGender(gender);
-        newUser.setMaritalStatus(MaritalStatus);
-        newUser.setPhone(phone);
-        newUser.setCity(city);
+    public String PatientInformation(@RequestParam(name = "FirstName") String FirstName, @RequestParam(name = "MiddleName") String MiddleName, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "birth") String birth, @RequestParam(name = "gender") String gender, @RequestParam(name = "MaritalStatus") String MaritalStatus, @RequestParam(name = "phone") String phone, @RequestParam(name = "city") String city, Model model) throws IOException, ClassNotFoundException {
+        try{
+            newUser.setFirstName(FirstName);
+            newUser.setMiddleName(MiddleName);
+            newUser.setLastName(LastName);
+            newUser.setBirth(birth);
+            newUser.setGender(gender);
+            newUser.setMaritalStatus(MaritalStatus);
+            newUser.setPhone(phone);
+            newUser.setCity(city);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Data base
         Patient.PatientInformation.adder(newUser);
@@ -304,7 +309,6 @@ public class Main {
             }
         }
 //        delete patient from doctor profile
-
         return "redirect:/ManageAccess";
     }
 
@@ -327,16 +331,20 @@ public class Main {
 
     //POST set/modifications in doctor information
     @RequestMapping(value = "/doctorinformation", method = RequestMethod.POST)
-    public String PatientInformation(@RequestParam(name = "name") String name, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "age") int age, @RequestParam(name = "specialty") String specialty, @RequestParam(name = "clinicAddress") String clinicAddress, Model model) throws IOException, ClassNotFoundException {
-        newDoctor.setName(name);
-        newDoctor.setLastName(LastName);
-        newDoctor.setAge(age);
-        newDoctor.setSpecialty(specialty);
-        newDoctor.setClinicAddress(clinicAddress);
+    public String PatientInformation(@RequestParam(name = "name") String name, @RequestParam(name = "LastName") String LastName, @RequestParam(name = "age") String age, @RequestParam(name = "specialty") String specialty, @RequestParam(name = "clinicAddress") String clinicAddress, Model model) throws IOException, ClassNotFoundException {
+        try{
+            newDoctor.setName(name);
+            newDoctor.setLastName(LastName);
+            newDoctor.setAge(age);
+            newDoctor.setSpecialty(specialty);
+            newDoctor.setClinicAddress(clinicAddress);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Data base
         Doctor.DoctorInformation.adder(newDoctor);
-        FileOutputStream fos = new FileOutputStream("t.tmp");
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
         oos.close();
@@ -360,25 +368,38 @@ public class Main {
 
     //GET to edit patient info (DOCTOR SIDE)
     @RequestMapping(value = "/doceditpatientinformation", method = RequestMethod.GET)
-    public String DocEditPatientInfo(){
+    public String DocEditPatientInfo(Model model){
+        model.addAttribute("FirstName", newUser.FirstName);
+        model.addAttribute("MiddleName", newUser.MiddleName);
+        model.addAttribute("LastName", newUser.LastName);
+        model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
+        model.addAttribute("birth", newUser.birth);
+        model.addAttribute("gender", newUser.gender);
+        model.addAttribute("MaritalStatus", newUser.MaritalStatus);
+        model.addAttribute("phone", newUser.phone);
+        model.addAttribute("city", newUser.city);
         return "EditPatientInfo";
     }
 
     //POST set/modifications in patient information (DOCTOR SIDE)
     @RequestMapping(value = "/doctorediting", method = RequestMethod.POST)
     public String DoctorEditingPatientInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
-        /*newUser.allergies.add(allergies1);
-        newUser.allergies.add(allergies2);
-        newUser.allergies.add(allergies3);
-        newUser.allergies.add(allergies4);
-        newUser.surgeries.add(surgery1);
-        newUser.surgeries.add(surgery2);
-        newUser.surgeries.add(surgery3);
-        newUser.surgeries.add(surgery4);
+        try{
+            newUser.allergies.add(allergies1);
+            newUser.allergies.add(allergies2);
+            newUser.allergies.add(allergies3);
+            newUser.allergies.add(allergies4);
+            newUser.surgeries.add(surgery1);
+            newUser.surgeries.add(surgery2);
+            newUser.surgeries.add(surgery3);
+            newUser.surgeries.add(surgery4);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Data base
         Patient.PatientInformation.adder(newUser);
-        FileOutputStream fos = new FileOutputStream("e.tmp");
+        FileOutputStream fos = new FileOutputStream("patient.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Patient.PatientInformation.patientsList);
         oos.close();
@@ -390,14 +411,14 @@ public class Main {
         model.addAttribute("surgery1", surgery1);
         model.addAttribute("surgery2", surgery2);
         model.addAttribute("surgery3", surgery3);
-        model.addAttribute("surgery4", surgery4);*/
+        model.addAttribute("surgery4", surgery4);
 
         model.addAttribute("name", newDoctor.name);
         model.addAttribute("LastName", newDoctor.LastName);
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
-        return "DoctorProfile";
+        return "PatientsEditor";
     }
 
     //GET to edit patient medications info (DOCTOR SIDE)
@@ -418,19 +439,33 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
-        return "DoctorProfile";
+        return "PatientsEditor";
     }
 
     //Patients access
     @RequestMapping(value = "/access", method = RequestMethod.POST)
-    public String access(@ModelAttribute(name = "patient")  String patient, Model model){
-        for (int i = 0 ; i< Doctor.DoctorInformation.patients.size();i++){
-            if (Patient.PatientInformation.checker(patient,Doctor.DoctorInformation.patients.get(i),model).equals("True")){
-                newUser = Patient.PatientInformation.returner(patient,Doctor.DoctorInformation.patients.get(i));
-                return "PatientProfile";
+    public String access(@ModelAttribute(name = "patient")  String patient, @RequestParam(name = "path") String path, Model model){
+        for (int i = 0 ; i< newDoctor.patients.size();i++){
+            if (Patient.PatientInformation.checker(patient,newDoctor.patients.get(i),model).equals("True")){
+                newUser = Patient.PatientInformation.returner(patient,newDoctor.patients.get(i));
             }
+            System.out.println(newDoctor.patients.get(i));
         }
-        return "PatientsEditor";
+        if (path.equals("info")){
+            model.addAttribute("FirstName", newUser.FirstName);
+            model.addAttribute("MiddleName", newUser.MiddleName);
+            model.addAttribute("LastName", newUser.LastName);
+            model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
+            model.addAttribute("birth", newUser.birth);
+            model.addAttribute("gender", newUser.gender);
+            model.addAttribute("MaritalStatus", newUser.MaritalStatus);
+            model.addAttribute("phone", newUser.phone);
+            model.addAttribute("city", newUser.city);
+            return "EditPatientInfo";
+        }
+        else{
+            return "PatientsMedications";
+        }
     };
 
     @RequestMapping(value = "/testeradder", method = RequestMethod.GET)
@@ -438,4 +473,21 @@ public class Main {
         Patient.PatientInformation.adder(newUser);
         return "PatientProfile";
     }
+
+    //CLEANER
+    @RequestMapping(value = "/cleaner", method = RequestMethod.GET)
+    public String cleaner() throws IOException {
+        Patient.PatientInformation.patientsList = new ArrayList<Patient.PatientInformation>();
+        Doctor.DoctorInformation.doctorsList = new ArrayList<Doctor.DoctorInformation>();
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.doctorsList);
+        oos.close();
+        FileOutputStream fs = new FileOutputStream("patient.tmp");
+        ObjectOutputStream so = new ObjectOutputStream(fs);
+        so.writeObject(Patient.PatientInformation.patientsList);
+        so.close();
+        return "PatientProfile";
+    }
+
 }

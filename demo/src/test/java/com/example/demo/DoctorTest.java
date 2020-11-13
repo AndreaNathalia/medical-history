@@ -28,9 +28,9 @@ class DoctorTest {
 
     @Test
     @Parameters({"Age"})
-    public void ageTest(int age) {
+    public void ageTest(String age) {
         doc.setAge(age);
-        int getAge = doc.getAge();
+        String getAge = doc.getAge();
         Assert.assertEquals(age, getAge);
     }
     @Test

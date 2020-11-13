@@ -13,12 +13,12 @@ public class Doctor implements Serializable{
         public String password;
         public String name;
         public String LastName;
-        public int age;
+        public String age;
         public String specialty;
         public String clinicAddress;
         public int timeWPatient;
         public int rating;
-        static List<String> patients = new ArrayList<>();
+        public List<String> patients = new ArrayList<>();
         public List<Patient.PatientInformation> allowedPatients = new ArrayList<>();
 
         //Constructor
@@ -40,7 +40,7 @@ public class Doctor implements Serializable{
         public String getLastName(){
             return LastName;
         }
-        public int getAge(){
+        public String getAge(){
             return age;
         }
         public String getSpecialty(){
@@ -60,27 +60,55 @@ public class Doctor implements Serializable{
         public void setUserType(String UserType){
             this.UserType = UserType;
         }
+
         public void setEmail(String email){
             this.email = email;
         }
+
         public void setPassword(String password){
             this.password = password;
         }
+
         public void setName(String name) {
-            this.name = name;
+            if(name.equals("")){
+
+            }else{
+                this.name = name;
+            }
         }
+
         public void setLastName(String LastName) {
-            this.LastName = LastName;
+            if(LastName.equals("")){
+
+            }else{
+                this.LastName = LastName;
+            }
         }
-        public void setAge(int age) {
-            this.age = age;
+
+        public void setAge(String age) {
+            if(age.equals("")){
+
+            }else{
+                this.age = age;
+            }
         }
+
         public void setSpecialty(String specialty) {
-            this.specialty = specialty;
+            if(specialty.equals("")){
+
+            }else{
+                this.specialty = specialty;
+            }
         }
+
         public void setClinicAddress(String clinicAddress) {
-            this.clinicAddress = clinicAddress;
+            if(clinicAddress.equals("")){
+
+            }else{
+                this.clinicAddress = clinicAddress;
+            }
         }
+
         public void setTimeWPatient(int timeWPatient) {
             this.timeWPatient = timeWPatient;
         }
@@ -121,7 +149,7 @@ public class Doctor implements Serializable{
         }
 
         //Methods to manage access
-        public static void patientadder (String index, String email){
+        public  void patientadder (String index, String email){
             String test2 = email;
             for(int i = 0; i < doctorsList.size(); i++){
                 String test = doctorsList.get(i).getEmail();

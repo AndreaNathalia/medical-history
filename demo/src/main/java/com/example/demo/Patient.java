@@ -17,11 +17,11 @@ public class Patient implements Serializable{
         public String birth;
         public String gender;
         public String MaritalStatus;
-        public int phone;
+        public String phone;
         public String city;
         public int allowedDoctorsLength;
-        public List<String> allergies = new ArrayList<String>();
-        public List<String> surgeries = new ArrayList<String>();
+        public List<String> allergies = new ArrayList<String>(4);
+        public List<String> surgeries = new ArrayList<String>(4);
         static List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
 
         //Constructor
@@ -55,7 +55,7 @@ public class Patient implements Serializable{
         public String getMaritalStatus() {
             return MaritalStatus;
         }
-        public int getPhone() {
+        public String getPhone() {
             return phone;
         }
         public String getCity() {
@@ -78,29 +78,69 @@ public class Patient implements Serializable{
         public void setPassword(String password) {
             this.password = password;
         }
+
         public void setFirstName(String FirstName) {
-            this.FirstName = FirstName;
+            if(FirstName.equals("")){
+
+            }else{
+                this.FirstName = FirstName;
+            }
         }
+
         public void setMiddleName(String MiddleName) {
-            this.MiddleName = MiddleName;;
+            if(MiddleName.equals("")){
+
+            }else{
+                this.MiddleName = MiddleName;
+            }
         }
+
         public void setLastName(String LastName) {
-            this.LastName = LastName;;
+            if(LastName.equals("")){
+
+            }else{
+                this.LastName = LastName;
+            }
         }
+
         public void setBirth(String birth) {
-            this.birth = birth;;
+            if(birth.equals("")){
+
+            }else{
+                this.birth = birth;
+            }
         }
+
         public void setGender(String gender) {
-            this.gender = gender;;
+            if(gender.equals("")){
+
+            }else{
+                this.gender = gender;
+            }
         }
+
         public void setMaritalStatus(String MaritalStatus) {
-            this.MaritalStatus = MaritalStatus;;
+            if(MaritalStatus.equals("")){
+
+            }else{
+                this.MaritalStatus = MaritalStatus;
+            }
         }
-        public void setPhone(int phone) {
-            this.phone = phone;;
+
+        public void setPhone(String phone) {
+            if(phone.equals("")){
+
+            }else{
+                this.phone = phone;
+            }
         }
+
         public void setCity(String city) {
-            this.city = city;;
+            if(city.equals("")){
+
+            }else{
+                this.city = city;
+            }
         }
 
         //Patients List
