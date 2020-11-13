@@ -52,7 +52,7 @@ public class Main {
             newDoctor.setEmail(email);
             newDoctor.setPassword(password);
             Doctor.DoctorInformation.adder(newDoctor);
-            FileOutputStream fos = new FileOutputStream("t.tmp");
+            FileOutputStream fos = new FileOutputStream("doctor.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
             oos.close();
@@ -65,7 +65,7 @@ public class Main {
             newUser.setPassword(password);
             Patient.PatientInformation.adder(newUser);
 
-            FileOutputStream fos = new FileOutputStream("e.tmp");
+            FileOutputStream fos = new FileOutputStream("patient.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(Patient.PatientInformation.patientsList);
             oos.close();
@@ -77,11 +77,11 @@ public class Main {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String LogIn(@ModelAttribute(name = "logIn") LogIn logIn, @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException, ClassNotFoundException {
         //Data Base
-        FileInputStream fis = new FileInputStream("t.tmp");
+        FileInputStream fis = new FileInputStream("doctor.tmp");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
         ois.close();
-        FileInputStream fi = new FileInputStream("e.tmp");
+        FileInputStream fi = new FileInputStream("patient.tmp");
         ObjectInputStream oi = new ObjectInputStream(fi);
         Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) oi.readObject();
         oi.close();
@@ -161,6 +161,11 @@ public class Main {
         }
 
         if(information.equals("ManageAccess")){
+            for(int i=0; i< newUser.allowedDoctors.size(); i++){
+                model.addAttribute("DocName", newUser.allowedDoctors.get(i).getName());
+                model.addAttribute("email", newUser.allowedDoctors.get(i).getEmail());
+                model.addAttribute("specialty", newUser.allowedDoctors.get(i).getSpecialty());
+            }
             return "ManageAccess";
         }
 
@@ -187,7 +192,7 @@ public class Main {
 
         //Data base
         Patient.PatientInformation.adder(newUser);
-        FileOutputStream fos = new FileOutputStream("e.tmp");
+        FileOutputStream fos = new FileOutputStream("patient.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Patient.PatientInformation.patientsList);
         oos.close();
@@ -237,18 +242,41 @@ public class Main {
 
     //POST manage access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.POST)
-    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String mymail, @RequestParam(name="deleteBtn", defaultValue="null", required = false) String deleteEmail) throws IOException, ClassNotFoundException {
-        String nid = Patient.PatientInformation.indexfinder(mymail);
-        Doctor.DoctorInformation.patientadder(nid,email);
-        FileInputStream fis = new FileInputStream("t.tmp");
+    public String postAddDoctor(@RequestParam(name = "DocName") String DocName, @RequestParam(name = "email") String email, @RequestParam(name = "specialty")String specialty, Model model, @RequestParam(name = "youremail") String myEmail, @RequestParam(name="deleteBtn", defaultValue="null", required = false) String deleteEmail) throws IOException, ClassNotFoundException {
+        String nid = Patient.PatientInformation.indexfinder(myEmail);
+
+//        load something from DB
+        FileInputStream fis = new FileInputStream("doctor.tmp");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
-        List<Doctor.DoctorInformation> docList = Doctor.DoctorInformation.doctorsList;
-        int n = docList.size();
-        for(int i=0; i<n; i++){
-//            if((DocName == docList.get(i).name) && (email == docList.get(i).email) && (specialty == docList.get(i).specialty)){
-            if(email.equals(docList.get(i).getEmail()) ){
-                Patient.PatientInformation.addDoctors(docList.get(i), model);
+
+        int nPatient = Patient.PatientInformation.patientsList.size();
+        int nDoctor = Doctor.DoctorInformation.doctorsList.size();
+
+        for(int i=0; i< nPatient; i++){
+            if(myEmail.equals(Patient.PatientInformation.patientsList.get(i).getEmail())){
+                for(int j=0; j< nDoctor; j++){
+                    if(email.equals(Doctor.DoctorInformation.doctorsList.get(j).getEmail())){
+                        Doctor.DoctorInformation addDoc = Doctor.DoctorInformation.doctorsList.get(j);
+                        Patient.PatientInformation addPat = Patient.PatientInformation.patientsList.get(i);
+                        //        add doctor to patient profile
+                        newUser.addDoctors(addDoc,model);
+                        //        add patient to doctor profile
+                        Doctor.DoctorInformation.doctorsList.get(j).patientadder(nid,email);
+                        Doctor.DoctorInformation.doctorsList.get(j).addPatients(addPat, model);
+
+                        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+                        ObjectOutputStream oos = new ObjectOutputStream(fos);
+                        oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+                        oos.close();
+
+                        Patient.PatientInformation.adder(newUser);
+                        FileOutputStream foo = new FileOutputStream("patient.tmp");
+                        ObjectOutputStream oof = new ObjectOutputStream(foo);
+                        oof.writeObject(Patient.PatientInformation.patientsList);
+                        oof.close();
+                    }
+                }
             }
         }
         return "ManageAccess";
@@ -256,11 +284,27 @@ public class Main {
 
     @RequestMapping(value = "/deleteDoctorAccess", method = RequestMethod.GET)
     public String deleteDoctorAccess(@RequestParam(name="subButton")String email) {
-        for(int i=0; i< Patient.PatientInformation.allowedDoctors.size(); i++){
-            if(email.equals(Patient.PatientInformation.allowedDoctors.get(i).getEmail())){
-                Patient.PatientInformation.deleteDoctors(Patient.PatientInformation.allowedDoctors.get(i));
+//        delete doctor from patient profile
+        for(int i=0; i< newUser.allowedDoctors.size(); i++){
+            if(email.equals(newUser.allowedDoctors.get(i).getEmail())){
+                Doctor.DoctorInformation docDel = newUser.allowedDoctors.get(i);
+                newUser.deleteDoctors(docDel);
             }
         }
+        int nDoctor = Doctor.DoctorInformation.doctorsList.size();
+        for(int i=0; i<nDoctor; i++){
+            if(email.equals(Doctor.DoctorInformation.doctorsList.get(i).getEmail())){
+
+                for(int j = 0; j< Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.size(); j++){
+                    if(email.equals(Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.get(j).getEmail())){
+                        Patient.PatientInformation patDel = Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.get(j);
+                        Doctor.DoctorInformation.doctorsList.get(i).deletePatients(patDel);
+                    }
+                }
+            }
+        }
+//        delete patient from doctor profile
+
         return "redirect:/ManageAccess";
     }
 

@@ -19,6 +19,9 @@
 
     <!--    PATIENTS LIST     -->
     <div class="div-listPatients">
+        <tr th:each="patient : ${allowedPatients}">
+            <td th:text="${patient.email}"></td>
+        </tr>
         <form th:action="@{/access}" method="post">
         <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
         </form>

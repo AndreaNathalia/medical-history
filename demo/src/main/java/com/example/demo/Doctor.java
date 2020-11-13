@@ -19,6 +19,7 @@ public class Doctor implements Serializable{
         public int timeWPatient;
         public int rating;
         static List<String> patients = new ArrayList<>();
+        public List<Patient.PatientInformation> allowedPatients = new ArrayList<>();
 
         //Constructor
         DoctorInformation(){ }
@@ -128,7 +129,21 @@ public class Doctor implements Serializable{
                     patients.add(index);
                 };
             };
-        };
+        }
+        public void addPatients(Patient.PatientInformation newPatient, Model model){
+            allowedPatients.add(newPatient);
+            model.addAttribute("allowedPatients", allowedPatients);
+
+        }
+        public void deletePatients(Patient.PatientInformation patient){
+            int allowedPatientsLength = allowedPatients.size();
+            String email = patient.getEmail();
+            for(int i=0; i < allowedPatientsLength; i++){
+                if(email.equals(allowedPatients.get(i).getEmail())){
+                    allowedPatients.remove(patient);
+                }
+            }
+        }
 
         public static String checker (String email, String password,Model model){
             String test2 = email;
