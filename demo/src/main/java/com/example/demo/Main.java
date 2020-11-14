@@ -158,11 +158,7 @@ public class Main {
         }
 
         if(information.equals("ManageAccess")){
-            for(int i=0; i< newUser.allowedDoctors.size(); i++){
-                model.addAttribute("DocName", newUser.allowedDoctors.get(i).getName());
-                model.addAttribute("email", newUser.allowedDoctors.get(i).getEmail());
-                model.addAttribute("specialty", newUser.allowedDoctors.get(i).getSpecialty());
-            }
+            model.addAttribute("allowedDoctors", newUser.allowedDoctors);
             return "ManageAccess";
         }
 
@@ -245,7 +241,8 @@ public class Main {
 
     //GET to Manage Access
     @RequestMapping(value="/ManageAccess", method=RequestMethod.GET)
-    public String getAddDoctor() {
+    public String getAddDoctor( Model model) {
+        model.addAttribute("allowedDoctors", newUser.allowedDoctors);
         return "ManageAccess";
     }
 
@@ -288,11 +285,12 @@ public class Main {
                 }
             }
         }
+        model.addAttribute("allowedDoctors", newUser.allowedDoctors);
         return "ManageAccess";
     }
 
     @RequestMapping(value = "/deleteDoctorAccess", method = RequestMethod.GET)
-    public String deleteDoctorAccess(@RequestParam(name="subButton")String email) {
+    public String deleteDoctorAccess(@RequestParam(name="subButton")String email, Model model) {
 //        delete doctor from patient profile
         for(int i=0; i< newUser.allowedDoctors.size(); i++){
             if(email.equals(newUser.allowedDoctors.get(i).getEmail())){
@@ -312,6 +310,7 @@ public class Main {
                 }
             }
         }
+        model.addAttribute("allowedDoctors", newUser.allowedDoctors);
 //        delete patient from doctor profile
         return "redirect:/ManageAccess";
     }
@@ -363,8 +362,9 @@ public class Main {
 
     //GET to patients editor
     @RequestMapping(value = "/doctorprofile", method = RequestMethod.GET)
-    public String DoctorProfile(@RequestParam(name = "information") String information){
+    public String DoctorProfile(@RequestParam(name = "information") String information, Model model){
         if(information.equals("PatientsEditor")){
+            model.addAttribute("allowedPatients", newDoctor.allowedPatients);
             return "PatientsEditor";
         }
         return "DoctorProfile";
@@ -422,6 +422,9 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+//        patientsList
+        model.addAttribute("allowedPatients", newDoctor.allowedPatients);
+
         return "PatientsEditor";
     }
 
@@ -443,6 +446,10 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+
+        //        patientsList
+        model.addAttribute("allowedPatients", newDoctor.allowedPatients);
+
         return "PatientsEditor";
     }
 

@@ -18,23 +18,26 @@
     </div>
 
     <!--    PATIENTS LIST     -->
-    <div class="div-listPatients">
-        <tr th:each="patient : ${allowedPatients}">
-            <td th:text="${patient.email}"></td>
-        </tr>
+    <div class="div-Patients">
+        <div class="div-listPatients">
+            <tr th:each="patient : ${allowedPatients}">
+                <td th:text="${patient.email}"></td>
+            </tr>
+        </div>
+        <div class="div-selectPatient">
 
-        <form th:action="@{/access}" method="post">
-            <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
+            <form th:action="@{/access}" method="post">
+                <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
 
-            <input type="radio" id="info" th:name="path" value="info" class="input-doctor">
-            <label for="info" class="label-doctor">Edit Information</label><br>
+                <input type="radio" id="info" th:name="path" value="info" class="input-doctor">
+                <label for="info" class="label-doctor">Edit Information</label><br>
 
-            <input type="radio" id="meds" th:name="path" value="meds" class="input-patient">
-            <label for="meds" class="label-patient">Edit Meds</label><br>
+                <input type="radio" id="meds" th:name="path" value="meds" class="input-patient">
+                <label for="meds" class="label-patient">Edit Meds</label><br>
 
-            <button type="submit" style="position: relative; top: 300px; left: 100px">Edit</button>
-        </form>
-
+                <button type="submit" style="position: relative; top: 300px; left: 100px">Edit</button>
+            </form>
+        </div>
     </div>
 
 <!--    <form th:action="@{/doceditpatientinformation}" method="get">-->

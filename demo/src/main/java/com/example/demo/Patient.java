@@ -28,7 +28,7 @@ public class Patient implements Serializable{
         public String surgery3;
         public String surgery4;
         public int allowedDoctorsLength;
-        static List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
+        public List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
 
         //Constructor
         PatientInformation() { }
@@ -258,11 +258,11 @@ public class Patient implements Serializable{
             return "";
         };
 
-        public static void addDoctors(Doctor.DoctorInformation newDoc, Model model){
+        public void addDoctors(Doctor.DoctorInformation newDoc, Model model){
             allowedDoctors.add(newDoc);
             model.addAttribute("allowedDoctors", allowedDoctors);
         }
-        public static void deleteDoctors(Doctor.DoctorInformation newDoc){
+        public void deleteDoctors(Doctor.DoctorInformation newDoc){
             int allowedDoctorsLength = allowedDoctors.size();
             String email = newDoc.getEmail();
             for(int i=0; i < allowedDoctorsLength; i++){

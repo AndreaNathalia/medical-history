@@ -243,10 +243,21 @@ img{
     color: #2A878F;
 }
 
-.div-listPatients{
+.div-selectPatient{
     position: absolute;
     top: 200px;
     left: 690px;
+}
+.div-listPatients{
+    /*margin: 5px 20px 5px 20px;*/
+    /*padding: 10px 10px 200px 10px;*/
+}
+.div-Patients{
+    /*margin: 50px;*/
+    /*padding: 20px;*/
+    /*top: 250px;*/
+    /*width: 1260px;*/
+    /*left: 8px;*/
 }
 
 /* PATIENTS EDITOR */

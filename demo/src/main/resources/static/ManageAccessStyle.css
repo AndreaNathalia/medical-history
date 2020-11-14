@@ -10,75 +10,85 @@
       padding: 10px 10px 40px 10px;
  }#title{
        text-align: center;
-  }#addBtn {
-        background-color:#76D7C4; /* Boton de agregar */
-        border: none;
-        color: white;
-        margin: 10px 20px;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 8px;
-        float: right;
-          outline: none;
-   }#Editors{
-         /*background-color: #F39C12;*/
-         margin: 100px 20px 5px 20px;
-         padding: 10px 10px 70px 10px;
-    }#whoTitle{
-          background-color: #0C182B;
-          margin: 5px 20px 5px 20px;
-          padding: 10px 10px 10px 10px;
-          color: white;
-          font-family: Arial;
-     }#doctors{
-           background-color: white;
-           margin: 5px 20px 5px 20px;
-           padding: 10px 10px 200px 10px;
-           outline: none;
-      }#docImg {
-            float: left;
-            width: 32px;
-            height: 32px;
-            margin: 0px 10px 5px 10px;
-            /*padding: 5px;*/
-       }.grid-container {
-             display: grid;
-             grid-template-columns: auto auto auto auto;
-             padding: 10px;
-        }.grid-item {
-              /*background-color: #F0B27A;*/
-              border: 1px solid white;
-              padding: 20px;
-              border-bottom-color: black;
-              font-size: 20px;
-              text-align: center;
-         }#docInfo{
-               float: left;
-               display: none;
-               margin: 0px 10px 5px 10px;
-               padding: 10px 10px 60px 20px;
-               background-color: white;
-               /*width: 100%;*/
-          }.info{
-                padding: 10px 20px;
-                margin: 20px 10px 20px 10px;
-                float: right;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-                float: right;
-           }#AddDoc{
-                 background-color: #48C9B0;
-                 color: white;
-                 padding: 14px 20px;
-                 margin: 8px 0;
-                 border: none;
-                 border-radius: 4px;
-                 cursor: pointer;
-                 float: right;
-            }
+ }
+#addBtn {
+      background-color:#76D7C4; /* Boton de agregar */
+      border: none;
+      color: white;
+      margin: 10px 20px;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 8px;
+      float: right;
+      outline: none;
+}
+#Editors{
+      /*background-color: #F39C12;*/
+      margin: 100px 20px 5px 20px;
+      padding: 10px 10px 70px 10px;
+}
+#whoTitle{
+      background-color: #0C182B;
+      margin: 5px 20px 5px 20px;
+      padding: 10px 10px 10px 10px;
+      color: white;
+      font-family: Arial;
+}
+#doctors{
+      background-color: white;
+      margin: 5px 20px 5px 20px;
+      padding: 10px 10px 200px 10px;
+      outline: none;
+}
+#docImg {
+      float: left;
+      width: 32px;
+      height: 32px;
+      margin: 0px 10px 5px 10px;
+      /*padding: 5px;*/
+}
+.grid-container {
+     display: grid;
+     grid-template-columns: auto auto auto auto;
+     padding: 10px;
+}
+.grid-item {
+    /*background-color: #F0B27A;*/
+     border: 1px solid white;
+     padding: 20px;
+     border-bottom-color: black;
+     font-size: 20px;
+     text-align: center;
+}
+#docInfo{
+     float: left;
+     display: none;
+     margin: 0px 10px 5px 10px;
+     padding: 10px 10px 60px 20px;
+     background-color: white;
+    /*width: 100%;*/
+}
+.info{
+     padding: 10px 20px;
+     margin: 20px 10px 20px 10px;
+     float: right;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     float: right;
+}
+#AddDoc{
+     background-color: #48C9B0;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     float: right;
+}
 /*delete---------------------------------------------*/
 /** {box-sizing: border-box}*/
 
