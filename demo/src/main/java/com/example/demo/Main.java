@@ -430,17 +430,61 @@ public class Main {
 
     //GET to edit patient medications info (DOCTOR SIDE)
     @RequestMapping(value = "/doceditpatientmedications", method = RequestMethod.GET)
-    public String DocEditPatientMeds(){
+    public String DocEditPatientMeds(Model model){
+        model.addAttribute("med1", newUser.med1);
+        model.addAttribute("med2", newUser.med2);
+        model.addAttribute("med3", newUser.med3);
+        model.addAttribute("med4", newUser.med4);
+        model.addAttribute("med5", newUser.med5);
+        model.addAttribute("med6", newUser.med6);
+        model.addAttribute("med7", newUser.med7);
+        model.addAttribute("med8", newUser.med8);
         return "PatientsMedications";
     }
 
     //POST set/modifications in patient medications (DOCTOR SIDE)
     @RequestMapping(value = "/doctoreditingmeds", method = RequestMethod.POST)
-    public String DoctorEditingPatientMeds(@RequestParam(name = "M1") String M1, @RequestParam(name = "D1") String D1, @RequestParam(name = "F1") String F1, @RequestParam(name = "R1") String R1, Model model) throws IOException, ClassNotFoundException {
+    public String DoctorEditingPatientMeds(@RequestParam(name = "M1") String M1, @RequestParam(name = "D1") String D1, @RequestParam(name = "F1") String F1, @RequestParam(name = "R1") String R1,
+                                           @RequestParam(name = "M2") String M2, @RequestParam(name = "D2") String D2, @RequestParam(name = "F2") String F2, @RequestParam(name = "R2") String R2,
+                                           @RequestParam(name = "M3") String M3, @RequestParam(name = "D3") String D3, @RequestParam(name = "F3") String F3, @RequestParam(name = "R3") String R3,
+                                           @RequestParam(name = "M4") String M4, @RequestParam(name = "D4") String D4, @RequestParam(name = "F4") String F4, @RequestParam(name = "R4") String R4,
+                                           @RequestParam(name = "M5") String M5, @RequestParam(name = "D5") String D5, @RequestParam(name = "F5") String F5, @RequestParam(name = "R5") String R5,
+                                           @RequestParam(name = "M6") String M6, @RequestParam(name = "D6") String D6, @RequestParam(name = "F6") String F6, @RequestParam(name = "R6") String R6,
+                                           @RequestParam(name = "M7") String M7, @RequestParam(name = "D7") String D7, @RequestParam(name = "F7") String F7, @RequestParam(name = "R7") String R7,
+                                           @RequestParam(name = "M8") String M8, @RequestParam(name = "D8") String D8, @RequestParam(name = "F8") String F8, @RequestParam(name = "R8") String R8,
+                                           Model model) throws IOException, ClassNotFoundException {
         //Set Meds
+        try{
+            newUser.setMed1(M1,D1,F1,R1);
+            newUser.setMed2(M2,D2,F2,R2);
+            newUser.setMed3(M3,D3,F3,R3);
+            newUser.setMed4(M4,D4,F4,R4);
+            newUser.setMed5(M5,D5,F5,R5);
+            newUser.setMed6(M6,D6,F6,R6);
+            newUser.setMed7(M7,D7,F7,R7);
+            newUser.setMed8(M8,D8,F8,R8);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //Data base
-        
+        Patient.PatientInformation.adder(newUser);
+        FileOutputStream fos = new FileOutputStream("patient.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Patient.PatientInformation.patientsList);
+        oos.close();
+
+//        Lists
+        model.addAttribute("med1", newUser.med1);
+        model.addAttribute("med2", newUser.med2);
+        model.addAttribute("med3", newUser.med3);
+        model.addAttribute("med4", newUser.med4);
+        model.addAttribute("med5", newUser.med5);
+        model.addAttribute("med6", newUser.med6);
+        model.addAttribute("med7", newUser.med7);
+        model.addAttribute("med8", newUser.med8);
+
         model.addAttribute("name", newDoctor.name);
         model.addAttribute("LastName", newDoctor.LastName);
         model.addAttribute("age", newDoctor.age);
@@ -475,6 +519,15 @@ public class Main {
             return "EditPatientInfo";
         }
         else{
+            model.addAttribute("med1", newUser.med1);
+            model.addAttribute("med2", newUser.med2);
+            model.addAttribute("med3", newUser.med3);
+            model.addAttribute("med4", newUser.med4);
+            model.addAttribute("med5", newUser.med5);
+            model.addAttribute("med6", newUser.med6);
+            model.addAttribute("med7", newUser.med7);
+            model.addAttribute("med8", newUser.med8);
+
             return "PatientsMedications";
         }
     };

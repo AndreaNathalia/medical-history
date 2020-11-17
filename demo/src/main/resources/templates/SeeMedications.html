@@ -24,60 +24,60 @@
             <th class="th-med">Reason</th>
         </tr>
 
-        <tr>
-            <th th:text="${FirstName}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med1}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${MiddleName}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med2}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${LastName}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med3}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${birth}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med4}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${gender}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med5}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${surgery1}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med6}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${surgery1}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med7}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:text="${surgery1}"></th>
-            <th ></th>
-            <th ></th>
-            <th ></th>
+        <tr th:each="info : ${med8}">
+            <th th:name="info[0]" class="input-table"></th>
+            <th th:name="info[1]" class="input-table"></th>
+            <th th:name="info[2]" class="input-table"></th>
+            <th th:name="info[3]" class="input-table"></th>
         </tr>
     </table>
 

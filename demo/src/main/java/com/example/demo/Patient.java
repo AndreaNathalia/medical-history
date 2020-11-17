@@ -29,6 +29,14 @@ public class Patient implements Serializable{
         public String surgery4;
         public int allowedDoctorsLength;
         public List<Doctor.DoctorInformation> allowedDoctors = new ArrayList<>();
+        public List<String> med1 = new ArrayList<>();
+        public List<String> med2 = new ArrayList<>();
+        public List<String> med3 = new ArrayList<>();
+        public List<String> med4 = new ArrayList<>();
+        public List<String> med5 = new ArrayList<>();
+        public List<String> med6 = new ArrayList<>();
+        public List<String> med7 = new ArrayList<>();
+        public List<String> med8 = new ArrayList<>();
 
         //Constructor
         PatientInformation() { }
@@ -90,6 +98,30 @@ public class Patient implements Serializable{
         }
         public String getSurgery4(){
             return surgery4;
+        }
+        public List<String> getMed1(){
+            return med1;
+        }
+        public List<String> getMed2(){
+            return med2;
+        }
+        public List<String> getMed3(){
+            return med3;
+        }
+        public List<String> getMed4(){
+            return med4;
+        }
+        public List<String> getMed5(){
+            return med5;
+        }
+        public List<String> getMed6(){
+            return med6;
+        }
+        public List<String> getMed7(){
+            return med7;
+        }
+        public List<String> getMed8(){
+            return med8;
         }
 
         //Set methods
@@ -214,7 +246,50 @@ public class Patient implements Serializable{
                 this.surgery4 = surgery4;
             }
         }
+        public void setMed1(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med1 = meds;
+        }
+        public void setMed2(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med2 = meds;
+        }
+        public void setMed3(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med3 = meds;
+        }
+        public void setMed4(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med4 = meds;
+                    }
+        public void setMed5(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med5 = meds;
+        }
+        public void setMed6(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med6 = meds;
+        }
+        public void setMed7(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med7 = meds;
+        }
+        public void setMed8(String medName, String dosage, String freq, String reason){
+            List<String> meds = fillMedList(medName,dosage,freq,reason);
+            this.med8 = meds;
+        }
 
+
+        public List<String> fillMedList(String medName, String dosage, String freq, String reason){
+            List<String> meds = new ArrayList<>();
+            if(!medName.equals("")){
+                meds.add(0,medName);
+                meds.add(1,dosage);
+                meds.add(2,freq);
+                meds.add(3,reason);
+            }
+            return meds;
+        }
         //Patients List
         static List<PatientInformation> patientsList = new ArrayList<PatientInformation>();
 
@@ -309,6 +384,5 @@ public class Patient implements Serializable{
             return null;
         }
 
-//LAST 2{}
     }
 }
