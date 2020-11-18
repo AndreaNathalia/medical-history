@@ -34,7 +34,6 @@ public class Main {
     //GET Log In
     @RequestMapping(value="/log", method=RequestMethod.GET)
     public String getLogInForm(){
-
         return "LogIn";
     }
 
@@ -148,12 +147,14 @@ public class Main {
         }
 
         if(information.equals("PatientsMedications")){
-            model.addAttribute("FirstName", newUser.FirstName);
-            model.addAttribute("MiddleName", newUser.MiddleName);
-            model.addAttribute("LastName", newUser.LastName);
-            model.addAttribute("FullName", newUser.FirstName+" "+ newUser.LastName);
-            model.addAttribute("birth", newUser.birth);
-            model.addAttribute("gender", newUser.gender);
+            model.addAttribute("med1", newUser.med1);
+            model.addAttribute("med2", newUser.med2);
+            model.addAttribute("med3", newUser.med3);
+            model.addAttribute("med4", newUser.med4);
+            model.addAttribute("med5", newUser.med5);
+            model.addAttribute("med6", newUser.med6);
+            model.addAttribute("med7", newUser.med7);
+            model.addAttribute("med8", newUser.med8);
             return "SeeMedications";
         }
 
@@ -161,7 +162,6 @@ public class Main {
             model.addAttribute("allowedDoctors", newUser.allowedDoctors);
             return "ManageAccess";
         }
-
         return "PatientProfile";
     }
 
@@ -462,6 +462,7 @@ public class Main {
                                            @RequestParam(name = "M8") String M8, @RequestParam(name = "D8") String D8, @RequestParam(name = "F8") String F8, @RequestParam(name = "R8") String R8,
                                            Model model) throws IOException, ClassNotFoundException {
         //Set Meds
+        System.out.println(M1);
         try{
             newUser.setMed1(M1,D1,F1,R1);
             newUser.setMed2(M2,D2,F2,R2);
@@ -538,7 +539,7 @@ public class Main {
 
             return "PatientsMedications";
         }
-    };
+    }
 
     @RequestMapping(value = "/testeradder", method = RequestMethod.GET)
     public String testeradder() throws IOException, ClassNotFoundException {
