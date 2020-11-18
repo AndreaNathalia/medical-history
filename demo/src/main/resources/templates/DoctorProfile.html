@@ -34,11 +34,7 @@
         <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
         <label class="label-rating">Rating:</label>
         <div class="star-rating">
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
+            <label  th:text="${Rating}"></label>
         </div>
 
         <form th:action="@{/editdoctorinformation}" method="get">

@@ -96,6 +96,7 @@ public class Main {
                 model.addAttribute("age", newDoctor.age);
                 model.addAttribute("specialty", newDoctor.specialty);
                 model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+                model.addAttribute("Rating", newDoctor.rating);
                 return "DoctorProfile";
 
             } else{
@@ -331,6 +332,21 @@ public class Main {
     public String EditDoctortInfo(){
         return "EditDocProfile";
     }
+    @RequestMapping(value = "/rating", method = RequestMethod.POST)
+    public String Rating(@RequestParam(name = "rating") int rating,@RequestParam(name = "rate") String rate,Model model) throws IOException {
+        for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
+            if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(rate)){
+                System.out.println("SI FUNCIA");
+                Doctor.DoctorInformation.doctorsList.get(i).addDocPoints(rating);
+            }
+        }
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+        oos.close();
+
+        return "redirect:/ManageAccess";
+    }
 
     //POST set/modifications in doctor information
     @RequestMapping(value = "/doctorinformation", method = RequestMethod.POST)
@@ -357,6 +373,7 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        model.addAttribute("Rating", newDoctor.rating);
         return "DoctorProfile";
     }
 
@@ -430,6 +447,7 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        model.addAttribute("Rating", newDoctor.rating);
 //        patientsList
         model.addAttribute("allowedPatients", newDoctor.allowedPatients);
 
@@ -499,6 +517,7 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        model.addAttribute("Rating", newDoctor.rating);
 
         //        patientsList
         model.addAttribute("allowedPatients", newDoctor.allowedPatients);

@@ -18,6 +18,7 @@ public class Doctor implements Serializable{
         public String clinicAddress;
         public int timeWPatient;
         public int rating;
+        public List<Integer> RATINGS = new ArrayList<>();
         public List<String> patients = new ArrayList<>();
         public List<Patient.PatientInformation> allowedPatients = new ArrayList<>();
 
@@ -115,7 +116,13 @@ public class Doctor implements Serializable{
 
         //Rating
         public int addDocPoints(int newPoints){
-            return rating += newPoints;
+            this.rating = 0;
+            this.RATINGS.add(newPoints);
+            for (int i = 0; i < this.RATINGS.size();i++){
+                this.rating = this.rating + this.RATINGS.get(i);
+            }
+            this.rating = this.rating / this.RATINGS.size();
+            return this.rating;
         }
 
         //Time of attention
