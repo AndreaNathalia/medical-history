@@ -547,6 +547,8 @@ public class Main {
             return "EditPatientInfo";
         }
         else{
+            System.out.println(newUser.med1);
+            System.out.println(newUser.med2);
             model.addAttribute("med1", newUser.med1);
             model.addAttribute("med2", newUser.med2);
             model.addAttribute("med3", newUser.med3);

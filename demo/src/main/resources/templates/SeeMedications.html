@@ -24,60 +24,60 @@
             <th class="th-med">Reason</th>
         </tr>
 
-        <tr>
-            <th th:name="med1[0]" class="input-table"></th>
-            <th th:name="med1[1]" class="input-table"></th>
-            <th th:name="med1[2]" class="input-table"></th>
-            <th th:name="med1[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med1)}">
+            <th th:text="${med1[0]}" class="input-table"></th>
+            <th th:text="${med1[1]}" class="input-table"></th>
+            <th th:text="${med1[2]}" class="input-table"></th>
+            <th th:text="${med1[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med2[0]" class="input-table"></th>
-            <th th:name="med2[1]" class="input-table"></th>
-            <th th:name="med2[2]" class="input-table"></th>
-            <th th:name="med2[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med2)}">
+            <th th:text="${med2[0]}" class="input-table"></th>
+            <th th:text="${med2[1]}" class="input-table"></th>
+            <th th:text="${med2[2]}" class="input-table"></th>
+            <th th:text="${med2[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med3[0]" class="input-table"></th>
-            <th th:name="med3[1]" class="input-table"></th>
-            <th th:name="med3[2]" class="input-table"></th>
-            <th th:name="med3[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med3)}">
+            <p th:text="${med3[0]}" class="input-table"></p>
+            <p th:text="${med3[1]}" class="input-table"></p>
+            <p th:text="${med3[2]}" class="input-table"></p>
+            <p th:text="${med3[3]}" class="input-table"></p>
         </tr>
 
-        <tr>
-            <th th:name="med4[0]" class="input-table"></th>
-            <th th:name="med4[1]" class="input-table"></th>
-            <th th:name="med4[2]" class="input-table"></th>
-            <th th:name="med4[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med4)}">
+            <th th:text="${med4[0]}" class="input-table"></th>
+            <th th:text="${med4[1]}" class="input-table"></th>
+            <th th:text="${med4[2]}" class="input-table"></th>
+            <th th:text="${med4[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med5[0]" class="input-table"></th>
-            <th th:name="med5[1]" class="input-table"></th>
-            <th th:name="med5[2]" class="input-table"></th>
-            <th th:name="med5[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med5)}">
+            <th th:text="${med5[0]}" class="input-table"></th>
+            <th th:text="${med5[1]}" class="input-table"></th>
+            <th th:text="${med5[2]}" class="input-table"></th>
+            <th th:text="${med5[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med6[0]" class="input-table"></th>
-            <th th:name="med6[1]" class="input-table"></th>
-            <th th:name="med6[2]" class="input-table"></th>
-            <th th:name="med6[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med6)}">
+            <th th:text="${med6[0]}" class="input-table"></th>
+            <th th:text="${med6[1]}" class="input-table"></th>
+            <th th:text="${med6[2]}" class="input-table"></th>
+            <th th:text="${med6[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med7[0]" class="input-table"></th>
-            <th th:name="med7[1]" class="input-table"></th>
-            <th th:name="med7[2]" class="input-table"></th>
-            <th th:name="med7[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med7)}">
+            <th th:text="${med7[0]}" class="input-table"></th>
+            <th th:text="${med7[1]}" class="input-table"></th>
+            <th th:text="${med7[2]}" class="input-table"></th>
+            <th th:text="${med7[3]}" class="input-table"></th>
         </tr>
 
-        <tr>
-            <th th:name="med8[0]" class="input-table"></th>
-            <th th:name="med8[1]" class="input-table"></th>
-            <th th:name="med8[2]" class="input-table"></th>
-            <th th:name="med8[3]" class="input-table"></th>
+        <tr th:if="${not #lists.isEmpty(med8)}">
+            <th th:text="${med8[0]}" class="input-table"></th>
+            <th th:text="${med8[1]}" class="input-table"></th>
+            <th th:text="${med8[2]}" class="input-table"></th>
+            <th th:text="${med8[3]}" class="input-table"></th>
         </tr>
     </table>
 

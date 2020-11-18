@@ -22,6 +22,7 @@
         <div class="div-listPatients">
             <tr th:each="patient : ${allowedPatients}">
                 <td th:text="${patient.email}"></td>
+                <td th:text="${patient.FirstName +' '+ patient.LastName}"></td>
             </tr>
         </div>
         <div class="div-selectPatient">
