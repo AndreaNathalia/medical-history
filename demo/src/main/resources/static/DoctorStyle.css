@@ -242,12 +242,6 @@ img{
     font-family: Helvetica;
     color: #2A878F;
 }
-
-.div-selectPatient{
-    position: absolute;
-    top: 200px;
-    left: 690px;
-}
 .div-listPatients{
     /*margin: 5px 20px 5px 20px;*/
     /*padding: 10px 10px 200px 10px;*/
@@ -272,7 +266,7 @@ img{
 .div-Information{
     position: relative;
     top: 150px;
-    width: 1260px;
+    width: 820px;
     left: 8px;
     height: 30px;
     background-color: #0C182B;
@@ -287,9 +281,86 @@ img{
     color: white;
 }
 
+.div-selectPatient{
+    position: relative;
+    left: 790px;
+    top: 120px;
+}
+
+.h2-p2Edit{
+    position: relative;
+    top: 5px;
+    left: 90px;
+    font-family: Helvetica;
+    color: #0C182B;
+}
+
+.input-email{
+    position: relative;
+    top: 15px;
+    left: 90px;
+    width: 280px;
+}
+
+.input-info{
+    position: relative;
+    top: 49px;
+    left: -45px;
+}
+
+.label-info{
+    position: relative;
+    top: 49px;
+    left: -40px;
+    font-family: Tahoma;
+    color: #323232;
+}
+
+.input-meds{
+    position: relative;
+    top: 30px;
+    left: 90px;
+}
+
+.label-meds{
+    position: relative;
+    top: 30px;
+    left: 95px;
+    font-family: Tahoma;
+    color: #323232;
+}
+
+.button-editPatient{
+    position: absolute;
+    top: 120px;
+    left: 95px;
+    width: 280px;
+    border: none;
+    background: #2A878F;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 7px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-editPatient:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
 .close {
     position: relative;
-    top: -5px;
+    top: -75px;
     left: 95.5%;
     width: 25px;
     height: 25px;
