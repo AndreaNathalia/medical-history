@@ -25,28 +25,20 @@
             </tr>
         </div>
         <div class="div-selectPatient">
-
+            <h2 class="h2-p2Edit">PATIENT TO EDIT:</h2>
             <form th:action="@{/access}" method="post">
                 <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
 
-                <input type="radio" id="info" th:name="path" value="info" class="input-doctor">
-                <label for="info" class="label-doctor">Edit Information</label><br>
+                <input type="radio" id="info" th:name="path" value="info" class="input-info">
+                <label for="info" class="label-info">Edit Information</label><br>
 
-                <input type="radio" id="meds" th:name="path" value="meds" class="input-patient">
-                <label for="meds" class="label-patient">Edit Meds</label><br>
+                <input type="radio" id="meds" th:name="path" value="meds" class="input-meds">
+                <label for="meds" class="label-meds">Edit Medications</label><br>
 
-                <button type="submit" style="position: relative; top: 300px; left: 100px">Edit</button>
+                <button type="submit" class="button-editPatient">Edit</button>
             </form>
         </div>
     </div>
-
-<!--    <form th:action="@{/doceditpatientinformation}" method="get">-->
-<!--        <button type="submit" style="position: relative; top: 300px; left: 100px">Edit Info</button>-->
-<!--    </form>-->
-
-<!--    <form th:action="@{/doceditpatientmedications}" method="get">-->
-<!--        <button type="submit" style="position: relative; top: 400px; left: 100px">Edit Meds</button>-->
-<!--    </form>-->
 
     <a th:href="@{/getdoctorprofile}" class="close"></a>
 
