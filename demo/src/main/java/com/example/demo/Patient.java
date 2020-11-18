@@ -184,44 +184,32 @@ public class Patient implements Serializable{
             }
         }
         public void setCity(String city) {
-            if(city.equals("")){
-
-            }else{
+            if(!city.equals("")){
                 this.city = city;
             }
         }
         public void setAllergies1(String allergies1) {
-            if(allergies1.equals("")){
-
-            }else{
+            if(!allergies1.equals("")){
                 this.allergies1 = allergies1;
             }
         }
         public void setAllergies2(String allergies2) {
-            if(allergies2.equals("")){
-
-            }else{
+            if(!allergies2.equals("")){
                 this.allergies2 = allergies2;
             }
         }
         public void setAllergies3(String allergies3) {
-            if(allergies3.equals("")){
-
-            }else{
+            if(!allergies3.equals("")){
                 this.allergies3 = allergies3;
             }
         }
         public void setAllergies4(String allergies4) {
-            if(allergies4.equals("")){
-
-            }else{
+            if(!allergies4.equals("")){
                 this.allergies4 = allergies4;
             }
         }
         public void setSurgery1(String surgery1) {
-            if(surgery1.equals("")){
-
-            }else{
+            if(!surgery1.equals("")){
                 this.surgery1 = surgery1;
             }
         }
@@ -247,38 +235,53 @@ public class Patient implements Serializable{
             }
         }
         public void setMed1(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med1 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med1 = meds;
+            }
         }
         public void setMed2(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med2 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med2 = meds;
+            }
         }
         public void setMed3(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med3 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med3 = meds;
+            }
         }
         public void setMed4(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med4 = meds;
-                    }
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med4 = meds;
+            }
+        }
         public void setMed5(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med5 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med5 = meds;
+            }
         }
         public void setMed6(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med6 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med6 = meds;
+            }
         }
         public void setMed7(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med7 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med7 = meds;
+            }
         }
         public void setMed8(String medName, String dosage, String freq, String reason){
-            List<String> meds = fillMedList(medName,dosage,freq,reason);
-            this.med8 = meds;
+            if(!medName.equals("")) {
+                List<String> meds = fillMedList(medName, dosage, freq, reason);
+                this.med8 = meds;
+            }
         }
-
 
         public List<String> fillMedList(String medName, String dosage, String freq, String reason){
             List<String> meds = new ArrayList<>();

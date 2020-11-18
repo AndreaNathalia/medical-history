@@ -387,7 +387,15 @@ public class Main {
 
     //POST set/modifications in patient information (DOCTOR SIDE)
     @RequestMapping(value = "/doctorediting", method = RequestMethod.POST)
-    public String DoctorEditingPatientInfo(@RequestParam(name = "allergies1") String allergies1, @RequestParam(name = "allergies2") String allergies2, @RequestParam(name = "allergies3") String allergies3, @RequestParam(name = "allergies4") String allergies4, @RequestParam(name = "surgery1") String surgery1, @RequestParam(name = "surgery2") String surgery2, @RequestParam(name = "surgery3") String surgery3, @RequestParam(name = "surgery4") String surgery4, Model model) throws IOException, ClassNotFoundException {
+    public String DoctorEditingPatientInfo(@RequestParam(name = "allergies1") String allergies1,
+                                           @RequestParam(name = "allergies2") String allergies2,
+                                           @RequestParam(name = "allergies3") String allergies3,
+                                           @RequestParam(name = "allergies4") String allergies4,
+                                           @RequestParam(name = "surgery1") String surgery1,
+                                           @RequestParam(name = "surgery2") String surgery2,
+                                           @RequestParam(name = "surgery3") String surgery3,
+                                           @RequestParam(name = "surgery4") String surgery4,
+                                           Model model) throws IOException, ClassNotFoundException {
         try{
             newUser.setAllergies1(allergies1);
             newUser.setAllergies2(allergies2);
