@@ -242,10 +242,7 @@ img{
     font-family: Helvetica;
     color: #2A878F;
 }
-.div-listPatients{
-    /*margin: 5px 20px 5px 20px;*/
-    /*padding: 10px 10px 200px 10px;*/
-}
+
 .div-Patients{
     /*margin: 50px;*/
     /*padding: 20px;*/
@@ -281,10 +278,39 @@ img{
     color: white;
 }
 
+.div-listPatients{
+    position: relative;
+    top: 170px;
+    left: 100px;
+}
+
+.th-titles{
+    position: relative;
+    left: 40px;
+    font-family: Helvetica;
+    font-size: 25px;
+    color: #2A878F;
+}
+
+.td-title{
+    padding-left: 170px;
+}
+
+.tr-info{
+    position: relative;
+    left: 40px;
+    font-family: Helvetica;
+}
+
+.td-info{
+    padding-left: 170px;
+    padding-top: 10px;
+}
+
 .div-selectPatient{
     position: relative;
     left: 790px;
-    top: 120px;
+    top: 55px;
 }
 
 .h2-p2Edit{
@@ -360,7 +386,7 @@ img{
 
 .close {
     position: relative;
-    top: -75px;
+    top: -130px;
     left: 95.5%;
     width: 25px;
     height: 25px;

@@ -20,17 +20,26 @@
     <!--    PATIENTS LIST     -->
     <div class="div-Patients">
         <div class="div-listPatients">
-            <tr th:each="patient : ${allowedPatients}">
-                <td th:text="${patient.email}"></td>
-                <td th:text="${patient.FirstName +' '+ patient.LastName}"></td>
-            </tr>
+            <table>
+                <tr class="th-titles">
+                    <td>Name:</td>
+                    <td class="td-title">Email:</td>
+                </tr>
+
+                <tr th:each="patient : ${allowedPatients}" class="tr-info">
+                    <td th:text="${patient.FirstName +' '+ patient.LastName}" style="padding-top: 10px;"></td>
+                    <td th:text="${patient.email}" class="td-info"></td>
+                </tr>
+            </table>
+
         </div>
+
         <div class="div-selectPatient">
             <h2 class="h2-p2Edit">PATIENT TO EDIT:</h2>
             <form th:action="@{/access}" method="post">
                 <input type="text" id="patient" th:name="patient" placeholder="Patient Email" class="input-email">
 
-                <input type="radio" id="info" th:name="path" value="info" class="input-info">z
+                <input type="radio" id="info" th:name="path" value="info" class="input-info">
                 <label for="info" class="label-info">Edit Information</label><br>
 
                 <input type="radio" id="meds" th:name="path" value="meds" class="input-meds">
