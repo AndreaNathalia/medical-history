@@ -121,3 +121,83 @@ nav ul li:hover {
     top: -445px;
     left: 400px;
 }
+
+/* SEE DOC SCHEDULE */
+.img-logo{
+    position: absolute;
+    top: 26px;
+    left: 32px;
+    width: 238px;
+    height: 100px;
+}
+
+.div-pInformation{
+    position: absolute;
+    top: 150px;
+    left: 8px;
+    width: 1260px;
+    height: 30px;
+    background-color: #0C182B;
+}
+
+.h2-pInformation{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.div-schedule2{
+    position: relative;
+    top: 210px;
+    left: 370px;
+    width: 450px;
+    height: 450px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 2px 2px 5px #999;
+}
+
+.div-2nd2{
+    position: relative;
+    top: -405px;
+    left: 300px;
+}
+
+.p-start{
+    width: 120px;
+    font-size: 20px;
+    font-family: Helvetica;
+    color: #0C182B;
+    display: inline;
+    outline: transparent;
+}
+
+.close-med{
+    position: relative;
+    top: -430px;
+    left: 95%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close-med:hover {
+    opacity: 1;
+}
+.close-med:before, .close-med:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #FF243B;
+}
+.close-med:before {
+    transform: rotate(45deg);
+}
+.close-med:after {
+    transform: rotate(-45deg);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Doctor Schedule</title>
+
+    <!--  CSS  -->
+    <link href="../static/ScheduleStyle.css" th:href="@{/ScheduleStyle.css}" rel="stylesheet"/>
+
+</head>
+<body>
+    <!--    NAVBAR     -->
+    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
+
+    <div class="div-pInformation">
+        <h2 class="h2-pInformation">DOCTOR SCHEDULE</h2>
+    </div>
+
+    <!--    SCHEDULE     -->
+    <div class="div-schedule2">
+        <label class="label-days">MONDAY:</label>
+        <p id="sMonday" th:text="${}" class="p-start"></p>
+        <label class="label-to">to</label>
+        <p id="eMonday" th:text="${}" class="p-start"></p>
+
+        <label class="label-days">TUESDAY</label>
+        <p id="sTuesday" th:text="${}" class="p-start"></p>
+        <label class="label-to">to</label>
+        <p id="eTuesday" th:text="${}" class="p-start"></p>
+
+        <label class="label-days">WEDNESDAY</label>
+        <p id="sWednesday" th:text="${}" class="p-start"></p>
+        <label class="label-to">to</label>
+        <p id="eWednesday" th:text="${}" class="p-start"></p>
+
+        <label class="label-days">THURSDAY</label>
+        <p id="sThursday" th:text="${}" class="p-start"></p>
+        <label class="label-to">to</label>
+        <p id="eThursday" th:text="${}" class="p-start"></p>
+
+        <label class="label-days">FRIDAY</label>
+        <p id="sFriday" th:text="${}" class="p-start"></p>
+        <label class="label-to">to</label>
+        <p id="eFriday" th:text="${}" class="p-start"></p>
+
+        <div class="div-2nd2">
+            <label class="label-days">SATURDAY</label>
+            <p id="sSaturday" th:text="${}" class="p-start"></p>
+            <label class="label-to">to</label>
+            <p id="eSaturday" th:text="${}" class="p-start"></p>
+
+            <label class="label-days">SUNDAY</label>
+            <p id="sSunday" th:text="${}" class="p-start"></p>
+            <label class="label-to">to</label>
+            <p id="eSunday" th:text="${}" class="p-start"></p>
+        </div>
+    </div>
+
+    <a th:href="@{/}" class="close-med"></a>
+</body>
+</html>
