@@ -1,0 +1,123 @@
+/* EDIT/SET DOC SCHEDULE */
+/* NAVBAR */
+body{
+    overflow: hidden;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+p {
+    margin-bottom: 20px;
+}
+.wrapper {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+header {
+    background: #0C182B;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.95;
+}
+
+nav {
+    float: left; /* Desplazamos el nav hacia la izquierda */
+}
+nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+}
+nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+nav ul li button {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 18px;
+
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 16px;
+    outline: none;
+}
+nav ul li:hover {
+    background: #2A878F;
+}
+.contenido {
+    padding-top: 80px;
+}
+
+.img-logo{
+    position: relative;
+    top:2px;
+    left: 0px;
+    height: 55px;
+    width: 125px;
+}
+
+.h2-schedule{
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 20px;
+}
+
+/* SCHEDULE */
+.div-schedule{
+    position: relative;
+    top: 120px;
+    left: 250px;
+    width: 700px;
+    height: 500px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 2px 2px 5px #999;
+}
+
+.label-days{
+    position: relative;
+    display: block;
+    color: #2A878F;
+    font-family: Helvetica;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    left: 8px;
+}
+
+.input-time{
+    width: 120px;
+    font-size: 20px;
+    font-family: Helvetica;
+    color: #0C182B;
+    text-align: center;
+    outline: transparent;
+
+}
+
+.input-time:hover{
+
+}
+
+.label-to{
+    padding-right: 10px;
+    padding-left: 10px;
+    font-family: Helvetica;
+}
+
+.label-hr{
+    display: block;
+}
+
+.div-2nd{
+    position: relative;
+    top: -445px;
+    left: 400px;
+}

@@ -308,9 +308,9 @@ img{
 }
 
 .div-selectPatient{
-    position: relative;
+    position: fixed;
     left: 790px;
-    top: 55px;
+    top: 145px;
 }
 
 .h2-p2Edit{
@@ -385,8 +385,8 @@ img{
 }
 
 .close {
-    position: relative;
-    top: -130px;
+    position: fixed;
+    top: 25px;
     left: 95.5%;
     width: 25px;
     height: 25px;

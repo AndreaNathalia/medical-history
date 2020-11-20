@@ -3,8 +3,67 @@
 <head>
     <meta charset="UTF-8"/>
     <title>My Schedule</title>
+
+    <!--  CSS  -->
+    <link href="../static/ScheduleStyle.css" th:href="@{/ScheduleStyle.css}" rel="stylesheet"/>
+
 </head>
 <body>
+    <!--    NAVBAR     -->
+    <div>
+        <header>
+            <section class="wrapper">
+                <nav>
+                    <ul>
+                        <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
+                        <h2 class="h2-schedule">MY SCHEDULE</h2>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+    </div>
 
+    <!--    SCHEDULE     -->
+    <div class="div-schedule">
+        <form th:action="@{/}" method="post">
+            <label class="label-days">MONDAY</label>
+            <input type="time" id="sMonday" th:name="sMonday" class="input-time">
+            <label class="label-to">to</label>
+            <input type="time" id="eMonday" th:name="eMonday" class="input-time">
+
+            <label class="label-days">TUESDAY</label>
+            <input type="time" id="sTuesday" th:name="sTuesday" class="input-time">
+            <label class="label-to">to</label>
+            <input type="time" id="eTuesday" th:name="eTuesday" class="input-time">
+
+            <label class="label-days">WEDNESDAY</label>
+            <input type="time" id="sWednesday" th:name="sWednesday" class="input-time">
+            <label class="label-to">to</label>
+            <input type="time" id="eWednesday" th:name="eWednesday" class="input-time">
+
+            <label class="label-days">THURSDAY</label>
+            <input type="time" id="sThursday" th:name="sThursday" class="input-time">
+            <label class="label-to">to</label>
+            <input type="time" id="eThursday" th:name="eThursday" class="input-time">
+
+            <label class="label-days">FRIDAY</label>
+            <input type="time" id="sFriday" th:name="sFriday" class="input-time">
+            <label class="label-to">to</label>
+            <input type="time" id="eFriday" th:name="eFriday" class="input-time">
+
+            <div class="div-2nd">
+                <label class="label-days">SATURDAY</label>
+                <input type="time" id="sSaturday" th:name="sSaturday" class="input-time">
+                <label class="label-to">to</label>
+                <input type="time" id="eSaturday" th:name="eSaturday" class="input-time">
+
+                <label class="label-days">SUNDAY</label>
+                <input type="time" id="sSunday" th:name="sSunday" class="input-time">
+                <label class="label-to">to</label>
+                <input type="time" id="eSunday" th:name="eSunday" class="input-time">
+            </div>
+
+        </form>
+    </div>
 </body>
 </html>

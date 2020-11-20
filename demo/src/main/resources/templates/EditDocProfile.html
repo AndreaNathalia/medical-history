@@ -10,55 +10,55 @@
 </head>
 
 <body>
-<!--    NAVBAR     -->
-<div>
-    <header>
-        <section class="wrapper">
-            <form th:action="@{/doctorprofile}" method="get">
-                <nav>
-                    <ul>
-                        <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
-                        <h2 class="h2-edit">EDIT PROFILE</h2>
-                    </ul>
-                </nav>
-            </form>
-        </section>
-    </header>
-</div>
-
-<!--    EDIT PROFILE     -->
-<div>
-    <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
-    <label class="label-rating">Rating:</label>
-    <div class="star-rating">
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
+    <!--    NAVBAR     -->
+    <div>
+        <header>
+            <section class="wrapper">
+                <form th:action="@{/doctorprofile}" method="get">
+                    <nav>
+                        <ul>
+                            <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
+                            <h2 class="h2-edit">EDIT PROFILE</h2>
+                        </ul>
+                    </nav>
+                </form>
+            </section>
+        </header>
     </div>
-</div>
 
-<!--    INFO     -->
-<div>
-    <form th:action="@{/doctorinformation}" method="post">
-        <input type="text" id="name" th:name="name"  class="input-DoctorName"/>
-        <label class="label-FirstName">First Name</label>
+    <!--    EDIT PROFILE     -->
+    <div>
+        <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
+        <label class="label-rating">Rating:</label>
+        <div class="star-rating">
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+            <a href="#">★</a>
+        </div>
+    </div>
 
-        <input type="text" id="LastName" th:name="LastName"  class="input-DoctorLastName"/>
-        <label class="label-LastName">Last Name</label>
+    <!--    INFO     -->
+    <div>
+        <form th:action="@{/doctorinformation}" method="post">
+            <input type="text" id="name" th:name="name"  class="input-DoctorName"/>
+            <label class="label-FirstName">First Name</label>
 
-        <input type="text" id="age" th:name="age"  class="input-DoctorAge"/>
-        <label class="label-Age">Age </label>
+            <input type="text" id="LastName" th:name="LastName"  class="input-DoctorLastName"/>
+            <label class="label-LastName">Last Name</label>
 
-        <input type="text" id="specialty" th:name="specialty"  class="input-DoctorSpeciality"/>
-        <label class="label-speciality"> Speciality </label>
+            <input type="text" id="age" th:name="age"  class="input-DoctorAge"/>
+            <label class="label-Age">Age </label>
 
-        <input type="text" id="clinicAddress" th:name="clinicAddress"  class="input-ClinicAddress"/>
-        <label class="label-address"> Clinic address </label>
+            <input type="text" id="specialty" th:name="specialty"  class="input-DoctorSpeciality"/>
+            <label class="label-speciality"> Speciality </label>
 
-        <button type="submit" class="button-Save">Save Changes</button>
-    </form>
-</div>
+            <input type="text" id="clinicAddress" th:name="clinicAddress"  class="input-ClinicAddress"/>
+            <label class="label-address"> Clinic address </label>
+
+            <button type="submit" class="button-Save">Save Changes</button>
+        </form>
+    </div>
 </body>
 </html>
