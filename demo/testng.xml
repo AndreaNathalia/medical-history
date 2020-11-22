@@ -28,10 +28,12 @@
 <!--            </run>-->
 <!--        </groups>-->
         <classes>
-            <class name="com.app.MedicalHistory.DoctorTest"></class>
-            <class name="com.app.MedicalHistory.PatientTest"></class>
-            <class name="com.app.MedicalHistory.AddPointsTest"></class>
-            <class name="com.app.MedicalHistory.TimewPatientTest"></class>
+            <class name="com.example.demo.DoctorTest"></class>
+            <class name="com.example.demo.DoctorSetGetTest"></class>
+            <class name="com.example.demo.addDocUserTest"></class>
+            <class name="com.example.demo.PatientTest"></class>
+            <class name="com.example.demo.AddPointsTest"></class>
+            <class name="com.example.demo.TimewPatientTest"></class>
         </classes>
     </test>
 

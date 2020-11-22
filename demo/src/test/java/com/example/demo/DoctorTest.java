@@ -1,58 +1,63 @@
 package com.example.demo;
 
+
+import org.springframework.ui.Model;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-class DoctorTest {
-
+public class DoctorTest{
     Doctor.DoctorInformation doc = new Doctor.DoctorInformation();
+    @DataProvider(name = "checkerDoctor")
+    public Object[][] dataDocs() {
+        List<String> passwordLs = new ArrayList<>();
+        passwordLs.add("1111");
+        passwordLs.add("1234");
 
-    @Test
-    @Parameters({"NewPoints"})
-    public void pointsTest(int NewPoints) {
-        int points = doc.addDocPoints(NewPoints);
-        Assert.assertEquals(points,5);
+        List<String> emailLs=new ArrayList<>();
+        emailLs.add("katherinegarcia@ufm.edu");
+        emailLs.add("patient@mail.com");
+        Object[][] retKeyword={{"True", emailLs, passwordLs},
+                {"not true", emailLs, passwordLs},
+        };
+        return(retKeyword);
     }
-//
-    @Test
-    @Parameters({"lastName"})
-        public void lastNameTest(String lastName) {
-        doc.setLastName(lastName);
-        String LastNAme = doc.getLastName();
-        Assert.assertEquals(lastName, LastNAme); //??????????
+    @Test(dataProvider = "checkerDoctor")
+    public void verifyDoc(String keyword, ArrayList<String> emailLs, ArrayList<String> passLs) {
+        System.out.println("Check doctor");
+        Iterator e=emailLs.iterator();
+        Iterator p=passLs.iterator();
+
+        while(e.hasNext() && p.hasNext())
+        {
+            String mail=(String)e.next();
+            String pass=(String)p.next();
+            System.out.println("email: "+mail +" pass: "+ pass);
+//            String result = doc.checker(mail,pass, model);
+//            System.out.println(result);
+//            Assert.assertEquals(keyword,result);
+        }
     }
 
-    @Test
-    @Parameters({"Age"})
-    public void ageTest(String age) {
-        doc.setAge(age);
-        String getAge = doc.getAge();
-        Assert.assertEquals(age, getAge);
-    }
-    @Test
-    @Parameters({"specialty"})
-    public void specialityTest(String specialty) {
-        doc.setSpecialty(specialty);
-        String getSpec = doc.getSpecialty();
-        Assert.assertEquals(specialty, getSpec);
-    }
-    @Test
-    @Parameters({"ClinicAddress"})
-    public void addressTest(String address) {
-        doc.setClinicAddress(address);
-        String getClinicAddress = doc.getClinicAddress();
-        Assert.assertEquals(address, getClinicAddress);
-    }
-    @Test
-    @Parameters({"TimeWPatient"})
-    public void timeWPTest(int time) {
-        doc.setTimeWPatient(time);
-        int getTime = doc.getTimeWPatient();
-        Assert.assertEquals(time, getTime);
+    @Test(dataProvider = "checkerDoctor")
+    public void returnerDoc(String keyword, ArrayList<String> emailLs, ArrayList<String> passLs) {
+        System.out.println("Returner doctor");
+        Iterator e=emailLs.iterator();
+        Iterator p=passLs.iterator();
+
+        while(e.hasNext() && p.hasNext())
+        {
+            String mail=(String)e.next();
+            String pass=(String)p.next();
+            System.out.println("email: "+mail +" pass: "+ pass);
+            Doctor.DoctorInformation result = doc.returner(mail,pass);
+            System.out.println(result);
+            Assert.assertEquals(null,result);
+        }
     }
 
 }
