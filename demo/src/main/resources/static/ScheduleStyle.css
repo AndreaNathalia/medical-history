@@ -123,7 +123,7 @@ nav ul li:hover {
 }
 
 /* SEE DOC SCHEDULE */
-.img-logo{
+.img-BigLogo{
     position: absolute;
     top: 26px;
     left: 32px;
@@ -200,4 +200,27 @@ nav ul li:hover {
 }
 .close-med:after {
     transform: rotate(-45deg);
+}
+
+.button-Save{
+    position: absolute;
+    top: 440px;
+    left: 590px;
+    width: 150px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 5px;
+    border: 2.5px solid #494949 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-Save:hover {
+    color: #20bf6b !important;
+    border-radius: 50px;
+    border-color: #20bf6b !important;
+    transition: all 0.3s ease 0s;
 }

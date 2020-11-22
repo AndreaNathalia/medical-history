@@ -21,6 +21,21 @@ public class Doctor implements Serializable{
         public List<Integer> RATINGS = new ArrayList<>();
         public List<String> patients = new ArrayList<>();
         public List<Patient.PatientInformation> allowedPatients = new ArrayList<>();
+        //Week schedule
+        public String sMonday;
+        public String eMonday;
+        public String sTuesday;
+        public String eTuesday;
+        public String sWednesday;
+        public String eWednesday;
+        public String sThursday;
+        public String eThursday;
+        public String sFriday;
+        public String eFriday;
+        public String sSaturday;
+        public String eSaturday;
+        public String sSunday;
+        public String eSunday;
 
         //Constructor
         DoctorInformation(){ }
@@ -56,20 +71,59 @@ public class Doctor implements Serializable{
         public int getRating(){
             return rating;
         }
+        public String getsMonday() {
+            return sMonday;
+        }
+        public String geteMonday() {
+            return eMonday;
+        }
+        public String getsTuesday() {
+            return sTuesday;
+        }
+        public String geteTuesday() {
+            return eTuesday;
+        }
+        public String getsWednesday() {
+            return sWednesday;
+        }
+        public String geteWednesday() {
+            return eWednesday;
+        }
+        public String getsThursday() {
+            return sThursday;
+        }
+        public String geteThursday() {
+            return eThursday;
+        }
+        public String getsFriday() {
+            return sFriday;
+        }
+        public String geteFriday() {
+            return eFriday;
+        }
+        public String getsSaturday() {
+            return sSaturday;
+        }
+        public String geteSaturday() {
+            return eSaturday;
+        }
+        public String getsSunday() {
+            return sSunday;
+        }
+        public String geteSunday() {
+            return eSunday;
+        }
 
         //Set methods
         public void setUserType(String UserType){
             this.UserType = UserType;
         }
-
         public void setEmail(String email){
             this.email = email;
         }
-
         public void setPassword(String password){
             this.password = password;
         }
-
         public void setName(String name) {
             if(name.equals("")){
 
@@ -77,7 +131,6 @@ public class Doctor implements Serializable{
                 this.name = name;
             }
         }
-
         public void setLastName(String LastName) {
             if(LastName.equals("")){
 
@@ -85,7 +138,6 @@ public class Doctor implements Serializable{
                 this.LastName = LastName;
             }
         }
-
         public void setAge(String age) {
             if(age.equals("")){
 
@@ -93,7 +145,6 @@ public class Doctor implements Serializable{
                 this.age = age;
             }
         }
-
         public void setSpecialty(String specialty) {
             if(specialty.equals("")){
 
@@ -101,12 +152,81 @@ public class Doctor implements Serializable{
                 this.specialty = specialty;
             }
         }
-
         public void setClinicAddress(String clinicAddress) {
             if(clinicAddress.equals("")){
 
             }else{
                 this.clinicAddress = clinicAddress;
+            }
+        }
+        public void setsMonday(String sMonday) {
+            if(!sMonday.equals("")){
+                this.sMonday = sMonday;
+            }
+        }
+        public void seteMonday(String eMonday) {
+            if(!eMonday.equals("")){
+                this.eMonday = eMonday;
+            }
+        }
+        public void setsTuesday(String sTuesday) {
+            if(!sTuesday.equals("")){
+                this.sTuesday = sTuesday;
+            }
+        }
+        public void seteTuesday(String eTuesday) {
+            if(!eTuesday.equals("")){
+                this.eTuesday = eTuesday;
+            }
+        }
+        public void setsWednesday(String sWednesday) {
+            if(!sWednesday.equals("")){
+                this.sWednesday = sWednesday;
+            }
+        }
+        public void seteWednesday(String eWednesday) {
+            if(!eWednesday.equals("")){
+                this.eWednesday = eWednesday;
+            }
+        }
+        public void setsThursday(String sThursday) {
+            if(!sThursday.equals("")){
+                this.sThursday = sThursday;
+            }
+        }
+        public void seteThursday(String eThursday) {
+            if(!eThursday.equals("")){
+                this.eThursday = eThursday;
+            }
+        }
+        public void setsFriday(String sFriday) {
+            if(!sFriday.equals("")){
+                this.sFriday = sFriday;
+            }
+        }
+        public void seteFriday(String eFriday) {
+            if(!eFriday.equals("")){
+                this.eFriday = eFriday;
+            }
+        }
+        public void setsSaturday(String sSaturday) {
+            if(!sSaturday.equals("")){
+                this.sSaturday = sSaturday;
+            }
+        }
+        public void seteSaturday(String eSaturday) {
+            if(!eSaturday.equals("")){
+                this.eSaturday = eSaturday;
+            }
+        }
+        public void setsSunday(String sSunday) {
+            if(!sSunday.equals("")){
+                this.sSunday = sSunday;
+            }
+        }
+        public void seteSunday(String eSunday) {
+            if(!eSunday.equals("")){
+                this.eSunday = eSunday;
             }
         }
 

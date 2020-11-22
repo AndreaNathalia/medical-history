@@ -163,6 +163,25 @@ public class Main {
             model.addAttribute("allowedDoctors", newUser.allowedDoctors);
             return "ManageAccess";
         }
+
+        if(information.equals("DoctorSchedule")){
+            model.addAttribute("sMonday", newDoctor.getsMonday());
+            model.addAttribute("eMonday", newDoctor.geteMonday());
+            model.addAttribute("sTuesday", newDoctor.getsTuesday());
+            model.addAttribute("eTuesday", newDoctor.geteTuesday());
+            model.addAttribute("sWednesday", newDoctor.getsWednesday());
+            model.addAttribute("eWednesday", newDoctor.geteWednesday());
+            model.addAttribute("sThursday", newDoctor.getsThursday());
+            model.addAttribute("eThursday", newDoctor.geteThursday());
+            model.addAttribute("sFriday", newDoctor.getsFriday());
+            model.addAttribute("eFriday", newDoctor.geteFriday());
+            model.addAttribute("sSaturday", newDoctor.getsSaturday());
+            model.addAttribute("eSaturday", newDoctor.geteSaturday());
+            model.addAttribute("sSunday", newDoctor.getsSunday());
+            model.addAttribute("eSunday", newDoctor.geteSunday());
+            return "SeeDocSchedule";
+        }
+
         return "PatientProfile";
     }
 
@@ -384,6 +403,55 @@ public class Main {
             model.addAttribute("allowedPatients", newDoctor.allowedPatients);
             return "PatientsEditor";
         }
+
+        if(information.equals("Schedule")){
+            return "SetDocSchedule";
+        }
+        return "DoctorProfile";
+    }
+
+    //POST to set doctor schedule
+    @RequestMapping(value = "/setschedule", method = RequestMethod.POST)
+    public String SetDocSchedule(@RequestParam(name = "sMonday") String sMonday, @RequestParam(name = "eMonday") String eMonday,
+                                 @RequestParam(name = "sTuesday") String sTuesday, @RequestParam(name = "eTuesday") String eTuesday,
+                                 @RequestParam(name = "sWednesday") String sWednesday, @RequestParam(name = "eWednesday") String eWednesday,
+                                 @RequestParam(name = "sThursday") String sThursday, @RequestParam(name = "eThursday") String eThursday,
+                                 @RequestParam(name = "sFriday") String sFriday, @RequestParam(name = "eFriday") String eFriday,
+                                 @RequestParam(name = "sSaturday") String sSaturday, @RequestParam(name = "eSaturday") String eSaturday,
+                                 @RequestParam(name = "sSunday") String sSunday, @RequestParam(name = "eSunday") String eSunday, Model model) throws IOException, ClassNotFoundException{
+
+        try{
+            newDoctor.setsMonday(sMonday.toString());
+            newDoctor.seteMonday(eMonday.toString());
+            newDoctor.setsTuesday(sTuesday.toString());
+            newDoctor.seteTuesday(eTuesday.toString());
+            newDoctor.setsWednesday(sWednesday.toString());
+            newDoctor.seteWednesday(eWednesday.toString());
+            newDoctor.setsThursday(sThursday.toString());
+            newDoctor.seteThursday(eThursday.toString());
+            newDoctor.setsFriday(sFriday.toString());
+            newDoctor.seteFriday(eFriday.toString());
+            newDoctor.setsSaturday(sSaturday.toString());
+            newDoctor.seteSaturday(eSaturday.toString());
+            newDoctor.setsSunday(sSunday.toString());
+            newDoctor.seteSunday(eSunday.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //Data base
+        Doctor.DoctorInformation.adder(newDoctor);
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+        oos.close();
+
+        model.addAttribute("name", newDoctor.name);
+        model.addAttribute("LastName", newDoctor.LastName);
+        model.addAttribute("age", newDoctor.age);
+        model.addAttribute("specialty", newDoctor.specialty);
+        model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+
         return "DoctorProfile";
     }
 

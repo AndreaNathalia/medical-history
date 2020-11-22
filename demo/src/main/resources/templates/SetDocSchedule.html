@@ -25,7 +25,7 @@
 
     <!--    SCHEDULE     -->
     <div class="div-schedule">
-        <form th:action="@{/}" method="post">
+        <form th:action="@{/setschedule}" method="post">
             <label class="label-days">MONDAY</label>
             <input type="time" id="sMonday" th:name="sMonday" class="input-time">
             <label class="label-to">to</label>
@@ -63,6 +63,7 @@
                 <input type="time" id="eSunday" th:name="eSunday" class="input-time">
             </div>
 
+            <button type="submit" class="button-Save">Save Changes</button>
         </form>
     </div>
 </body>

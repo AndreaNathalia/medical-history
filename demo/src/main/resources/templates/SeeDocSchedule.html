@@ -10,7 +10,7 @@
 </head>
 <body>
     <!--    NAVBAR     -->
-    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
+    <img th:src="@{/images/LogoBlanco.png}" class="img-BigLogo">
 
     <div class="div-pInformation">
         <h2 class="h2-pInformation">DOCTOR SCHEDULE</h2>
@@ -19,43 +19,43 @@
     <!--    SCHEDULE     -->
     <div class="div-schedule2">
         <label class="label-days">MONDAY:</label>
-        <p id="sMonday" th:text="${}" class="p-start"></p>
+        <p id="sMonday" th:text="${sMonday}" class="p-start"></p>
         <label class="label-to">to</label>
-        <p id="eMonday" th:text="${}" class="p-start"></p>
+        <p id="eMonday" th:text="${eMonday}" class="p-start"></p>
 
         <label class="label-days">TUESDAY</label>
-        <p id="sTuesday" th:text="${}" class="p-start"></p>
+        <p id="sTuesday" th:text="${sTuesday}" class="p-start"></p>
         <label class="label-to">to</label>
-        <p id="eTuesday" th:text="${}" class="p-start"></p>
+        <p id="eTuesday" th:text="${eTuesday}" class="p-start"></p>
 
         <label class="label-days">WEDNESDAY</label>
-        <p id="sWednesday" th:text="${}" class="p-start"></p>
+        <p id="sWednesday" th:text="${sWednesday}" class="p-start"></p>
         <label class="label-to">to</label>
-        <p id="eWednesday" th:text="${}" class="p-start"></p>
+        <p id="eWednesday" th:text="${eWednesday}" class="p-start"></p>
 
         <label class="label-days">THURSDAY</label>
-        <p id="sThursday" th:text="${}" class="p-start"></p>
+        <p id="sThursday" th:text="${sThursday}" class="p-start"></p>
         <label class="label-to">to</label>
-        <p id="eThursday" th:text="${}" class="p-start"></p>
+        <p id="eThursday" th:text="${eThursday}" class="p-start"></p>
 
         <label class="label-days">FRIDAY</label>
-        <p id="sFriday" th:text="${}" class="p-start"></p>
+        <p id="sFriday" th:text="${sFriday}" class="p-start"></p>
         <label class="label-to">to</label>
-        <p id="eFriday" th:text="${}" class="p-start"></p>
+        <p id="eFriday" th:text="${eFriday}" class="p-start"></p>
 
         <div class="div-2nd2">
             <label class="label-days">SATURDAY</label>
-            <p id="sSaturday" th:text="${}" class="p-start"></p>
+            <p id="sSaturday" th:text="${sSaturday}" class="p-start"></p>
             <label class="label-to">to</label>
-            <p id="eSaturday" th:text="${}" class="p-start"></p>
+            <p id="eSaturday" th:text="${eSaturday}" class="p-start"></p>
 
             <label class="label-days">SUNDAY</label>
-            <p id="sSunday" th:text="${}" class="p-start"></p>
+            <p id="sSunday" th:text="${sSunday}" class="p-start"></p>
             <label class="label-to">to</label>
-            <p id="eSunday" th:text="${}" class="p-start"></p>
+            <p id="eSunday" th:text="${eSunday}" class="p-start"></p>
         </div>
     </div>
 
-    <a th:href="@{/}" class="close-med"></a>
+    <a th:href="@{/getpatientprofile}" class="close-med"></a>
 </body>
 </html>
