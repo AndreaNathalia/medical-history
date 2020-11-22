@@ -282,8 +282,8 @@ public class Doctor implements Serializable{
                 String test = doctorsList.get(i).getEmail();
                 if(test.equals(test2)){
                     patients.add(index);
-                };
-            };
+                }
+            }
         }
         public void addPatients(Patient.PatientInformation newPatient, Model model){
             allowedPatients.add(newPatient);
@@ -312,9 +312,9 @@ public class Doctor implements Serializable{
                     if (test3.equals(test1)){
                         e = i;
                         return "True";
-                    };
-                };
-            };
+                    }
+                }
+            }
             model.addAttribute("FirstName", doctorsList.get(e).getName());
             model.addAttribute("LastName", doctorsList.get(e).getLastName());
             model.addAttribute("Age", doctorsList.get(e).getAge());
@@ -333,9 +333,9 @@ public class Doctor implements Serializable{
                 if(test.equals(test2)){
                     if (test3.equals(test1)){
                         return doctorsList.get(i);
-                    };
-                };
-            };
+                    }
+                }
+            }
             return null;
         }
     }
