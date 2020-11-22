@@ -89,7 +89,8 @@ public class Main {
         //Doctor type
         if(UserType.equals("doctor")){
             //Check pwd and email
-            if (Doctor.DoctorInformation.checker(email, password,model).equals("True")){
+            if (Doctor.DoctorInformation.checker(email, password).equals("True")){
+                Doctor.DoctorInformation.checkerModel(email, password,model);
                 newDoctor = Doctor.DoctorInformation.returner(email,password);
                 model.addAttribute("name", newDoctor.name);
                 model.addAttribute("LastName", newDoctor.LastName);

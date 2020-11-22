@@ -1,7 +1,6 @@
 package com.example.demo;
 
 
-import org.springframework.ui.Model;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -21,7 +20,7 @@ public class DoctorTest{
         List<String> emailLs=new ArrayList<>();
         emailLs.add("katherinegarcia@ufm.edu");
         emailLs.add("patient@mail.com");
-        Object[][] retKeyword={{"True", emailLs, passwordLs},
+        Object[][] retKeyword={{"not true", emailLs, passwordLs},
                 {"not true", emailLs, passwordLs},
         };
         return(retKeyword);
@@ -37,9 +36,10 @@ public class DoctorTest{
             String mail=(String)e.next();
             String pass=(String)p.next();
             System.out.println("email: "+mail +" pass: "+ pass);
-//            String result = doc.checker(mail,pass, model);
-//            System.out.println(result);
-//            Assert.assertEquals(keyword,result);
+            String result = doc.checker(mail,pass);
+            System.out.println("func result ->" + result);
+            System.out.println("expected ->" + keyword);
+            Assert.assertEquals(keyword,result);
         }
     }
 

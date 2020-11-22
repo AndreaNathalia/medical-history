@@ -285,10 +285,13 @@ public class Doctor implements Serializable{
                 }
             }
         }
-        public void addPatients(Patient.PatientInformation newPatient, Model model){
+        public List<Patient.PatientInformation> addPatients(Patient.PatientInformation newPatient, Model model){
             allowedPatients.add(newPatient);
-            model.addAttribute("allowedPatients", allowedPatients);
+            return allowedPatients;
 
+        }
+        public void addPatientsModel(Model model){
+            model.addAttribute("allowedPatients", allowedPatients);
         }
         public void deletePatients(Patient.PatientInformation patient){
             int allowedPatientsLength = allowedPatients.size();
@@ -300,7 +303,7 @@ public class Doctor implements Serializable{
             }
         }
 
-        public static String checker (String email, String password,Model model){
+        public static String checker (String email, String password){
             String test2 = email;
             String test3 = password;
 
@@ -315,13 +318,24 @@ public class Doctor implements Serializable{
                     }
                 }
             }
+            return "not true";
+        }
+        public static void checkerModel(String email, String password, Model model){
+            int e = 0;
+            for(int i = 0; i < doctorsList.size(); i++){
+                String test = doctorsList.get(i).getEmail();
+                String test1 = doctorsList.get(i).getPassword();
+                if(test.equals(email)){
+                    if (password.equals(test1)){
+                        e = i;
+                    }
+                }
+            }
             model.addAttribute("FirstName", doctorsList.get(e).getName());
             model.addAttribute("LastName", doctorsList.get(e).getLastName());
             model.addAttribute("Age", doctorsList.get(e).getAge());
             model.addAttribute("Speciality", doctorsList.get(e).getSpecialty());
             model.addAttribute("Address", doctorsList.get(e).getClinicAddress());
-
-            return "not true";
         }
 
         public static DoctorInformation returner(String email, String password){

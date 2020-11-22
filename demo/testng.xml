@@ -34,6 +34,7 @@
             <class name="com.example.demo.PatientTest"></class>
             <class name="com.example.demo.AddPointsTest"></class>
             <class name="com.example.demo.TimewPatientTest"></class>
+            <class name="com.example.demo.TimewPatientTest"></class>
         </classes>
     </test>
 
