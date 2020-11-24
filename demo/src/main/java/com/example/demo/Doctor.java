@@ -285,7 +285,7 @@ public class Doctor implements Serializable{
                 }
             }
         }
-        public List<Patient.PatientInformation> addPatients(Patient.PatientInformation newPatient, Model model){
+        public List<Patient.PatientInformation> addPatients(Patient.PatientInformation newPatient){
             allowedPatients.add(newPatient);
             return allowedPatients;
 

@@ -290,7 +290,8 @@ public class Main {
                         newUser.addDoctors(addDoc,model);
                         //        add patient to doctor profile
                         Doctor.DoctorInformation.doctorsList.get(j).patientadder(nid,email);
-                        Doctor.DoctorInformation.doctorsList.get(j).addPatients(addPat, model);
+                        Doctor.DoctorInformation.doctorsList.get(j).addPatients(addPat);
+                        Doctor.DoctorInformation.doctorsList.get(j).addPatientsModel(model);
 
                         FileOutputStream fos = new FileOutputStream("doctor.tmp");
                         ObjectOutputStream oos = new ObjectOutputStream(fos);

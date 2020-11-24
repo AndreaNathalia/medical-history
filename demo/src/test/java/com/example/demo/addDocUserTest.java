@@ -13,6 +13,7 @@ import java.util.List;
 public class addDocUserTest {
     Patient.PatientInformation newPatient1 = new Patient.PatientInformation();
     Patient.PatientInformation newPatient2 = new Patient.PatientInformation();
+    Doctor.DoctorInformation doc = new Doctor.DoctorInformation();
     @DataProvider(name = "addPatToDoc")
     public Object[][] patients() {
         List<Patient.PatientInformation> patients = new ArrayList<>();
@@ -37,10 +38,15 @@ public class addDocUserTest {
             String mail=(String)e.next();
             Object pass= p.next();
 
-//            List<Patient.PatientInformation> funcPatients = Doctor.DoctorInformation.addPatients(pass);
+//            List<Patient.PatientInformation> funcPatients = doc.addPatients(pass);
 
             System.out.println("email: "+mail +" pass: "+ pass);
 //            Assert.assertEquals(keyword,result);
+        }
+        for(int i=0; i<patientsAdded.size(); i++){
+//            List<Patient.PatientInformation> funcPatients = doc.addPatients(patients.get(i));
+//            Assert.assertEquals(patientsAdded.get(i), patientsAdded.get(i));
+
         }
     }
 
