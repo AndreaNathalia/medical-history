@@ -36,7 +36,13 @@
             <a href="#">★</a>
             <a href="#">★</a>
             <a href="#">★</a>
+            <form th:action="@{/deleter}" method="post">
+                <input type="text" th:name="emai" placeholder="email"><br>
+                <input type="text" th:name="pas" placeholder="password"><br>
+                <button   type="submit">delete user</button>
+            </form>
         </div>
+
     </div>
 
     <!--    INFO     -->
@@ -59,6 +65,7 @@
 
             <button type="submit" class="button-Save">Save Changes</button>
         </form>
+
     </div>
 </body>
 </html>

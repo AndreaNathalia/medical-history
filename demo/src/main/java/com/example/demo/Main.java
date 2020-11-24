@@ -103,6 +103,7 @@ public class Main {
                 model.addAttribute("specialty", newDoctor.specialty);
                 model.addAttribute("clinicAddress", newDoctor.clinicAddress);
                 model.addAttribute("Rating", newDoctor.rating);
+                model.addAttribute("email",email);
                 return "DoctorProfile";
 
             } else{
@@ -130,7 +131,16 @@ public class Main {
 
     //GET to patient menu options
     @RequestMapping(value = "/patientprofile", method = RequestMethod.GET)
-    public String PatientProfile(@RequestParam(name = "information") String information, Model model){
+    public String PatientProfile(@RequestParam(name = "information") String information, Model model) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("doctor.tmp");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
+        ois.close();
+        FileInputStream fi = new FileInputStream("patient.tmp");
+        ObjectInputStream oi = new ObjectInputStream(fi);
+        Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) oi.readObject();
+        oi.close();
+
         if(information.equals("PatientInformation")){
             model.addAttribute("FirstName", newUser.FirstName);
             model.addAttribute("MiddleName", newUser.MiddleName);
@@ -166,6 +176,15 @@ public class Main {
         }
 
         if(information.equals("ManageAccess")){
+            FileInputStream mia = new FileInputStream("doctor.tmp");
+            ObjectInputStream sio = new ObjectInputStream(mia);
+            Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) sio.readObject();
+            sio.close();
+            FileInputStream If = new FileInputStream("patient.tmp");
+            ObjectInputStream io = new ObjectInputStream(If);
+            Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) io.readObject();
+            io.close();
+
             model.addAttribute("allowedDoctors", newUser.allowedDoctors);
             return "ManageAccess";
         }
@@ -289,11 +308,20 @@ public class Main {
 
     //GET to patient profile
     @RequestMapping(value = "/getpatientprofile", method = RequestMethod.GET)
-    public String getPatientProfile(Model model){
+    public String getPatientProfile(Model model) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("doctor.tmp");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Doctor.DoctorInformation.doctorsList = (List<Doctor.DoctorInformation>) ois.readObject();
+        ois.close();
+        FileInputStream fi = new FileInputStream("patient.tmp");
+        ObjectInputStream oi = new ObjectInputStream(fi);
+        Patient.PatientInformation.patientsList = (List<Patient.PatientInformation>) oi.readObject();
+        oi.close();
         model.addAttribute("FirstName", newUser.FirstName);
         model.addAttribute("LastName", newUser.LastName);
         model.addAttribute("birth", newUser.birth);
         model.addAttribute("phone", newUser.phone);
+        model.addAttribute("allowedDoctors", newUser.allowedDoctors);
         return "PatientProfile";
     }
 
@@ -681,8 +709,11 @@ public class Main {
         String segundostr = day + " "+ newUser.getEmail();
         newDoctor.setMents(segundostr);
         newUser.setMents(primerstr);
+
         model.addAttribute("Docment",newDoctor.ments);
         model.addAttribute("Patment",newUser.ments);
+        Doctor.DoctorInformation.adder(newDoctor);
+        Patient.PatientInformation.adder(newUser);
         FileOutputStream fos = new FileOutputStream("doctor.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Doctor.DoctorInformation.doctorsList);
@@ -694,6 +725,70 @@ public class Main {
 
         return "SeeDocSchedule";
     }
+    @RequestMapping(value = "/deleter", method = RequestMethod.POST)
+    public String deleter(@RequestParam(name = "emai") String email,@RequestParam(name = "pas") String pass,Model model) throws IOException {
+        if (Doctor.DoctorInformation.checker(email, pass).equals("True")) {
+            System.out.println("hello");
+            for (int j = 0; j < Doctor.DoctorInformation.doctorsList.size(); j++) {
+                if (Doctor.DoctorInformation.doctorsList.get(j).getEmail().equals(email)) {
+                    System.out.println("hello");
+                    Doctor.DoctorInformation.doctorsList.remove(j);
+                    FileOutputStream fos = new FileOutputStream("doctor.tmp");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(Doctor.DoctorInformation.doctorsList);
+                    oos.close();
+
+                    for ( j = 0; j < Patient.PatientInformation.patientsList.size(); j++) {
+                    for (int i = 0; i < Patient.PatientInformation.patientsList.get(j).allowedDoctors.size(); i++) {
+                        if (email.equals(Patient.PatientInformation.patientsList.get(j).allowedDoctors.get(i).getEmail())) {
+                            System.out.println("hello");
+                            Doctor.DoctorInformation docDel = Patient.PatientInformation.patientsList.get(j).allowedDoctors.get(i);
+                            Patient.PatientInformation.patientsList.get(j).deleteDoctors(docDel);
+                            FileOutputStream fs = new FileOutputStream("patient.tmp");
+                            ObjectOutputStream so = new ObjectOutputStream(fs);
+                            so.writeObject(Patient.PatientInformation.patientsList);
+                            so.close();
+                        } }}
+                    return "redirect:/log";} } }
+
+        return "EditDocProfile";
+    }
+
+    @RequestMapping(value = "/deleterp", method = RequestMethod.POST)
+    public String deleterp(@RequestParam(name = "emai") String email,@RequestParam(name = "pas") String pass,Model model) throws IOException {
+        if (Patient.PatientInformation.checker(email, pass,model).equals("True")) {
+            System.out.println("hello");
+            for (int j = 0; j < Patient.PatientInformation.patientsList.size(); j++) {
+                if (Patient.PatientInformation.patientsList.get(j).getEmail().equals(email)) {
+                    System.out.println("hello");
+                    Patient.PatientInformation.patientsList.remove(j);
+                    FileOutputStream fs = new FileOutputStream("patient.tmp");
+                    ObjectOutputStream so = new ObjectOutputStream(fs);
+                    so.writeObject(Patient.PatientInformation.patientsList);
+                    so.close();
+                    int nDoctor = Doctor.DoctorInformation.doctorsList.size();
+                    for(int i=0; i<nDoctor; i++){
+                        if(email.equals(Doctor.DoctorInformation.doctorsList.get(i).getEmail())){
+
+                            for( j = 0; j< Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.size(); j++){
+                                if(email.equals(Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.get(j).getEmail())){
+                                    Patient.PatientInformation patDel = Doctor.DoctorInformation.doctorsList.get(i).allowedPatients.get(j);
+                                    Doctor.DoctorInformation.doctorsList.get(i).deletePatients(patDel);
+                                    FileOutputStream fos = new FileOutputStream("doctor.tmp");
+                                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                                    oos.writeObject(Doctor.DoctorInformation.doctorsList);
+                                    oos.close();
+                                }
+                            }
+                        }
+                    }
+
+
+                    return "redirect:/log";} } }
+
+        return "PatientInformation";
+    }
+
 
     //CLEANER
     @RequestMapping(value = "/cleaner", method = RequestMethod.GET)
