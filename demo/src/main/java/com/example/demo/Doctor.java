@@ -36,7 +36,14 @@ public class Doctor implements Serializable{
         public String eSaturday;
         public String sSunday;
         public String eSunday;
+        public List<String> ments = new ArrayList<>();
+        public void setMents(String ment) {
+            if(ment.equals("")){
 
+            }else{
+                this.ments.add(ment);
+            }
+        }
         //Constructor
         DoctorInformation(){ }
 

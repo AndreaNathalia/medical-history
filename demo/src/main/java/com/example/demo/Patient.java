@@ -37,6 +37,14 @@ public class Patient implements Serializable{
         public List<String> med6 = new ArrayList<>();
         public List<String> med7 = new ArrayList<>();
         public List<String> med8 = new ArrayList<>();
+        public List<String> ments = new ArrayList<>();
+        public void setMents(String ment) {
+            if(ment.equals("")){
+
+            }else{
+                this.ments.add(ment);
+            }
+        }
 
         //Constructor
         PatientInformation() { }

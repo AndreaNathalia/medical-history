@@ -47,6 +47,11 @@ public class Main {
     @RequestMapping(value = "/signup", method=RequestMethod.POST)
     public String SignUp(@ModelAttribute(name = "signUp") SignUp signUp,  @RequestParam(name = "UserType") String UserType, @RequestParam(name = "email") String email, @RequestParam(name = "password")String password, Model model) throws IOException {
         //Save doctor new user
+        newUser = new Patient.PatientInformation();
+
+        //New DOCTOR object/user (empty)
+        newDoctor = new Doctor.DoctorInformation();
+
         if(UserType.equals("doctor")){
             newDoctor.setUserType(UserType);
             newDoctor.setEmail(email);
@@ -54,7 +59,7 @@ public class Main {
             Doctor.DoctorInformation.adder(newDoctor);
             FileOutputStream fos = new FileOutputStream("doctor.tmp");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+            oos.writeObject(Doctor.DoctorInformation.doctorsList);
             oos.close();
         }
 
@@ -184,6 +189,38 @@ public class Main {
         }
 
         return "PatientProfile";
+    }
+    @RequestMapping(value = "/schedule", method = RequestMethod.POST)
+    public String schedule(@RequestParam(name = "email") String email,Model model) throws IOException {
+        for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
+            if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(email)){
+
+                newDoctor = Doctor.DoctorInformation.doctorsList.get(i);
+                model.addAttribute("sMonday", newDoctor.getsMonday());
+                model.addAttribute("eMonday", newDoctor.geteMonday());
+                model.addAttribute("sTuesday", newDoctor.getsTuesday());
+                model.addAttribute("eTuesday", newDoctor.geteTuesday());
+                model.addAttribute("sWednesday", newDoctor.getsWednesday());
+                model.addAttribute("eWednesday", newDoctor.geteWednesday());
+                model.addAttribute("sThursday", newDoctor.getsThursday());
+                model.addAttribute("eThursday", newDoctor.geteThursday());
+                model.addAttribute("sFriday", newDoctor.getsFriday());
+                model.addAttribute("eFriday", newDoctor.geteFriday());
+                model.addAttribute("sSaturday", newDoctor.getsSaturday());
+                model.addAttribute("eSaturday", newDoctor.geteSaturday());
+                model.addAttribute("sSunday", newDoctor.getsSunday());
+                model.addAttribute("eSunday", newDoctor.geteSunday());
+                return "SeeDocSchedule";
+            }
+        }
+
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.getDoctorsList());
+        oos.close();
+        return "redirect:/ManageAccess";
+
+
     }
 
     //GET to edit patient info
@@ -353,6 +390,7 @@ public class Main {
     public String EditDoctortInfo(){
         return "EditDocProfile";
     }
+
     @RequestMapping(value = "/rating", method = RequestMethod.POST)
     public String Rating(@RequestParam(name = "rating") int rating,@RequestParam(name = "rate") String rate,Model model) throws IOException {
         for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
@@ -636,6 +674,24 @@ public class Main {
     public String testeradder() throws IOException, ClassNotFoundException {
         Patient.PatientInformation.adder(newUser);
         return "PatientProfile";
+    }
+    @RequestMapping(value = "/confirm", method = RequestMethod.POST)
+    public String confirm(@RequestParam(name = "day") String day,Model model) throws IOException {
+        String primerstr = day + newDoctor.getEmail();
+        String segundostr = day + newUser.getEmail();
+        newDoctor.setMents(segundostr);
+        newUser.setMents(primerstr);
+        
+        FileOutputStream fos = new FileOutputStream("doctor.tmp");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(Doctor.DoctorInformation.doctorsList);
+        oos.close();
+        FileOutputStream fs = new FileOutputStream("patient.tmp");
+        ObjectOutputStream so = new ObjectOutputStream(fs);
+        so.writeObject(Patient.PatientInformation.patientsList);
+        so.close();
+
+        return "redirect:/ManageAccess";
     }
 
     //CLEANER

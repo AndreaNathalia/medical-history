@@ -63,10 +63,11 @@
                         <td th:text="${doctor.specialty}"></td>
                     </div>
                     <form th:action="@{/rating}" method="post">
-
                         <input type="text" th:name="rating" placeholder="1 to 5"><br>
                         <button name="rate" th:value="${doctor.email}" type="submit">RATE</button>
-
+                    </form>
+                    <form th:action="@{/schedule}" method="post">
+                        <button name="email" th:value="${doctor.email}" type="submit">SCHEDULE DATE</button>
                     </form>
 <!-----------------------------------DELETE------------------------>
                     <div class="grid-item">

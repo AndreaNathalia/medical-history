@@ -54,7 +54,12 @@
             <label class="label-to">to</label>
             <p id="eSunday" th:text="${eSunday}" class="p-start"></p>
         </div>
+        <form th:action="@{/confirm}" method="post">
+            <input type="text" th:name="day" placeholder="enter day desired"><br>
+            <button name="rate"  type="submit">confirm</button>
+        </form>
     </div>
+
 
     <a th:href="@{/getpatientprofile}" class="close-med"></a>
 </body>
