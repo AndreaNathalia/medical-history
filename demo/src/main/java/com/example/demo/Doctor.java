@@ -293,6 +293,7 @@ public class Doctor implements Serializable{
         public void addPatientsModel(Model model){
             model.addAttribute("allowedPatients", allowedPatients);
         }
+
         public void deletePatients(Patient.PatientInformation patient){
             int allowedPatientsLength = allowedPatients.size();
             String email = patient.getEmail();
