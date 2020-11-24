@@ -677,11 +677,12 @@ public class Main {
     }
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     public String confirm(@RequestParam(name = "day") String day,Model model) throws IOException {
-        String primerstr = day + newDoctor.getEmail();
-        String segundostr = day + newUser.getEmail();
+        String primerstr = day + " "+ newDoctor.getEmail();
+        String segundostr = day + " "+ newUser.getEmail();
         newDoctor.setMents(segundostr);
         newUser.setMents(primerstr);
-        
+        model.addAttribute("Docment",newDoctor.ments);
+        model.addAttribute("Patment",newUser.ments);
         FileOutputStream fos = new FileOutputStream("doctor.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Doctor.DoctorInformation.doctorsList);
@@ -691,7 +692,7 @@ public class Main {
         so.writeObject(Patient.PatientInformation.patientsList);
         so.close();
 
-        return "redirect:/ManageAccess";
+        return "SeeDocSchedule";
     }
 
     //CLEANER
@@ -699,6 +700,7 @@ public class Main {
     public String cleaner() throws IOException {
         Patient.PatientInformation.patientsList = new ArrayList<Patient.PatientInformation>();
         Doctor.DoctorInformation.doctorsList = new ArrayList<Doctor.DoctorInformation>();
+
         FileOutputStream fos = new FileOutputStream("doctor.tmp");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(Doctor.DoctorInformation.doctorsList);

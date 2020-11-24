@@ -59,7 +59,10 @@
             <button name="rate"  type="submit">confirm</button>
         </form>
     </div>
+    <tr th:each="user :${Patment}">
+        <td  th:text="${user}"></td>
 
+    </tr>
 
     <a th:href="@{/getpatientprofile}" class="close-med"></a>
 </body>
