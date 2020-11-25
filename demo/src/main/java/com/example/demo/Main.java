@@ -103,6 +103,7 @@ public class Main {
                 model.addAttribute("specialty", newDoctor.specialty);
                 model.addAttribute("clinicAddress", newDoctor.clinicAddress);
                 model.addAttribute("Rating", newDoctor.rating);
+                model.addAttribute("Docment",newDoctor.ments);
                 model.addAttribute("email",email);
                 return "DoctorProfile";
 
@@ -120,6 +121,7 @@ public class Main {
                 model.addAttribute("LastName", newUser.LastName);
                 model.addAttribute("birth", newUser.birth);
                 model.addAttribute("phone", newUser.phone);
+                model.addAttribute("Patment",newUser.ments);
                 return "PatientProfile";
 
             } else{
@@ -475,6 +477,11 @@ public class Main {
         if(information.equals("Schedule")){
             return "SetDocSchedule";
         }
+        if(information.equals("Appointments")){
+            model.addAttribute("Docment",newDoctor.ments);
+            return "Appointments";
+        }
+
         return "DoctorProfile";
     }
 

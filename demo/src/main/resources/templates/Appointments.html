@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Doctor Schedule</title>
+
+    <!--  CSS  -->
+    <link href="../static/ScheduleStyle.css" th:href="@{/ScheduleStyle.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<img th:src="@{/images/LogoBlanco.png}" class="img-BigLogo">
+
+<div class="div-pInformation">
+    <h2 class="h2-pInformation">My APPOINTMENTS</h2>
+</div>
+
+
+
+<tr th:each="user :${Docment}">
+    <td  th:text="${user}"></td>
+
+</tr>
+
+<a th:href="@{/getpatientprofile}" class="close-med"></a>
+</body>
+</html>
