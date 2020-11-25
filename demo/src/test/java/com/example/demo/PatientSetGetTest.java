@@ -70,4 +70,11 @@ public class PatientSetGetTest {
         String getAllergy = pat.getAllergies1();
         Assert.assertEquals(allergy, getAllergy);
     }
+    @Test
+    @Parameters({"Surgery"})
+    public void surgeryTest(String surgery){
+        pat.setSurgery1(surgery);
+        String getSurgery = pat.getSurgery1();
+
+    }
 }

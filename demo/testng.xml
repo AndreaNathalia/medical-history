@@ -17,6 +17,8 @@
     <parameter name="Gender" value="Male"></parameter>
     <parameter name="Status" value="Single"></parameter>
     <parameter name="City" value="Gt"></parameter>
+    <parameter name="Allergy" value="Polen"></parameter>
+    <parameter name="Surgery" value="Eye"></parameter>
 
 
 
@@ -33,7 +35,6 @@
             <class name="com.example.demo.addDocUserTest"></class>
             <class name="com.example.demo.PatientTest"></class>
             <class name="com.example.demo.AddPointsTest"></class>
-            <class name="com.example.demo.TimewPatientTest"></class>
             <class name="com.example.demo.TimewPatientTest"></class>
             <class name="com.example.demo.PatientSetGetTest"></class>
         </classes>

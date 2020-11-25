@@ -382,6 +382,25 @@ public class Patient implements Serializable{
             return "not true";
         }
 
+        public static String checkerModel(String email, String password){
+            String test = email;
+            String test1 = password;
+            int e = 0;
+
+            for(int i = 0; i < patientsList.size(); i++){
+                String test2 = patientsList.get(i).getEmail();
+                String test3 = patientsList.get(i).getPassword();
+                if(test.equals(test2)){
+                    if (test3.equals(test1)){
+                        e = i;
+                        return "True";
+                    };
+                };
+            };
+
+            return "not true";
+        }
+
         public static PatientInformation returner(String email, String password){
             String test = email;
             String test1 = password;
