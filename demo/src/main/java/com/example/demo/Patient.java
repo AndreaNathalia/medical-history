@@ -302,7 +302,7 @@ public class Patient implements Serializable{
             }
             return meds;
         }
-        
+
         //Patients List
         static List<PatientInformation> patientsList = new ArrayList<PatientInformation>();
 
