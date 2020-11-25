@@ -811,7 +811,7 @@ public class Main {
         ObjectOutputStream so = new ObjectOutputStream(fs);
         so.writeObject(Patient.PatientInformation.patientsList);
         so.close();
-        return "PatientProfile";
+        return "main";
     }
 
 }
