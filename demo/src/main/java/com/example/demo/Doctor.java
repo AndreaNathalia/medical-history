@@ -21,6 +21,7 @@ public class Doctor implements Serializable{
         public List<Integer> RATINGS = new ArrayList<>();
         public List<String> patients = new ArrayList<>();
         public List<Patient.PatientInformation> allowedPatients = new ArrayList<>();
+        public List<String> ments = new ArrayList<>();
         //Week schedule
         public String sMonday;
         public String eMonday;
@@ -36,14 +37,7 @@ public class Doctor implements Serializable{
         public String eSaturday;
         public String sSunday;
         public String eSunday;
-        public List<String> ments = new ArrayList<>();
-        public void setMents(String ment) {
-            if(ment.equals("")){
 
-            }else{
-                this.ments.add(ment);
-            }
-        }
         //Constructor
         DoctorInformation(){ }
 
@@ -234,6 +228,14 @@ public class Doctor implements Serializable{
         public void seteSunday(String eSunday) {
             if(!eSunday.equals("")){
                 this.eSunday = eSunday;
+            }
+        }
+
+        public void setMents(String ment) {
+            if(ment.equals("")){
+
+            }else{
+                this.ments.add(ment);
             }
         }
 

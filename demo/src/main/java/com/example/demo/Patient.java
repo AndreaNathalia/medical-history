@@ -38,13 +38,6 @@ public class Patient implements Serializable{
         public List<String> med7 = new ArrayList<>();
         public List<String> med8 = new ArrayList<>();
         public List<String> ments = new ArrayList<>();
-        public void setMents(String ment) {
-            if(ment.equals("")){
-
-            }else{
-                this.ments.add(ment);
-            }
-        }
 
         //Constructor
         PatientInformation() { }
@@ -291,6 +284,14 @@ public class Patient implements Serializable{
             }
         }
 
+        public void setMents(String ment) {
+            if(ment.equals("")){
+
+            }else{
+                this.ments.add(ment);
+            }
+        }
+
         public List<String> fillMedList(String medName, String dosage, String freq, String reason){
             List<String> meds = new ArrayList<>();
             if(!medName.equals("")){
@@ -301,6 +302,7 @@ public class Patient implements Serializable{
             }
             return meds;
         }
+        
         //Patients List
         static List<PatientInformation> patientsList = new ArrayList<PatientInformation>();
 
