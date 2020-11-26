@@ -63,8 +63,9 @@ nav ul li:hover {
 .img-logo{
     position: relative;
     top:2px;
+    left: 0px;
     height: 55px;
-    width: 125px;
+    width: 135px;
 }
 
 .label-name{

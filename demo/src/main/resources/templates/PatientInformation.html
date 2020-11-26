@@ -13,13 +13,8 @@
 </head>
 
 <body>
-    <img th:src="@{/images/LogoBlanco.png}" class="img-logo">
-<!--    <img src="images/LogoBlanco.png" class="img-logo">-->
-    <form th:action="@{/deleterp}" method="post">
-        <input type="text" th:name="emai" placeholder="email"><br>
-        <input type="text" th:name="pas" placeholder="password"><br>
-        <button   type="submit">delete user</button>
-    </form>
+    <img th:src="@{images/WhiteHistorically.png}" class="img-logo">
+
     <div class="div-pInformation">
         <h2 class="h2-pInformation">PATIENT INFORMATION</h2>
     </div>
@@ -30,6 +25,10 @@
 
     <div class="div-surgery">
         <h2 class="h2-surgery">PAST SURGERY INFORMATION</h2>
+    </div>
+
+    <div class="div-deleteB">
+        <h2 class="h2-delete">DELETE ACCOUNT</h2>
     </div>
 
     <div class="div-Info">
@@ -86,7 +85,15 @@
             <input type="text" id="surgery4" th:name="surgery4" class="input-surgery4" disabled/>
 
             <button type="submit" class="button-Save">Save Changes</button>
+        </form>
+    </div>
 
+    <div class="div-delete">
+        <label class="label-delete">Enter your information:</label>
+        <form th:action="@{/deleterp}" method="post">
+            <input type="text" th:name="emai" placeholder="email" class="input-delete"><br>
+            <input type="text" th:name="pas" placeholder="password" class="input-delete"><br>
+            <button type="submit" class="button-delete">Delete Account</button>
         </form>
     </div>
 

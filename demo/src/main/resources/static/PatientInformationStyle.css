@@ -1,9 +1,13 @@
+body{
+    overflow-x: hidden;
+}
+/*-- EDIT INFO --*/
 .img-logo{
     position: absolute;
-    top: 26px;
+    top: 15px;
     left: 32px;
-    width: 238px;
-    height: 100px;
+    width: 300px;
+    height: 120px;
 }
 
 img{
@@ -57,6 +61,23 @@ img{
 }
 
 .h2-surgery{
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.div-deleteB{
+    position: absolute;
+    top: 690px;
+    width: 1260px;
+    height: 30px;
+    background-color: #0C182B;
+}
+
+.h2-delete{
     position: absolute;
     top: -12px;
     left: 10px;
@@ -374,6 +395,54 @@ img{
     left: 982px;
     font-family: Avenir;
     font-size: 12px;
+}
+
+.div-delete{
+    position: relative;
+    top: 730px;
+    left: 32px;
+    height: 190px;
+}
+
+.label-delete{
+    position: relative;
+    font-family: Avenir;
+    font-size: 20px;
+    color: #FF213F;
+}
+
+.input-delete{
+    width: 280px;
+    border-top: gray 1px solid;
+    border-bottom: #3FAFB9 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.button-delete{
+    position: absolute;
+    top: 120px;
+    left: 130px;
+    width: 150px;
+    margin-bottom: 20px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 5px;
+    border: 2.5px solid #494949 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-delete:hover {
+    color: #FF1635 !important;
+    border-radius: 50px;
+    border-color: #FF1635 !important;
+    transition: all 0.3s ease 0s;
 }
 
 .button-Save{
