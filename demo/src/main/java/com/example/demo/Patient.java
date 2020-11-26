@@ -350,6 +350,12 @@ public class Patient implements Serializable{
             allowedDoctors.add(newDoc);
             model.addAttribute("allowedDoctors", allowedDoctors);
         }
+
+        public List<Doctor.DoctorInformation> addDoctorsModel(Doctor.DoctorInformation newDoc){
+            allowedDoctors.add(newDoc);
+            return allowedDoctors;
+        }
+
         public void deleteDoctors(Doctor.DoctorInformation newDoc){
             int allowedDoctorsLength = allowedDoctors.size();
             String email = newDoc.getEmail();
