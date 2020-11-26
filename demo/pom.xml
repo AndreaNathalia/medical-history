@@ -67,6 +67,12 @@
 			<artifactId>selenium-java</artifactId>
 			<version>4.0.0-alpha-7</version>
 		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.3.0</version>
+			<scope>compile</scope>
+		</dependency>
 
 	</dependencies>
 

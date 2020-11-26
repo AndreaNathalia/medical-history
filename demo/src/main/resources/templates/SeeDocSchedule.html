@@ -16,6 +16,10 @@
         <h2 class="h2-pInformation">DOCTOR SCHEDULE</h2>
     </div>
 
+    <div class="div-list">
+        <h2 class="h2-list">MY APPOINTMENTS</h2>
+    </div>
+
     <!--    SCHEDULE     -->
     <div class="div-schedule2">
         <label class="label-days">MONDAY:</label>
@@ -54,15 +58,24 @@
             <label class="label-to">to</label>
             <p id="eSunday" th:text="${eSunday}" class="p-start"></p>
         </div>
+    </div>
+
+    <!--    APPOINTMENT     -->
+    <div class="div-makeAp">
+        <h2 class="h2-makeAp">MAKE APPOINTMENT:</h2>
         <form th:action="@{/confirm}" method="post">
-            <input type="text" th:name="day" placeholder="enter day desired"><br>
-            <button name="rate"  type="submit">confirm</button>
+            <input type="text" th:name="day" placeholder="Date - Time" class="input-date"><br>
+            <button name="rate" type="submit" class="button-makeAp">CONFIRM</button>
         </form>
     </div>
-    <tr th:each="user :${Patment}">
-        <td  th:text="${user}"></td>
 
-    </tr>
+    <!--    APPOINTMENT'S LIST     -->
+    <div>
+        <tr th:each="user :${Patment}">
+            <td  th:text="${user}"></td>
+        </tr>
+    </div>
+
 
     <a th:href="@{/getpatientprofile}" class="close-med"></a>
 </body>

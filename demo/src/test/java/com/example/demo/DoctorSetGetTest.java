@@ -1,11 +1,10 @@
 package com.example.demo;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class DoctorSetGetTest {
     Doctor.DoctorInformation doc = new Doctor.DoctorInformation();
