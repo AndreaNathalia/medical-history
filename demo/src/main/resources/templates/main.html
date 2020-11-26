@@ -7,21 +7,46 @@
 
 </head>
 <body>
-    <div id="info">
-        <h1 id="welcome">
-            Medical History
-        </h1>
-        <br>
-        <p id="slogan">
-            Track your medical history in the palm of your hand.
-        </p>
-        <img  id="docImg" src="https://www.creativefabrica.com/wp-content/uploads/2019/04/Doctor-icon-by-hellopixelzstudio.png">
-        <div class="div-get">
-            <p class="p-noAccount"> No Account? </p>
+    <div>
+        <!--    NAVBAR     -->
+        <div>
+            <header>
+                <section class="wrapper">
+                    <form th:action="@{/doctorprofile}" method="get">
+                        <nav>
+                            <ul>
+                                <li><img th:src="@{/images/BlueHistorically.png}" class="img-logo"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li><button th:name="information" value="">Home</button></li>
+                            </ul>
+                        </nav>
+                    </form>
+                </section>
+            </header>
+        </div>
+
+        <!--    INFO     -->
+        <div id="info">
+            <img th:src="@{https://thumbs.dreamstime.com/b/online-medicine-concept-digital-online-medical-care-online-doctor-pharmacist-medical-consultation-doctor-showing-recipe-123723331.jpg}" class="img-medHis">
+
+            <h2 class="h2-where">Where Communication <br>Happens</h2>
+            <p class="p-info">Track your MEDICAL HISTORY in a few clicks
+            <br>with Historically. Get rid of paper problems
+                <br>and keep your medical information at all times.</p>
+
+            <p class="p-started">Contact your doctor and</p>
+            <p class="p-get">get started!</p>
+            <img  id="docImg" th:src="@{https://www.creativefabrica.com/wp-content/uploads/2019/04/Doctor-icon-by-hellopixelzstudio.png}">
+
+
             <form th:action="@{/getsignup}" method="get">
-                <button type="submit" class="button-signup" id="signUp">SignUp</button>
+                <button type="submit" class="button-sigUp" id="signUp">SIGNUP</button>
             </form>
         </div>
+
     </div>
 </body>
 </html>

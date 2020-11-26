@@ -1,32 +1,142 @@
-#welcome{
-    font-size: 50px;
+/* NAVBAR */
+* {
+    padding: 0;
+    margin: 0;
 }
-#info{
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    font-family: Helvetica;
+p {
+    margin-bottom: 20px;
 }
-#signUp{
-    border-radius: 8px;
-    padding: 20px 40px;
-    font-size: 20px;
-    background-color:#A4B8CD;
-    border: none;
-    font-family: "Courier New";
+.wrapper {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+header {
+    background: #0C182B;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.95;
+}
 
+nav {
+    float: left; /* Desplazamos el nav hacia la izquierda */
 }
-.div-get{
-    margin: 90px;
+nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
 }
+nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+nav ul li button {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 18px;
+
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 16px;
+    outline: none;
+}
+nav ul li:hover {
+    background: #2A878F;
+}
+.contenido {
+    padding-top: 80px;
+}
+
+.img-logo{
+    position: relative;
+    top:2px;
+    left: 0px;
+    height: 55px;
+    width: 135px;
+}
+
+/* INFO */
 body{
-    background-color: #e2e3e3;
+    overflow: hidden;
 }
-#docImg{
-    float: right;
-    width:605px;
-    height:402px;
+
+.img-medHis{
+    position: relative;
+    top: 100px;
+    left: 30px;
+    width: 510px;
+    height: 500px;
 }
-#slogan{
+
+.h2-where{
+    position: relative;
+    top: -350px;
+    left: 650px;
+    font-family: "Trebuchet MS";
+    font-size: 50px;
+    color: #2C97B7;
+}
+
+.p-info{
+    position: relative;
+    top: -320px;
+    left: 650px;
+    font-family: Helvetica;
+    font-size: 25px;
+    color: #0C182B;
+}
+
+.p-started{
+    position: relative;
+    top: -300px;
+    left: 870px;
+    font-family: Avenir;
     font-size: 20px;
+    color: #0C182B;
+}
+.p-get{
+    position: relative;
+    top: -325px;
+    left: 986px;
+    font-family: Avenir;
+    font-size: 20px;
+    color: #F7324A;
+}
+
+#docImg{
+    position: relative;
+    top: -430px;
+    left: 1040px;
+    width:175px;
+    height:100px;
+}
+
+.button-sigUp{
+    position: absolute;
+    top: 490px;
+    left: 990px;
+    width: 170px;
+    border: none;
+    background: #3C4F6D;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-sigUp:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+    outline: none;
 }
