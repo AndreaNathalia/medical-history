@@ -12,7 +12,6 @@
     <a th:href="@{/getpatientprofile}" class="exit"></a>
 
     <div id="headTitle">
-<!--        <h2 id="title">Manage Access</h2>-->
     </div>
 
     <button id="addBtn" onclick="AddNewDoc()">Invite a Doctor</button>
@@ -37,47 +36,64 @@
         </div>
         <div id="doctors">
             <div class="grid-container">
-                <div class="grid-item">
-                    Name
-                </div>
-                <div class="grid-item">
-                    Contact
-                </div>
-                <div class="grid-item" >
-                    Speciality
-                </div>
-                <div class="grid-item" >
-                    Rating
-                </div>
-                <div class="grid-item" >
-                    Appointment
-                </div>
-                <div class="grid-item">
-                    Delete
-                </div>
+                <table>
+                    <tr class="th-titles">
+                        <td class="td-titles">Name</td>
+                        <td class="td-titles">Contact</td>
+                        <td class="td-titles">Speciality</td>
+                        <td class="td-titles">Rating</td>
+                        <td class="td-titles">Appointment</td>
+                        <td class="td-titles">Delete</td>
+                    </tr>
+                </table>
+
+
+
+<!--                <div class="grid-item">-->
+<!--                    Name-->
+<!--                </div>-->
+<!--                <div class="grid-item">-->
+<!--                    Contact-->
+<!--                </div>-->
+<!--                <div class="grid-item" >-->
+<!--                    Speciality-->
+<!--                </div>-->
+<!--                <div class="grid-item" >-->
+<!--                    Rating-->
+<!--                </div>-->
+<!--                <div class="grid-item" >-->
+<!--                    Appointment-->
+<!--                </div>-->
+<!--                <div class="grid-item">-->
+<!--                    Delete-->
+<!--                </div>-->
             </div>
 
             <tr th:each="doctor,iter : ${allowedDoctors}">
-                <div id="doc" class="grid-container">
-                    <div class="grid-item" id="DoctorsName">
+                <div id="doc" >
+                    <div id="DoctorsName" class="td-info">
                         <td th:text="${doctor.name}"></td>
                     </div>
-                    <div class="grid-item" id="DoctorsEmail">
+
+                    <div id="DoctorsEmail" class="td-info">
                         <td th:text="${doctor.email}"></td>
                     </div>
-                    <div class="grid-item" id="DoctorsSpec">
+
+                    <div cid="DoctorsSpec" class="td-info">
                         <td th:text="${doctor.specialty}"></td>
                     </div>
-                    <form th:action="@{/rating}" method="post">
-                        <input type="text" th:name="rating" placeholder="1 to 5"><br>
-                        <button name="rate" th:value="${doctor.email}" type="submit">RATE</button>
+
+                    <form th:action="@{/rating}" method="post" class="td-info">
+                        <input type="text" th:name="rating" placeholder="1 to 5" style="width: 40px">
+                        <button name="rate" th:value="${doctor.email}" type="submit" style="">RATE</button>
                     </form>
-                    <form th:action="@{/schedule}" method="post">
+
+                    <form th:action="@{/schedule}" method="post" class="td-info">
                         <button name="email" th:value="${doctor.email}" type="submit">SCHEDULE DATE</button>
                     </form>
 <!-----------------------------------DELETE------------------------>
                     <div class="grid-item" th:with="id=${iter.index}">
-                        <button id="delPop" onclick="document.getElementById('${id}').style.display='block'">x</button>
+                        <button id="delPop" onclick="document.getElementById('${id}').style.display='block' "style="width: 50px">x</button>
                         <div id="${id}" class="modal">
                             <span onclick="document.getElementById('${id}').style.display='none'" class="close" title="Close Modal">&times;</span>
                             <form class="modal-content" th:action="@{deleteDoctorAccess}">

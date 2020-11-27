@@ -2,27 +2,26 @@
 <html lang="en" xmlns:th="http:/>/www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Doctor Schedule</title>
+    <title>Appointments</title>
 
     <!--  CSS  -->
     <link href="../static/ScheduleStyle.css" th:href="@{/ScheduleStyle.css}" rel="stylesheet"/>
 
 </head>
 <body>
+    <img th:src="@{images/WhiteHistorically.png}" class="img-BigLogo">
 
-<img th:src="@{/images/LogoBlanco.png}" class="img-BigLogo">
+    <div class="div-Appointment">
+        <h2 class="h2-Appointment">MY APPOINTMENTS</h2>
+    </div>
 
-<div class="div-pInformation">
-    <h2 class="h2-pInformation">My APPOINTMENTS</h2>
-</div>
+    <!--    APPOINTMENT'S LIST     -->
+    <div class="div-listAp">
+        <tr th:each="user :${Docment}">
+            <li class="td-info"><td th:text="${user}"></td></li>
+        </tr>
+    </div>
 
-
-
-<tr th:each="user :${Docment}">
-    <td  th:text="${user}"></td>
-
-</tr>
-
-<a th:href="@{/getpatientprofile}" class="close-med"></a>
+    <a th:href="@{/getdoctorprofile}" class="close-Ap"></a>
 </body>
 </html>

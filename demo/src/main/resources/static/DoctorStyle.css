@@ -1,4 +1,7 @@
 /* DOCTOR PROFILE */
+body{
+
+}
 /* NAVBAR */
 * {
     padding: 0;
@@ -55,7 +58,7 @@ nav ul li:hover {
     top:2px;
     left: 0px;
     height: 55px;
-    width: 125px;
+    width: 135px;
 }
 
 /* EDIT PROFILE */
@@ -105,11 +108,19 @@ img{
 
 .label-rating{
     position: absolute;
-    top:400px;
-    left: 237px;
+    top:3px;
+    left: -30px;
     font-size: 18px;
     font-family: Helvetica;
     color: #2A878F;
+}
+
+.label-ratingNumber{
+    position: absolute;
+    left: 32px;
+    font-size: 23px;
+    font-family: Tahoma;
+    color: #0C182B;
 }
 
 .star-rating {
@@ -254,10 +265,10 @@ img{
 /* PATIENTS EDITOR */
 .img-BigLogo{
     position: absolute;
-    top: 26px;
+    top: 15px;
     left: 32px;
-    width: 238px;
-    height: 100px;
+    width: 300px;
+    height: 120px;
 }
 
 .div-Information{
@@ -305,6 +316,7 @@ img{
 .td-info{
     padding-left: 170px;
     padding-top: 10px;
+    font-family: Helvetica;
 }
 
 .div-selectPatient{
@@ -484,5 +496,54 @@ img{
     color: #20bf6b !important;
     border-radius: 50px;
     border-color: #20bf6b !important;
+    transition: all 0.3s ease 0s;
+}
+
+.div-delete{
+    position: relative;
+    top: 165px;
+    left: 950px;
+    width: 300px;
+    height: 190px;
+}
+
+.label-delete{
+    position: relative;
+    font-family: Avenir;
+    font-size: 20px;
+    color: #FF213F;
+}
+
+.input-delete{
+    width: 245px;
+    border-top: gray 1px solid;
+    border-bottom: #3FAFB9 2px solid;
+    border-left: gray 1px solid;
+    border-right: gray 1px solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.button-delete{
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    width: 150px;
+    margin-bottom: 20px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 5px;
+    border: 2.5px solid #494949 !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    outline: none;
+}
+
+.button-delete:hover {
+    color: #FF1635 !important;
+    border-radius: 50px;
+    border-color: #FF1635 !important;
     transition: all 0.3s ease 0s;
 }

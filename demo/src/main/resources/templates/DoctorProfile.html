@@ -17,11 +17,10 @@
                 <form th:action="@{/doctorprofile}" method="get">
                     <nav>
                         <ul>
-                            <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
+                            <li><img th:src="@{/images/BlueHistorically.png}" class="img-logo"></li>
                             <li><button th:name="information" value="PatientsEditor">Edit Patients</button></li>
                             <li><button th:name="information" value="Schedule">My Schedule</button></li>
                             <li><button th:name="information" value="Appointments">Appointments</button></li>
-                            <li><button>x</button></li>
                         </ul>
                     </nav>
                 </form>
@@ -32,9 +31,9 @@
     <!--    EDIT PROFILE     -->
     <div>
         <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
-        <label class="label-rating">Rating:</label>
         <div class="star-rating">
-            <label  th:text="${Rating}"></label>
+            <label class="label-rating">Rating:</label>
+            <label th:text="${Rating}" class="label-ratingNumber"></label>
         </div>
 
         <form th:action="@{/editdoctorinformation}" method="get">

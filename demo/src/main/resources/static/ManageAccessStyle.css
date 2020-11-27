@@ -35,6 +35,8 @@
       padding: 10px 10px 10px 10px;
       color: white;
       font-family: Arial;
+    font-size: 20px;
+    color: white;
 }
 #doctors{
       background-color: white;
@@ -50,15 +52,14 @@
       /*padding: 5px;*/
 }
 .grid-container {
-     display: grid;
+
      grid-template-columns: auto auto auto auto;
-     padding: 10px;
+
 }
 .grid-item {
     /*background-color: #F0B27A;*/
      border: 1px solid white;
-     padding: 20px;
-     border-bottom-color: black;
+     padding-left: 10px;
      font-size: 20px;
      text-align: center;
 }
@@ -218,4 +219,38 @@ hr {
 }
 .exit:after {
      transform: rotate(-45deg);
+}
+
+/* NEW CSS */
+.div-who{
+    position: relative;
+    top: 150px;
+    width: 1260px;
+    left: 2px;
+    height: 30px;
+    background-color: #0C182B;
+}
+
+.h2-who{
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.td-titles{
+    font-family: Helvetica;
+    color: #2A878F;
+    font-size: 20px;
+    padding-left: 110px;
+    padding-bottom: 20px;
+}
+
+.td-info{
+    display: inline;
+    padding-left: 60px;
+    padding-top: 20px;
+    font-family: Helvetica;
 }

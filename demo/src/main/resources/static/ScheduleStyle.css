@@ -58,7 +58,7 @@ nav ul li:hover {
     top:2px;
     left: 0px;
     height: 55px;
-    width: 125px;
+    width: 135px;
 }
 
 .h2-schedule{
@@ -218,9 +218,9 @@ nav ul li:hover {
 }
 
 .div-makeAp{
-    position: fixed;
+    position: relative;
     left: 790px;
-    top: 145px;
+    top: -314px;
 }
 
 .h2-makeAp{
@@ -266,9 +266,24 @@ nav ul li:hover {
     outline: none;
 }
 
+.div-listAp{
+    position: relative;
+    top: 240px;
+    left: 30px;
+    width: 820px;
+    height: 100px;
+}
+
+.td-info{
+    font-family: Helvetica;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
 .close-med{
     position: relative;
-    top: -435px;
+    top: -580px;
     left: 95.5%;
     width: 25px;
     height: 25px;
@@ -289,5 +304,50 @@ nav ul li:hover {
     transform: rotate(45deg);
 }
 .close-med:after {
+    transform: rotate(-45deg);
+}
+
+/* APPOINTMENTS */
+.div-Appointment{
+    position: absolute;
+    top: 170px;
+    left: 8px;
+    width: 1260px;
+    height: 30px;
+    background-color: #0C182B;
+}
+
+.h2-Appointment{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+}
+
+.close-Ap{
+    position: relative;
+    top: -73px;
+    left: 95.5%;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+}
+.close-Ap:hover {
+    opacity: 1;
+}
+.close-Ap:before, .close-Ap:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #FF243B;
+}
+.close-Ap:before {
+    transform: rotate(45deg);
+}
+.close-Ap:after {
     transform: rotate(-45deg);
 }
