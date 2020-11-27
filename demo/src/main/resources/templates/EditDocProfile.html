@@ -17,7 +17,7 @@
                 <form th:action="@{/doctorprofile}" method="get">
                     <nav>
                         <ul>
-                            <li><img th:src="@{/images/LogoAzul.png}" class="img-logo"></li>
+                            <li><img th:src="@{/images/BlueHistorically.png}" class="img-logo"></li>
                             <h2 class="h2-edit">EDIT PROFILE</h2>
                         </ul>
                     </nav>
@@ -29,24 +29,16 @@
     <!--    EDIT PROFILE     -->
     <div>
         <img src="https://image.flaticon.com/icons/png/512/44/44948.png">
-        <label class="label-rating">Rating:</label>
+
         <div class="star-rating">
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <a href="#">★</a>
-            <form th:action="@{/deleter}" method="post">
-                <input type="text" th:name="emai" placeholder="email"><br>
-                <input type="text" th:name="pas" placeholder="password"><br>
-                <button   type="submit">delete user</button>
-            </form>
+            <label class="label-rating">Rating:</label>
+            <label th:text="${Rating}" class="label-ratingNumber"></label>
         </div>
 
     </div>
 
     <!--    INFO     -->
-    <div>
+    <div style="position: relative; left: -90px">
         <form th:action="@{/doctorinformation}" method="post">
             <input type="text" id="name" th:name="name"  class="input-DoctorName"/>
             <label class="label-FirstName">First Name</label>
@@ -67,5 +59,16 @@
         </form>
 
     </div>
+
+    <!--    DELETE ACCOUNT     -->
+    <div class="div-delete">
+        <label class="label-delete">⚙️ DELETE ACCOUNT</label>
+        <form th:action="@{/deleter}" method="post">
+            <input type="text" th:name="emai" placeholder="email" class="input-delete"><br>
+            <input type="text" th:name="pas" placeholder="password" class="input-delete"><br>
+            <button type="submit" class="button-delete">delete user</button>
+        </form>
+    </div>
+
 </body>
 </html>

@@ -102,9 +102,9 @@ public class Main {
                 model.addAttribute("age", newDoctor.age);
                 model.addAttribute("specialty", newDoctor.specialty);
                 model.addAttribute("clinicAddress", newDoctor.clinicAddress);
-                model.addAttribute("Rating", newDoctor.rating);
                 model.addAttribute("Docment",newDoctor.ments);
                 model.addAttribute("email",email);
+                model.addAttribute("Rating", newDoctor.rating + "/5");
                 return "DoctorProfile";
 
             } else{
@@ -206,6 +206,7 @@ public class Main {
             model.addAttribute("eSaturday", newDoctor.geteSaturday());
             model.addAttribute("sSunday", newDoctor.getsSunday());
             model.addAttribute("eSunday", newDoctor.geteSunday());
+            model.addAttribute("Patment",newUser.ments);
             return "SeeDocSchedule";
         }
 
@@ -215,7 +216,7 @@ public class Main {
     public String schedule(@RequestParam(name = "email") String email,Model model) throws IOException {
         for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
             if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(email)){
-
+                System.out.println(email + "eMonday");
                 newDoctor = Doctor.DoctorInformation.doctorsList.get(i);
                 model.addAttribute("sMonday", newDoctor.getsMonday());
                 model.addAttribute("eMonday", newDoctor.geteMonday());
@@ -231,6 +232,7 @@ public class Main {
                 model.addAttribute("eSaturday", newDoctor.geteSaturday());
                 model.addAttribute("sSunday", newDoctor.getsSunday());
                 model.addAttribute("eSunday", newDoctor.geteSunday());
+                model.addAttribute("Patment",newUser.ments);
                 return "SeeDocSchedule";
             }
         }
@@ -412,12 +414,14 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        model.addAttribute("Rating", newDoctor.rating + "/5");
         return "DoctorProfile";
     }
 
     //GET to edit doctor info
     @RequestMapping(value = "/editdoctorinformation", method = RequestMethod.GET)
-    public String EditDoctortInfo(){
+    public String EditDoctorInfo(Model model){
+        model.addAttribute("Rating", newDoctor.rating + "/5");
         return "EditDocProfile";
     }
 
@@ -462,7 +466,7 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
-        model.addAttribute("Rating", newDoctor.rating);
+        model.addAttribute("Rating", newDoctor.rating + "/5");
         return "DoctorProfile";
     }
 
@@ -471,6 +475,7 @@ public class Main {
     public String DoctorProfile(@RequestParam(name = "information") String information, Model model){
         if(information.equals("PatientsEditor")){
             model.addAttribute("allowedPatients", newDoctor.allowedPatients);
+            model.addAttribute("Rating", newDoctor.rating + "/5");
             return "PatientsEditor";
         }
 
@@ -526,6 +531,7 @@ public class Main {
         model.addAttribute("age", newDoctor.age);
         model.addAttribute("specialty", newDoctor.specialty);
         model.addAttribute("clinicAddress", newDoctor.clinicAddress);
+        model.addAttribute("Rating", newDoctor.rating + "/5");
 
         return "DoctorProfile";
     }
@@ -719,6 +725,7 @@ public class Main {
 
         model.addAttribute("Docment",newDoctor.ments);
         model.addAttribute("Patment",newUser.ments);
+
         Doctor.DoctorInformation.adder(newDoctor);
         Patient.PatientInformation.adder(newUser);
         FileOutputStream fos = new FileOutputStream("doctor.tmp");
