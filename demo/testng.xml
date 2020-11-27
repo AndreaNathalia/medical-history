@@ -38,6 +38,7 @@
             <class name="com.example.demo.TimewPatientTest"></class>
             <class name="com.example.demo.PatientSetGetTest"></class>
             <class name="com.example.demo.addPatientUserTest"></class>
+            <class name="com.example.demo.sTest"/>
         </classes>
     </test>
 
