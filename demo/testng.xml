@@ -38,8 +38,12 @@
             <class name="com.example.demo.TimewPatientTest"></class>
             <class name="com.example.demo.PatientSetGetTest"></class>
             <class name="com.example.demo.addPatientUserTest"></class>
-            <class name="com.example.demo.sTest"/>
         </classes>
     </test>
+<!--    <test name="Selenium">-->
+<!--        <classes>-->
+<!--            <class name="com.example.demo.sTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

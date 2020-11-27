@@ -14,7 +14,9 @@ public class sTest {
     @Test
     public void seTest(){
         System.setProperty("webdriver.chrome.driver", "demo\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         driver.get(url+"main");
+
         System.out.println("Currently in /main");
         WebElement linkSignUp = driver.findElement(By.xpath("//button[@id='signUp']"));
         linkSignUp.click();

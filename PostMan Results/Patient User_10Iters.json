@@ -1,0 +1,369 @@
+{
+	"id": "2fc8ce8b-6683-4632-93e9-5a4be1f9670d",
+	"name": "Patient User",
+	"timestamp": "2020-11-26T04:17:21.790Z",
+	"collection_id": "33570844-7e54-4572-9b5e-bf0cf96f7eee",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "9fa424b2-d1d0-4e44-b41e-0850e0fc0c82",
+			"name": "GET General Patient Profile",
+			"time": 67,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19,
+				18,
+				33,
+				55,
+				78,
+				79,
+				90,
+				51,
+				55,
+				67
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "3cb86cc6-7973-4d52-bcde-59ad3d104f45",
+			"name": "GET Doctor Schedule & Adress",
+			"time": 107,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20,
+				22,
+				76,
+				67,
+				91,
+				61,
+				41,
+				64,
+				79,
+				107
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "5e8ed74a-81c8-4218-9d03-10b4447fb0a3",
+			"name": "GET ManageAccess & Rating",
+			"time": 103,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				133,
+				38,
+				100,
+				90,
+				82,
+				91,
+				136,
+				154,
+				108,
+				103
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "31e7955f-d54d-4ce9-9aef-ed91a4567b18",
+			"name": "GET Patient Medications",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20,
+				28,
+				72,
+				32,
+				100,
+				109,
+				39,
+				50,
+				57,
+				59
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "c684f24c-3b4e-4981-a83f-269af503fc3a",
+			"name": "GET Patient Information ",
+			"time": 54,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16,
+				26,
+				69,
+				88,
+				53,
+				49,
+				65,
+				48,
+				60,
+				54
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "a93d13cc-07e9-456a-9780-28df9be1af63",
+			"name": "POST patient information",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10,
+				11,
+				35,
+				30,
+				38,
+				32,
+				27,
+				25,
+				10,
+				17
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "955a5f86-1644-4ec1-be8f-f48fb9d5dbbe",
+			"name": "POST Rating",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8,
+				9,
+				8,
+				10,
+				10,
+				8,
+				11,
+				26,
+				10,
+				12
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "8b04be71-9bb9-445a-8be4-dad29ec64125",
+			"name": "POST Manage Access",
+			"time": 59,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20,
+				25,
+				42,
+				92,
+				96,
+				36,
+				40,
+				63,
+				214,
+				59
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "a1ceaf25-2853-41de-b0c9-0c6b4ff4977d",
+			"name": "DELETE  doc access ",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9,
+				8,
+				10,
+				8,
+				15,
+				19,
+				11,
+				13,
+				11,
+				11
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 10,
+	"totalTime": 4451,
+	"collection": {
+		"requests": [
+			{
+				"id": "9fa424b2-d1d0-4e44-b41e-0850e0fc0c82",
+				"method": "GET"
+			},
+			{
+				"id": "3cb86cc6-7973-4d52-bcde-59ad3d104f45",
+				"method": "GET"
+			},
+			{
+				"id": "5e8ed74a-81c8-4218-9d03-10b4447fb0a3",
+				"method": "GET"
+			},
+			{
+				"id": "31e7955f-d54d-4ce9-9aef-ed91a4567b18",
+				"method": "GET"
+			},
+			{
+				"id": "c684f24c-3b4e-4981-a83f-269af503fc3a",
+				"method": "GET"
+			},
+			{
+				"id": "a93d13cc-07e9-456a-9780-28df9be1af63",
+				"method": "POST"
+			},
+			{
+				"id": "955a5f86-1644-4ec1-be8f-f48fb9d5dbbe",
+				"method": "POST"
+			},
+			{
+				"id": "8b04be71-9bb9-445a-8be4-dad29ec64125",
+				"method": "POST"
+			},
+			{
+				"id": "a1ceaf25-2853-41de-b0c9-0c6b4ff4977d",
+				"method": "GET"
+			}
+		]
+	}
+}

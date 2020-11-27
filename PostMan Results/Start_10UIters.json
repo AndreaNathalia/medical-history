@@ -1,0 +1,213 @@
+{
+	"id": "3e3998ed-1911-46a1-b94e-65aca2762a84",
+	"name": "Start",
+	"timestamp": "2020-11-26T02:50:29.130Z",
+	"collection_id": "d04d9e0c-c9ee-446a-98de-6cc48c31752a",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "265526a2-598d-4c0c-8159-9e6bae8beeb9",
+			"name": "POST Sign Up",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28,
+				28,
+				15,
+				21,
+				27,
+				26,
+				21,
+				23,
+				5,
+				20
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "5076cc80-e614-43a9-a544-ef84a45e41c3",
+			"name": "POST Login",
+			"time": 29,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37,
+				43,
+				40,
+				35,
+				44,
+				32,
+				27,
+				35,
+				20,
+				29
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "d2da70ff-1665-42a4-ad78-7aa6007982e2",
+			"name": "GET Main",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				24,
+				29,
+				5,
+				21,
+				20,
+				22,
+				7,
+				17,
+				18,
+				28
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "1e10f323-20b9-4442-9cc5-97bff2d5b9e8",
+			"name": "GET log",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				25,
+				24,
+				23,
+				19,
+				20,
+				24,
+				26,
+				34,
+				22,
+				24
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "72481a89-b00c-4a8e-8583-d1afccab7fe3",
+			"name": "GET Sign Up",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23,
+				23,
+				21,
+				50,
+				21,
+				13,
+				20,
+				24,
+				22,
+				23
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 10,
+	"totalTime": 1228,
+	"collection": {
+		"requests": [
+			{
+				"id": "265526a2-598d-4c0c-8159-9e6bae8beeb9",
+				"method": "GET"
+			},
+			{
+				"id": "5076cc80-e614-43a9-a544-ef84a45e41c3",
+				"method": "POST"
+			},
+			{
+				"id": "d2da70ff-1665-42a4-ad78-7aa6007982e2",
+				"method": "GET"
+			},
+			{
+				"id": "1e10f323-20b9-4442-9cc5-97bff2d5b9e8",
+				"method": "GET"
+			},
+			{
+				"id": "72481a89-b00c-4a8e-8583-d1afccab7fe3",
+				"method": "GET"
+			}
+		]
+	}
+}
