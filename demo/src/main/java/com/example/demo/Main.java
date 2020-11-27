@@ -218,6 +218,7 @@ public class Main {
             if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(email)){
                 System.out.println(email + "eMonday");
                 newDoctor = Doctor.DoctorInformation.doctorsList.get(i);
+                model.addAttribute("tempDoc", email);
                 model.addAttribute("sMonday", newDoctor.getsMonday());
                 model.addAttribute("eMonday", newDoctor.geteMonday());
                 model.addAttribute("sTuesday", newDoctor.getsTuesday());
@@ -717,7 +718,30 @@ public class Main {
         return "PatientProfile";
     }
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
-    public String confirm(@RequestParam(name = "day") String day,Model model) throws IOException {
+    public String confirm(@RequestParam(name = "email") String email,@RequestParam(name = "day") String day,Model model) throws IOException {
+        for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
+            if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(email)){
+                
+                newDoctor = Doctor.DoctorInformation.doctorsList.get(i);
+                model.addAttribute("tempDoc", email);
+                model.addAttribute("sMonday", newDoctor.getsMonday());
+                model.addAttribute("eMonday", newDoctor.geteMonday());
+                model.addAttribute("sTuesday", newDoctor.getsTuesday());
+                model.addAttribute("eTuesday", newDoctor.geteTuesday());
+                model.addAttribute("sWednesday", newDoctor.getsWednesday());
+                model.addAttribute("eWednesday", newDoctor.geteWednesday());
+                model.addAttribute("sThursday", newDoctor.getsThursday());
+                model.addAttribute("eThursday", newDoctor.geteThursday());
+                model.addAttribute("sFriday", newDoctor.getsFriday());
+                model.addAttribute("eFriday", newDoctor.geteFriday());
+                model.addAttribute("sSaturday", newDoctor.getsSaturday());
+                model.addAttribute("eSaturday", newDoctor.geteSaturday());
+                model.addAttribute("sSunday", newDoctor.getsSunday());
+                model.addAttribute("eSunday", newDoctor.geteSunday());
+                model.addAttribute("Patment",newUser.ments);
+
+            }
+        }
         String primerstr = day + " "+ newDoctor.getEmail();
         String segundostr = day + " "+ newUser.getEmail();
         newDoctor.setMents(segundostr);

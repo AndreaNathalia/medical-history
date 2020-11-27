@@ -65,7 +65,7 @@
         <h2 class="h2-makeAp">MAKE APPOINTMENT:</h2>
         <form th:action="@{/confirm}" method="post">
             <input type="text" th:name="day" placeholder="Date - Time" class="input-date"><br>
-            <button name="rate" type="submit" class="button-makeAp">CONFIRM</button>
+            <button name="email" th:value="${tempDoc}" type="submit" class="button-makeAp">CONFIRM</button>
         </form>
     </div>
 
