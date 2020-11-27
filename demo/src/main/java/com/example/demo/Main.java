@@ -721,7 +721,7 @@ public class Main {
     public String confirm(@RequestParam(name = "email") String email,@RequestParam(name = "day") String day,Model model) throws IOException {
         for (int i= 0 ; i< Doctor.DoctorInformation.doctorsList.size();i++){
             if (Doctor.DoctorInformation.doctorsList.get(i).getEmail().equals(email)){
-                
+
                 newDoctor = Doctor.DoctorInformation.doctorsList.get(i);
                 model.addAttribute("tempDoc", email);
                 model.addAttribute("sMonday", newDoctor.getsMonday());
